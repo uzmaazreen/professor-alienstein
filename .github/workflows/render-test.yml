@@ -30,7 +30,7 @@ jobs:
 
       - name: Render the video
         working-directory: my-video
-        run: npx remotion render Episode out/episode.mp4
+        run: npx remotion render film out/film.mp4
 
       - name: Save the video
         uses: actions/upload-artifact@v4
