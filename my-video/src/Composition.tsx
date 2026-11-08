@@ -673,11 +673,595 @@ const Intro: React.FC = () => {
   );
 };
 
+const clamp01 = (x: number) => Math.min(1, Math.max(0, x));
+const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+const prog = (f: number, a: number, b: number) => ease(clamp01((f - a) / (b - a)));
+const rnd = (n: number) => {
+  const x = Math.sin(n * 127.1) * 43758.5453;
+  return x - Math.floor(x);
+};
+
+/* =====================================================================
+   FILM MODE (paper-desk world): torn paper, polaroids, red string, marker,
+   sticky notes. One continuous camera glides from item to item.
+   ===================================================================== */
+
+const WOOD = { sky: "#1B3566", sky2: "#2D4F8E", earth: "#3E6CA8", earth2: "#6D97C9", ink: "#14284B", light: "#F4ECD6", accent: "#D8412F" };
+
+const SatelliteArt: React.FC<{ spin?: number }> = ({ spin = 0 }) => (
+  <g strokeLinejoin="round" strokeLinecap="round" transform={`rotate(${spin})`}>
+    <rect x="-86" y="-12" width="62" height="24" fill={WOOD.earth} stroke={WOOD.ink} strokeWidth="3.5" />
+    <rect x="24" y="-12" width="62" height="24" fill={WOOD.earth} stroke={WOOD.ink} strokeWidth="3.5" />
+    {[-70, -54, -38, 38, 54, 70].map((x) => (
+      <line key={x} x1={x} y1="-12" x2={x} y2="12" stroke={WOOD.light} strokeWidth="1.6" opacity="0.8" />
+    ))}
+    <rect x="-24" y="-18" width="48" height="36" rx="5" fill={WOOD.light} stroke={WOOD.ink} strokeWidth="3.5" />
+    <circle cx="0" cy="0" r="9" fill={WOOD.accent} stroke={WOOD.ink} strokeWidth="2.5" />
+    <line x1="0" y1="-18" x2="0" y2="-34" stroke={WOOD.ink} strokeWidth="3" />
+    <circle cx="0" cy="-36" r="4" fill={WOOD.accent} />
+  </g>
+);
+
+const tornPts = (x: number, y: number, w: number, h: number, seed: number, amp = 9) => {
+  const pts: string[] = [];
+  const step = 22;
+  const jit = (i: number) => (rnd(seed + i * 3.7) - 0.5) * 2 * amp;
+  let k = 0;
+  for (let px = 0; px <= w; px += step) pts.push(`${x + px},${y + jit(k++)}`);
+  for (let py = 0; py <= h; py += step) pts.push(`${x + w + jit(k++)},${y + py}`);
+  for (let px = w; px >= 0; px -= step) pts.push(`${x + px},${y + h + jit(k++)}`);
+  for (let py = h; py >= 0; py -= step) pts.push(`${x + jit(k++)},${y + py}`);
+  return pts.join(" ");
+};
+
+const SERIF2 = "Georgia, 'Times New Roman', serif";
+const SANS2 = "Impact, 'Arial Black', 'DejaVu Sans', sans-serif";
+const HAND2 = "'Segoe Print', 'Bradley Hand', 'Comic Sans MS', cursive";
+
+const slotPos = (i: number) => {
+  const col = i % 5;
+  const row = Math.floor(i / 5);
+  const c = row % 2 ? 4 - col : col;
+  return { x: 560 + c * 800, y: 520 + row * 860 + (c % 2 ? 130 : -130), rot: (((i * 37) % 11) - 5) * 1.0 };
+};
+
+const SIZE: Record<string, { w: number; h: number; card: boolean }> = {
+  icon: { w: 500, h: 580, card: true },
+  strip: { w: 400, h: 560, card: true },
+  date: { w: 600, h: 340, card: false },
+  count: { w: 580, h: 360, card: true },
+  bars: { w: 620, h: 470, card: true },
+  flow: { w: 500, h: 500, card: true },
+  compare: { w: 660, h: 340, card: true },
+  word: { w: 760, h: 220, card: false },
+  note: { w: 200, h: 180, card: false },
+};
+
+type FCue = { j: number; gf: number; type: string; arg: string; scene: number; x: number; y: number; rot: number; circleGf?: number };
+type CamKey = { f: number; x: number; y: number; s: number; r: number };
+
+const buildFilm = (scenes: SceneData[], fps: number) => {
+  let start = 0;
+  const sceneStart: number[] = [];
+  const sceneFrames: number[] = [];
+  const cues: FCue[] = [];
+  scenes.forEach((s, si) => {
+    const frames = Math.ceil(s.duration * fps);
+    sceneStart.push(start);
+    sceneFrames.push(frames);
+    (s.cues || []).forEach((c) => {
+      if (typeof c.t !== "number") return;
+      const gf = start + Math.round(c.t * fps);
+      if (c.type === "circle") {
+        if (cues.length) cues[cues.length - 1].circleGf = gf;
+        return;
+      }
+      const j = cues.length;
+      const p = slotPos(j);
+      cues.push({ j, gf, type: SIZE[c.type] ? c.type : "word", arg: c.arg, scene: si, x: p.x, y: p.y, rot: p.rot });
+    });
+    start += frames;
+  });
+  const total = start;
+  const camScale = (t: string) => {
+    const z = SIZE[t] || SIZE.word;
+    return Math.max(0.8, Math.min(1.45, Math.min(1000 / z.w, 560 / z.h)));
+  };
+  const keys: CamKey[] = [{ f: 0, x: cues.length ? cues[0].x - 420 : 500, y: cues.length ? cues[0].y + 80 : 500, s: 0.6, r: -2 }];
+  cues.forEach((c) => keys.push({ f: c.gf + 10, x: c.x, y: c.y, s: camScale(c.type), r: -c.rot * 0.5 }));
+  if (cues.length) keys.push({ f: total, x: cues[cues.length - 1].x + 320, y: cues[cues.length - 1].y + 50, s: 0.7, r: 0 });
+  return { sceneStart, sceneFrames, cues, total, keys };
+};
+
+const camAtFilm = (keys: CamKey[], f: number) => {
+  if (keys.length < 2) return { x: 500, y: 500, s: 1, r: 0 };
+  let i = 0;
+  while (i < keys.length - 2 && f >= keys[i + 1].f) i++;
+  const a = keys[i], b = keys[i + 1];
+  const dist = Math.hypot(b.x - a.x, b.y - a.y);
+  const dur = Math.max(20, Math.min(44, Math.round(dist / 20)));
+  const ms = Math.max(a.f, b.f - dur);
+  if (f < ms) {
+    const k = clamp01((f - a.f) / Math.max(1, ms - a.f));
+    return { x: a.x, y: a.y, s: a.s * (1 + 0.035 * k), r: a.r };
+  }
+  const t = ease(clamp01((f - ms) / Math.max(1, b.f - ms)));
+  const sa = a.s * 1.035;
+  return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t, s: sa + (b.s - sa) * t, r: a.r + (b.r - a.r) * t };
+};
+
+/* ---- the things lying on the desk (all drawn around their own centre 0,0) ---- */
+
+const Tape: React.FC<{ y: number; rot?: number }> = ({ y, rot = -3 }) => (
+  <rect x="-60" y={y} width="120" height="34" fill="#C9C2A8" opacity="0.88" transform={`rotate(${rot})`} />
+);
+
+const PolaroidIcon: React.FC<{ arg: string; a: number; pal: Pal; id: string }> = ({ arg, a, pal, id }) => {
+  const [name, label] = arg.split("|");
+  const draw = ICONS[(name || "").trim().toLowerCase()] || ICONS.star;
+  const p = interpolate(a, [10, 40], [0, 1], clamp);
+  return (
+    <g>
+      <rect x="-250" y="-290" width="500" height="580" fill="#F7F4EC" />
+      <rect x="-224" y="-264" width="448" height="430" fill={pal.dark} />
+      {Array.from({ length: 16 }).map((_, i) => (
+        <circle key={i} cx={-215 + rnd(i + 2 + id.length) * 430} cy={-255 + rnd(i + 8) * 410} r={1 + rnd(i) * 2} fill={pal.light} opacity="0.55" />
+      ))}
+      <circle cx="0" cy="-50" r="168" fill={pal.bg} stroke={pal.dark} strokeWidth="5" />
+      <g transform="translate(-150 -200) scale(3)" style={{ opacity: p > 0.01 ? 1 : 0 }}>
+        <g fill="none" stroke={pal.light} strokeWidth="4.4" strokeLinecap="round" strokeLinejoin="round">{draw(p)}</g>
+      </g>
+      {label ? (
+        <g transform="rotate(-3)">
+          <rect x="-160" y="184" width="320" height="62" fill="#111" />
+          <text x="0" y="230" textAnchor="middle" fontFamily={SANS2} fontSize={label.trim().length > 16 ? 28 : 36} fill="#FFF" letterSpacing="3">{label.trim().toUpperCase()}</text>
+        </g>
+      ) : null}
+      <Tape y={-306} />
+    </g>
+  );
+};
+
+const StripSpace: React.FC<{ a: number; f: number; pal: Pal }> = ({ a, f, pal }) => {
+  const reveal = prog(a, 8, 46);
+  const H = Math.max(6, 560 * reveal);
+  const cid = `stripc-${Math.round(f / 1000)}`;
+  return (
+    <g>
+      <polygon points={tornPts(-200, -280, 400, H, 5, 10)} fill="#FFFFFF" />
+      <clipPath id="stripClipF"><polygon points={tornPts(-186, -270, 372, Math.max(4, H - 20), 11, 3)} /></clipPath>
+      <g clipPath="url(#stripClipF)">
+        <rect x="-186" y="-270" width="372" height="540" fill={WOOD.sky} />
+        {Array.from({ length: 36 }).map((_, i) => (
+          <circle key={i} cx={-176 + rnd(i + 1) * 352} cy={-260 + rnd(i + 9) * 520} r={1 + rnd(i + 5) * 2.2} fill="#F4ECD6" opacity={0.5 + 0.5 * Math.abs(Math.sin(f / 12 + i))} />
+        ))}
+        <circle cx="130" cy="-180" r="40" fill={WOOD.accent} stroke={WOOD.ink} strokeWidth="4" />
+        <circle cx="0" cy="600" r="420" fill={WOOD.earth} stroke={WOOD.ink} strokeWidth="6" />
+        {[0, 1, 2, 3].map((k) => (
+          <circle key={k} cx="0" cy="600" r={398 - k * 34} fill="none" stroke={k % 2 ? WOOD.earth2 : WOOD.light} strokeWidth="5" strokeDasharray="34 26" strokeDashoffset={-f * (1.2 + k * 0.4)} opacity="0.5" />
+        ))}
+        <g transform={`translate(${Math.sin(f / 34) * 70} ${-20 + Math.cos(f / 34) * 40}) scale(1.25)`}>
+          <SatelliteArt spin={Math.sin(f / 40) * 8} />
+        </g>
+      </g>
+    </g>
+  );
+};
+
+const DateLabel: React.FC<{ arg: string; a: number }> = ({ arg, a }) => {
+  const [main, sub] = arg.split("|");
+  const hi = prog(a, 12, 34);
+  return (
+    <g>
+      <rect x={-290} y={30 - 70 * hi} width={560 * hi} height="66" fill="#D8C21B" transform="rotate(-3)" opacity="0.95" />
+      <text x="-290" y="0" fontFamily={SERIF2} fontWeight="900" fontSize={(main || "").length > 6 ? 150 : 200} fill="#1E1E1E" letterSpacing="-5">{(main || "").trim()}</text>
+      {sub ? <text x="-60" y="125" fontFamily={SANS2} fontSize="80" fill="#1E1E1E" letterSpacing="8" transform="rotate(-3)">{sub.trim()}</text> : null}
+    </g>
+  );
+};
+
+const WordLabel: React.FC<{ arg: string; a: number }> = ({ arg, a }) => {
+  const hi = prog(a, 10, 30);
+  const text = arg.trim();
+  const size = text.length > 20 ? 62 : text.length > 12 ? 82 : 110;
+  return (
+    <g>
+      <rect x={-340} y={size * 0.1 - 4} width={680 * hi} height={size * 0.32} fill="#D8C21B" transform="rotate(-2)" opacity="0.95" />
+      <text x="0" y={size * 0.34} textAnchor="middle" fontFamily={SERIF2} fontWeight="900" fontSize={size} fill="#1E1E1E">{text}</text>
+    </g>
+  );
+};
+
+const CountCard: React.FC<{ arg: string; a: number; pal: Pal }> = ({ arg, a, pal }) => {
+  const [v, suffix, label] = arg.split("|");
+  const n = parseFloat(v);
+  const k = interpolate(a, [10, 40], [0, 1], clamp);
+  const e = 1 - Math.pow(1 - k, 3);
+  const shown = Number.isInteger(n) ? String(Math.round(n * e)) : (n * e).toFixed(1);
+  return (
+    <g>
+      <polygon points={tornPts(-290, -180, 580, 360, 21, 10)} fill="#FFFFFF" />
+      <rect x={-250} y={26} width={Math.min(500, 120 + (shown.length * 70))} height="54" fill="#D8C21B" transform="rotate(-2)" opacity="0.95" />
+      <text x="-250" y="40" fontFamily={SERIF2} fontWeight="900" fontSize="230" fill="#1E1E1E" letterSpacing="-6">{shown}</text>
+      <text x={-250 + shown.length * 118 + 20} y="40" fontFamily={SANS2} fontSize="76" fill={WOOD.accent} letterSpacing="4">{(suffix || "").trim().toUpperCase()}</text>
+      {label ? <text x="-250" y="142" fontFamily={HAND2} fontWeight="700" fontSize="38" fill="#2B2B2B">{label.trim()}</text> : null}
+    </g>
+  );
+};
+
+const BarsCard: React.FC<{ arg: string; a: number; pal: Pal }> = ({ arg, a, pal }) => {
+  const [list, title] = arg.split("|");
+  const rows = (list || "").split(";").map((r) => {
+    const [name, val] = r.split("=");
+    return { name: (name || "").trim(), val: parseFloat(val) || 0 };
+  });
+  const max = Math.max(...rows.map((r) => r.val), 1);
+  const cols = [pal.bg, WOOD.accent, pal.dark, "#3E6CA8"];
+  const rowH = Math.min(96, 330 / Math.max(rows.length, 1));
+  return (
+    <g>
+      <polygon points={tornPts(-310, -235, 620, 470, 33, 10)} fill="#FBFAF4" />
+      {Array.from({ length: 9 }).map((_, i) => (<line key={i} x1="-296" y1={-170 + i * 46} x2="296" y2={-170 + i * 46} stroke="#9DB8DD" strokeWidth="2" opacity="0.7" />))}
+      {title ? <text x="0" y="-188" textAnchor="middle" fontFamily={HAND2} fontWeight="700" fontSize="31" fill="#1E1E1E">{title.trim()}</text> : null}
+      {rows.map((r, i) => {
+        const g = prog(a, 14 + i * 7, 38 + i * 7);
+        const y = -130 + i * rowH;
+        return (
+          <g key={i}>
+            <text x="-286" y={y + rowH * 0.5} fontFamily={SANS2} fontSize="34" fill="#1E1E1E">{r.name.toUpperCase()}</text>
+            <polygon points={tornPts(-130, y + 6, Math.max(10, (r.val / max) * 340 * g), rowH - 22, 40 + i, 5)} fill={cols[i % cols.length]} stroke="#1E1E1E" strokeWidth="3" />
+            <text x={-130 + (r.val / max) * 340 * g + 14} y={y + rowH * 0.55} fontFamily={SANS2} fontSize="34" fill="#1E1E1E" opacity={g}>{Number.isInteger(r.val) ? Math.round(r.val * g) : (r.val * g).toFixed(1)}</text>
+          </g>
+        );
+      })}
+    </g>
+  );
+};
+
+const FlowCard: React.FC<{ arg: string; a: number; pal: Pal }> = ({ arg, a, pal }) => {
+  const items = arg.split(">").map((s) => s.trim()).filter(Boolean);
+  const n = items.length;
+  const bh = n >= 5 ? 62 : 74;
+  const gap = n >= 5 ? 38 : 50;
+  const total = n * bh + (n - 1) * gap;
+  return (
+    <g>
+      {items.map((it, i) => {
+        const y = -total / 2 + i * (bh + gap);
+        const t = prog(a, 10 + i * 12, 24 + i * 12);
+        const ar = prog(a, 16 + i * 12, 30 + i * 12);
+        return (
+          <g key={i}>
+            {i > 0 ? (
+              <g transform={`translate(0 ${y - gap})`} opacity={ar}>
+                <path d={`M0 6 L0 ${gap - 8}`} fill="none" stroke="#D3121A" strokeWidth="9" strokeLinecap="round" pathLength={1} strokeDasharray={1} strokeDashoffset={1 - ar} />
+                <path d={`M-14 ${gap - 24} L0 ${gap - 6} L14 ${gap - 24}`} fill="none" stroke="#D3121A" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" />
+              </g>
+            ) : null}
+            <g transform={`translate(0 ${y + bh / 2}) scale(${t}) rotate(${(i % 2 ? 1.5 : -1.5)})`} opacity={Math.min(1, t * 2)}>
+              <polygon points={tornPts(-230, -bh / 2, 460, bh, 50 + i, 6)} fill="#FFFFFF" stroke="#1E1E1E" strokeWidth="3" />
+              <text x="0" y={bh * 0.18} textAnchor="middle" fontFamily={SANS2} fontSize={it.length > 20 ? 30 : 38} fill="#1E1E1E" letterSpacing="1.5">{it.toUpperCase()}</text>
+            </g>
+          </g>
+        );
+      })}
+    </g>
+  );
+};
+
+const CompareCard: React.FC<{ arg: string; a: number; pal: Pal }> = ({ arg, a, pal }) => {
+  const sides = arg.split("|").map((s) => {
+    const [t, ...rest] = s.split("=");
+    return { title: (t || "").trim(), text: rest.join("=").trim() };
+  });
+  const wrap = (t: string) => {
+    const words = t.split(" ");
+    const lines: string[] = [];
+    let cur = "";
+    words.forEach((w) => {
+      if ((cur + " " + w).trim().length > 14) {
+        lines.push(cur.trim());
+        cur = w;
+      } else cur = (cur + " " + w).trim();
+    });
+    if (cur) lines.push(cur);
+    return lines;
+  };
+  return (
+    <g>
+      {sides.slice(0, 2).map((s, i) => {
+        const t = prog(a, 10 + i * 12, 28 + i * 12);
+        const x = i === 0 ? -170 : 170;
+        return (
+          <g key={i} transform={`translate(${x} 0) rotate(${i === 0 ? -3 : 3}) scale(${t})`} opacity={Math.min(1, t * 2)}>
+            <rect x="-135" y="-150" width="270" height="300" fill="#F7F4EC" />
+            <rect x="-118" y="-134" width="236" height="82" fill={i === 0 ? pal.dark : WOOD.accent} />
+            <text x="0" y="-80" textAnchor="middle" fontFamily={SANS2} fontSize={s.title.length > 9 ? 32 : 40} fill="#FFF" letterSpacing="3">{s.title.toUpperCase()}</text>
+            {wrap(s.text).slice(0, 4).map((ln, k) => (<text key={k} x="0" y={-8 + k * 46} textAnchor="middle" fontFamily={HAND2} fontWeight="700" fontSize="34" fill="#1E1E1E">{ln}</text>))}
+            <Tape y={-166} rot={i ? 3 : -4} />
+          </g>
+        );
+      })}
+      <text x="0" y="14" textAnchor="middle" fontFamily={SANS2} fontSize="62" fill="#D3121A" transform="rotate(-6)">VS</text>
+    </g>
+  );
+};
+
+const NoteCard: React.FC<{ arg: string }> = ({ arg }) => {
+  const [big, small] = arg.split("|");
+  return (
+    <g transform="rotate(6)">
+      <rect x="-95" y="-85" width="190" height="170" fill="#F6E35B" />
+      <text x="0" y="-8" textAnchor="middle" fontFamily={HAND2} fontWeight="700" fontSize={(big || "").length > 4 ? 44 : 66} fill="#2B2B2B">{(big || "").trim()}</text>
+      <text x="0" y="52" textAnchor="middle" fontFamily={HAND2} fontWeight="700" fontSize="40" fill="#2B2B2B">{(small || "").trim()}</text>
+    </g>
+  );
+};
+
+const MarkerCircle: React.FC<{ w: number; h: number; p: number }> = ({ w, h, p }) => (
+  <g transform={`scale(${(w / 2 + 40) / 230} ${(h / 2 + 40) / 215})`}>
+    <path d="M-210 -10 C-205 -150 -60 -215 90 -190 C220 -170 235 -40 205 60 C175 160 20 220 -110 175 C-210 140 -225 40 -190 -60" fill="none" stroke="#D3121A" strokeWidth={15 / (((w / 2 + 40) / 230 + (h / 2 + 40) / 215) / 2)} strokeLinecap="round" pathLength={1} strokeDasharray={1} strokeDashoffset={1 - p} opacity="0.95" />
+  </g>
+);
+
+const FilmWorld: React.FC<{ film: ReturnType<typeof buildFilm>; f: number; pal: Pal; active: number }> = ({ film, f, pal, active }) => {
+  const cam = camAtFilm(film.keys, f);
+  const visible = film.cues.filter((c, i) => i >= active - 3 && i <= active + 1 && f >= c.gf - 12);
+  const lastCard = (idx: number) => {
+    for (let k = idx - 1; k >= 0; k--) if (SIZE[film.cues[k].type].card) return film.cues[k];
+    return null;
+  };
+  return (
+    <g>
+      <rect x="-1200" y="-1200" width="9000" height="9000" fill="url(#deskPat)" />
+      {/* red strings between neighbouring cards */}
+      {visible.map((c) => {
+        if (!SIZE[c.type].card) return null;
+        const p = lastCard(c.j);
+        if (!p) return null;
+        const sp = prog(f, c.gf - 4, c.gf + 22);
+        const x1 = p.x, y1 = p.y - SIZE[p.type].h / 2 + 16;
+        const x2 = c.x, y2 = c.y - SIZE[c.type].h / 2 + 16;
+        return (
+          <path key={`st${c.j}`} d={`M${x1} ${y1} Q${(x1 + x2) / 2} ${Math.max(y1, y2) + 140} ${x2} ${y2}`} fill="none" stroke="#8C1B1B" strokeWidth="7" strokeLinecap="round" pathLength={1} strokeDasharray={1} strokeDashoffset={1 - sp} />
+        );
+      })}
+      {visible.map((c) => {
+        const a = f - (c.gf - 10);
+        const t = prog(a, 0, 16);
+        const lift = 1 - t;
+        const dist = Math.hypot(c.x - cam.x, c.y - cam.y) * cam.s;
+        const blur = clamp01((dist - 560) / 520) * 4.2 + lift * 3;
+        const sh = 7 + 40 * lift;
+        const z = SIZE[c.type];
+        const rot = c.rot + (rnd(c.j + 3) - 0.5) * 16 * lift;
+        const id = `fx${c.j}`;
+        let body: React.ReactNode;
+        switch (c.type) {
+          case "icon": body = <PolaroidIcon arg={c.arg} a={a} pal={pal} id={id} />; break;
+          case "strip": body = <StripSpace a={a} f={f} pal={pal} />; break;
+          case "date": body = <DateLabel arg={c.arg} a={a} />; break;
+          case "count": body = <CountCard arg={c.arg} a={a} pal={pal} />; break;
+          case "bars": body = <BarsCard arg={c.arg} a={a} pal={pal} />; break;
+          case "flow": body = <FlowCard arg={c.arg} a={a} pal={pal} />; break;
+          case "compare": body = <CompareCard arg={c.arg} a={a} pal={pal} />; break;
+          case "note": body = <NoteCard arg={c.arg} />; break;
+          default: body = <WordLabel arg={c.arg} a={a} />;
+        }
+        const cp = c.circleGf !== undefined ? prog(f, c.circleGf, c.circleGf + 24) : 0;
+        return (
+          <g key={c.j} opacity={t > 0.01 ? Math.min(1, t * 3) : 0} transform={`translate(${c.x} ${c.y}) translate(0 ${-110 * lift}) rotate(${rot}) scale(${1 + 0.16 * lift})`} filter={`url(#${id})`}>
+            <filter id={id} x="-25%" y="-25%" width="150%" height="160%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation={blur} result="bl" />
+              <feDropShadow in="bl" dx={sh * 0.7} dy={sh} stdDeviation={6 + sh * 0.55} floodColor="#241d12" floodOpacity={SIZE[c.type].card || c.type === "note" ? 0.3 + 0.12 * lift : 0} />
+            </filter>
+            {body}
+            {z.card ? <circle cx="0" cy={-z.h / 2 + 16} r="13" fill="#D8412F" stroke="#5A1010" strokeWidth="3" /> : null}
+            {cp > 0.01 ? <MarkerCircle w={z.w} h={z.h} p={cp} /> : null}
+          </g>
+        );
+      })}
+    </g>
+  );
+};
+
+const FilmView: React.FC<{ scenes: SceneData[]; fps: number; pal: Pal }> = ({ scenes, fps, pal }) => {
+  const frame = useCurrentFrame();
+  const film = React.useMemo(() => buildFilm(scenes, fps), [scenes, fps]);
+  const cam = camAtFilm(film.keys, frame);
+  const prev = camAtFilm(film.keys, frame - 1);
+  const next = camAtFilm(film.keys, frame + 1);
+  const speed = Math.hypot(cam.x - prev.x, cam.y - prev.y) * cam.s;
+  const whip = clamp01((speed - 16) / 44) * 6;
+  const vx = (next.x - prev.x) / 2;
+  const tilt = 14 - 9 * clamp01((cam.s - 0.6) / 0.7);
+  const sway = Math.max(-5, Math.min(5, -vx * 0.1));
+  const shake = { x: Math.sin(frame * 1.7) * 1.0, y: Math.cos(frame * 2.1) * 1.0 };
+
+  let si = 0;
+  film.sceneStart.forEach((st, i) => {
+    if (frame >= st) si = i;
+  });
+  const scene = scenes[si];
+  const local = frame - film.sceneStart[si];
+  const t = local / fps;
+
+  let active = -1;
+  film.cues.forEach((c, i) => {
+    if (frame >= c.gf - 12) active = i;
+  });
+  // glitch when the camera has to jump far
+  let glitch = false;
+  film.cues.forEach((c, i) => {
+    if (i === 0) return;
+    const p = film.cues[i - 1];
+    if (Math.hypot(c.x - p.x, c.y - p.y) > 1100 && frame >= c.gf - 2 && frame <= c.gf + 7) glitch = true;
+  });
+
+  const shape = scene.mouth && scene.mouth.length ? scene.mouth[Math.min(local, scene.mouth.length - 1)] : undefined;
+  const blink = (frame + 11) % 84 >= 80;
+  const rise = 1 - prog(frame, 6, 30);
+  const hop = scene.mood === "laugh" ? -Math.abs(Math.sin(frame / 3.2)) * 10 : scene.mood === "shock" ? Math.sin(frame * 2.2) * 3 : Math.sin(frame / 9) * 3;
+  const accentPop = spring({ frame: local - 6, fps, config: { damping: 7 } });
+  const accent = scene.mood === "shock" ? "!" : scene.mood === "think" ? "?" : scene.mood === "laugh" ? "HA!" : "";
+
+  let idx = 0;
+  scene.words.forEach((w, i) => {
+    if (w.t <= t) idx = i;
+  });
+  const CH = 7;
+  const chunkStart = Math.floor(idx / CH) * CH;
+  const chunk = scene.words.slice(chunkStart, chunkStart + CH);
+  const titleIn = spring({ frame: local - 4, fps, config: { damping: 13 } });
+  const titleOut = interpolate(local, [fps * 2.6, fps * 3.1], [1, 0], clamp);
+
+  const view = `translate(${700 + shake.x} ${330 + shake.y}) rotate(${cam.r}) scale(${cam.s}) translate(${-cam.x} ${-cam.y})`;
+
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#17150f" }}>
+      <div style={{ position: "absolute", left: 0, top: 0, width: 1280, height: 720, transform: "scale(1.5)", transformOrigin: "0 0", overflow: "hidden", perspective: "1300px" }}>
+        <div style={{ position: "absolute", inset: 0, transform: `scale(1.14) rotateX(${tilt}deg) rotateY(${sway}deg)`, transformOrigin: "50% 62%", filter: `blur(${whip}px)` }}>
+          <svg viewBox="0 0 1280 720" width="1280" height="720" style={{ display: "block" }}>
+            <defs>
+              <pattern id="deskPat" width="700" height="700" patternUnits="userSpaceOnUse">
+                <rect width="700" height="700" fill="#E3DED4" />
+                <rect width="700" height="700" filter="url(#deskFib)" opacity="0.55" />
+              </pattern>
+              <filter id="deskFib" x="0" y="0" width="100%" height="100%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.035 0.6" numOctaves="3" seed="8" stitchTiles="stitch" result="n" />
+                <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.3  0 0 0 0 0.27  0 0 0 0 0.22  0 0 0 1.1 -0.45" />
+              </filter>
+              <g id="WF"><FilmWorld film={film} f={frame} pal={pal} active={active} /></g>
+            </defs>
+            <g transform={view}><use href="#WF" /></g>
+            {glitch
+              ? Array.from({ length: 7 }).map((_, i) => {
+                  const y = rnd(frame * 3 + i) * 700;
+                  const h = 20 + rnd(frame + i * 5) * 60;
+                  const dx = (rnd(frame * 7 + i * 2) - 0.5) * 160;
+                  return (
+                    <g key={i}>
+                      <clipPath id={`gsF${i}`}><rect x="0" y={y} width="1280" height={h} /></clipPath>
+                      <g clipPath={`url(#gsF${i})`}>
+                        <rect width="1280" height="720" fill="#222" />
+                        <g transform={`translate(${dx} 0)`}><g transform={view}><use href="#WF" /></g></g>
+                        <rect x="0" y={y} width="1280" height={h} fill="#00E5FF" opacity="0.16" />
+                      </g>
+                    </g>
+                  );
+                })
+              : null}
+          </svg>
+        </div>
+        {/* window light + frame shadows sliding over the desk */}
+        <div style={{ position: "absolute", inset: 0, pointerEvents: "none", mixBlendMode: "multiply", opacity: 0.5 }}>
+          <div style={{ position: "absolute", left: 380 + Math.sin(frame / 90) * 60, top: -100, width: 60, height: 950, background: "rgba(90,80,60,0.30)", transform: "rotate(18deg)" }} />
+          <div style={{ position: "absolute", left: 760 + Math.sin(frame / 90) * 60, top: -100, width: 60, height: 950, background: "rgba(90,80,60,0.24)", transform: "rotate(18deg)" }} />
+        </div>
+        <div style={{ position: "absolute", left: 0, top: 0, width: 640, height: 720, pointerEvents: "none", background: "radial-gradient(ellipse at 0% 0%, rgba(255,179,71,0.38), rgba(255,179,71,0) 70%)", mixBlendMode: "screen" }} />
+        <svg width="1280" height="720" style={{ position: "absolute", left: 0, top: 0, pointerEvents: "none" }}>
+          <defs>
+            <radialGradient id="vigF" cx="50%" cy="50%" r="75%"><stop offset="55%" stopColor="#000" stopOpacity="0" /><stop offset="100%" stopColor="#000" stopOpacity="0.5" /></radialGradient>
+            <filter id="grainF" x="0" y="0" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="2" seed="2" result="n" />
+              <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.9 -0.4" />
+            </filter>
+          </defs>
+          <rect width="1280" height="720" fill="url(#vigF)" />
+          <rect width="1280" height="720" filter="url(#grainF)" opacity="0.18" />
+          {Array.from({ length: 30 }).map((_, i) => {
+            const x = ((rnd(i + 1) * 1340 + frame * (0.3 + rnd(i + 4) * 0.6)) % 1340) - 30;
+            const y = ((rnd(i + 20) * 800 - frame * (0.2 + rnd(i + 8) * 0.5) + 800) % 760) - 20;
+            return <circle key={i} cx={x} cy={y} r={1 + rnd(i + 6) * 2.4} fill="#FFF4D0" opacity={0.15 + 0.35 * rnd(i + 12)} />;
+          })}
+        </svg>
+
+        {scene.big ? (
+          <div style={{ position: "absolute", left: 40, top: 28, fontFamily: FONT, fontWeight: 900, fontSize: 34, color: pal.light, backgroundColor: pal.dark, padding: "8px 24px", borderRadius: 6, opacity: titleOut, transform: `translateX(${interpolate(titleIn, [0, 1], [-500, 0])}px) rotate(-1.5deg)`, boxShadow: "6px 8px 14px rgba(0,0,0,0.35)" }}>
+            {scene.big}
+          </div>
+        ) : null}
+
+        {/* Professor Alienstein as a paper cut-out sticker */}
+        <div style={{ position: "absolute", left: 8, bottom: -34 - rise * 340 - hop, width: 250, height: 312 }}>
+          <svg viewBox="62 32 256 312" width="250" height="312" style={{ overflow: "visible" }}>
+            <defs>
+              <filter id="cutF" x="-25%" y="-25%" width="150%" height="150%">
+                <feMorphology in="SourceAlpha" operator="dilate" radius="6" result="d" />
+                <feFlood floodColor="#FFFFFF" result="w" />
+                <feComposite in="w" in2="d" operator="in" result="white" />
+                <feDropShadow in="white" dx="6" dy="10" stdDeviation="7" floodColor="#1d160a" floodOpacity="0.45" result="sh" />
+                <feMerge><feMergeNode in="sh" /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+            </defs>
+            <g filter="url(#cutF)">
+              <Character mood={scene.mood} mouthShape={shape} blink={blink} />
+            </g>
+          </svg>
+          {accent ? <div style={{ position: "absolute", left: 200, top: 8, fontSize: scene.mood === "laugh" ? 38 : 62, fontWeight: 900, color: pal.dark, fontFamily: FONT, transform: `scale(${accentPop}) rotate(12deg)`, textShadow: "0 0 6px #fff, 0 0 6px #fff" }}>{accent}</div> : null}
+        </div>
+
+        <div style={{ position: "absolute", left: 280, width: 760, bottom: 24, padding: "10px 20px", borderRadius: 14, backgroundColor: "rgba(0,0,0,0.58)", textAlign: "center", fontFamily: FONT, fontWeight: 800, fontSize: 36, color: "#FFFFFF", minHeight: 52 }}>
+          {chunk.map((w, i) => (
+            <span key={i} style={{ color: chunkStart + i === idx ? pal.accent : "#FFFFFF", marginRight: 10 }}>{w.w}</span>
+          ))}
+        </div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+const FilmEpisode: React.FC<EpisodeProps> = ({ fps, scenes, palette }) => {
+  const pal = getPal(palette);
+  if (!scenes || scenes.length === 0) {
+    return (
+      <AbsoluteFill style={{ backgroundColor: pal.bg, alignItems: "center", justifyContent: "center", fontSize: 50, fontFamily: "Arial" }}>
+        scenes.json not found. Run speak_scenes.py first.
+      </AbsoluteFill>
+    );
+  }
+  const film = React.useMemo(() => buildFilm(scenes, fps), [scenes, fps]);
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#17150f" }}>
+      <FilmView scenes={scenes} fps={fps} pal={pal} />
+      {scenes.map((s, i) => (
+        <Sequence key={`a${s.id}`} from={film.sceneStart[i]} durationInFrames={film.sceneFrames[i]}>
+          <AudioPlayer src={staticFile(s.audio)} />
+        </Sequence>
+      ))}
+      {film.cues.map((c) => {
+        const name = c.type === "note" ? "pop" : c.type === "date" || c.type === "word" ? "whoosh" : c.type === "strip" ? "whoosh" : BEAT_SFX[c.type] || "pop";
+        return (
+          <React.Fragment key={`s${c.j}`}>
+            <Sequence from={Math.max(0, c.gf - 10)} durationInFrames={50}>
+              <AudioPlayer src={staticFile("sfx/whoosh.wav")} volume={0.22} />
+            </Sequence>
+            <Sequence from={Math.max(0, c.gf + 4)} durationInFrames={50}>
+              <AudioPlayer src={staticFile(`sfx/${name}.wav`)} volume={0.4} />
+            </Sequence>
+            {c.type === "count" ? (
+              <Sequence from={c.gf + 34} durationInFrames={50}>
+                <AudioPlayer src={staticFile("sfx/ding.wav")} volume={0.35} />
+              </Sequence>
+            ) : null}
+            {c.circleGf !== undefined ? (
+              <Sequence from={c.circleGf} durationInFrames={40}>
+                <AudioPlayer src={staticFile("sfx/typing.wav")} volume={0.3} />
+              </Sequence>
+            ) : null}
+          </React.Fragment>
+        );
+      })}
+    </AbsoluteFill>
+  );
+};
+
 // Root.tsx renders <MyComposition />, which registers our videos with Remotion
 export const MyComposition: React.FC = () => {
   return (
     <>
       <Composition id="Episode" component={Episode} durationInFrames={90} fps={30} width={1920} height={1080} defaultProps={{ fps: 30, scenes: [] as SceneData[], palette: "sunrise" }} calculateMetadata={calculateEpisodeMetadata} />
+      <Composition id="Film" component={FilmEpisode} durationInFrames={90} fps={30} width={1920} height={1080} defaultProps={{ fps: 30, scenes: [] as SceneData[], palette: "sunrise" }} calculateMetadata={calculateEpisodeMetadata} />
       <Composition id="MyComp" component={Intro} durationInFrames={90} fps={30} width={1280} height={720} />
     </>
   );
