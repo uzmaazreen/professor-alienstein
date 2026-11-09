@@ -1,0 +1,47 @@
+name: Voice speed test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get private voice sample
+        uses: actions/checkout@v4
+        with:
+          repository: uzmaazreen/alienstein-private
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          path: private
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install audio libraries
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg libsndfile1
+
+      - name: Install Chatterbox
+        run: |
+          python -m pip install --upgrade pip
+          pip install chatterbox-tts
+
+      - name: Make a test voice and measure speed
+        run: |
+          python - << 'EOF'
+          import time, torch
+          from chatterbox.tts import ChatterboxTTS
+          print("CPU threads:", torch.get_num_threads())
+          t0 = time.time()
+          model = ChatterboxTTS.from_pretrained(device="cpu")
+          print("Model loaded in", round(time.time() - t0), "sec")
+          text = "Hey everyone, Professor Alienstein here! A NASA space telescope just fell out of the sky. How does something float up there for twenty-two years, and then suddenly come down?"
+          t1 = time.time()
+          wav = model.generate(text, audio_prompt_path="private/my_voice.mp3")
+          dur = wav.shape[1] / model.sr
+          took = time.time() - t1
+          print("AUDIO SECONDS:", round(dur, 1), "TIME TAKEN:", round(took), "SEC", "SPEED x", round(took / dur, 1))
+          EOF
