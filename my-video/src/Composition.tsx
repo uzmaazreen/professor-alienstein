@@ -735,6 +735,7 @@ const SIZE: Record<string, { w: number; h: number; card: boolean }> = {
   compare: { w: 660, h: 340, card: true },
   word: { w: 760, h: 220, card: false },
   note: { w: 200, h: 180, card: false },
+  board: { w: 720, h: 470, card: true },
 };
 
 type FCue = { j: number; gf: number; type: string; arg: string; scene: number; x: number; y: number; rot: number; circleGf?: number };
@@ -1004,6 +1005,196 @@ const MarkerCircle: React.FC<{ w: number; h: number; p: number }> = ({ w, h, p }
   </g>
 );
 
+/* ---------------- whiteboard drawing card (a hand draws with a marker) ---------------- */
+
+const BoardCard: React.FC<{ arg: string; a: number }> = ({ arg, a }) => {
+  const [titleRaw, itemsRaw] = arg.split("|");
+  const title = (titleRaw || "").trim();
+  const items = (itemsRaw || "")
+    .split(",")
+    .map((s) => {
+      const [n, ...l] = s.split(":");
+      return { name: (n || "").trim().toLowerCase(), label: l.join(":").trim() };
+    })
+    .filter((it) => ICONS[it.name])
+    .slice(0, 3);
+  const n = Math.max(1, items.length);
+  const inks = ["#1E40AF", "#D3121A", "#15803D"];
+  const titleInk = "#1E40AF";
+  const tChars = Math.floor(title.length * prog(a, 8, 40));
+  const tW = Math.min(600, title.length * 29);
+  const centers = items.map((_, k) => ({ x: n === 1 ? 0 : n === 2 ? (k ? 170 : -170) : (k - 1) * 235, y: 25 }));
+  const start = (k: number) => 46 + k * 38;
+  let tip = { x: 330, y: 150, ink: titleInk, show: false };
+  if (a >= 8 && a < 42) tip = { x: -tW / 2 + tW * prog(a, 8, 40), y: -150 + Math.sin(a * 0.9) * 8, ink: titleInk, show: true };
+  items.forEach((it, k) => {
+    const s = start(k);
+    const c = centers[k];
+    if (a >= s && a < s + 28) tip = { x: c.x + Math.cos(a * 0.8) * 55, y: c.y + Math.sin(a * 1.1) * 55, ink: inks[k], show: true };
+    else if (a >= s + 28 && a < s + 38) tip = { x: c.x - 55 + 110 * prog(a, s + 28, s + 38), y: c.y + 108, ink: inks[k], show: true };
+  });
+  const endA = start(items.length) + 4;
+  const hide = prog(a, endA, endA + 14);
+  return (
+    <g>
+      <rect x="-350" y="-235" width="700" height="440" rx="18" fill="#FAFAF7" stroke="#AEB4BC" strokeWidth="14" />
+      <rect x="-250" y="205" width="500" height="26" rx="6" fill="#C9CED4" />
+      {[-170, -110, -50].map((x, i) => (<rect key={i} x={x} y="196" width="52" height="14" rx="6" fill={inks[i]} />))}
+      <text x="0" y="-130" textAnchor="middle" fontFamily={HAND2} fontWeight="700" fontSize="56" fill={titleInk}>{title.slice(0, tChars)}</text>
+      {items.map((it, k) => {
+        const s = start(k);
+        const p = interpolate(a, [s, s + 26], [0, 1], clamp);
+        const c = centers[k];
+        const lab = it.label ? it.label.slice(0, Math.floor(it.label.length * prog(a, s + 28, s + 38))) : "";
+        const arrow = k < items.length - 1 ? prog(a, s + 32, s + 46) : 0;
+        return (
+          <g key={k}>
+            <g transform={`translate(${c.x - 75} ${c.y - 75}) scale(1.5)`} style={{ opacity: p > 0.01 ? 1 : 0 }}>
+              <g fill="none" stroke={inks[k]} strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round">{ICONS[it.name](p)}</g>
+            </g>
+            <text x={c.x} y={c.y + 118} textAnchor="middle" fontFamily={HAND2} fontWeight="700" fontSize="30" fill={inks[k]}>{lab}</text>
+            {k < items.length - 1 ? (
+              <g opacity={arrow > 0.01 ? 1 : 0}>
+                <path d={`M${c.x + 95} ${c.y} L${centers[k + 1].x - 95} ${c.y}`} fill="none" stroke="#222" strokeWidth="6" strokeLinecap="round" pathLength={1} strokeDasharray={1} strokeDashoffset={1 - arrow} />
+                <path d={`M${centers[k + 1].x - 112} ${c.y - 14} L${centers[k + 1].x - 95} ${c.y} L${centers[k + 1].x - 112} ${c.y + 14}`} fill="none" stroke="#222" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" opacity={arrow} />
+              </g>
+            ) : null}
+          </g>
+        );
+      })}
+      {/* the drawing hand */}
+      <g transform={`translate(${tip.x} ${tip.y}) rotate(-28) scale(0.8)`} opacity={tip.show ? 1 - hide : 0}>
+        <rect x="-8" y="-86" width="16" height="78" rx="5" fill={tip.ink} stroke="#222" strokeWidth="3" />
+        <path d="M-8 -8 L8 -8 L0 8 Z" fill="#222" />
+        <path d="M-34 -86 C-40 -132 -6 -156 26 -146 C52 -138 58 -108 40 -88 C28 -76 6 -70 -14 -76 Z" fill="#F2C9A5" stroke="#222" strokeWidth="3.5" />
+        <path d="M-24 -100 C-12 -112 6 -112 16 -102" fill="none" stroke="#C99872" strokeWidth="3" strokeLinecap="round" />
+        <rect x="-24" y="-196" width="70" height="66" rx="10" fill="#6A3FC8" stroke="#222" strokeWidth="3" />
+      </g>
+    </g>
+  );
+};
+
+/* ---------------- auto thumbnails (three styles) ---------------- */
+
+type ThumbProps = { style: "A" | "B" | "C"; line1: string; line2: string; sub: string; icon: string; number: string; mood: Mood; palette: string };
+
+const fitSize = (text: string, maxW: number, maxS: number) => Math.max(64, Math.min(maxS, maxW / Math.max(1, text.length * 0.64)));
+const TFONT = "'Inter Display', Impact, 'Arial Black', 'DejaVu Sans', sans-serif";
+const strokeText = (c = "#000", w = 16) => ({ paintOrder: "stroke" as const, stroke: c, strokeWidth: w, strokeLinejoin: "round" as const });
+
+const ThumbProfessor: React.FC<{ mood: Mood; x: number; y: number; w: number; rot?: number }> = ({ mood, x, y, w, rot = 0 }) => (
+  <svg viewBox="62 32 256 312" width={w} height={(w * 312) / 256} style={{ position: "absolute", left: x, top: y, overflow: "visible", transform: `rotate(${rot}deg)` }}>
+    <defs>
+      <filter id="cutT" x="-25%" y="-25%" width="150%" height="150%">
+        <feMorphology in="SourceAlpha" operator="dilate" radius="7" result="d" />
+        <feFlood floodColor="#FFFFFF" result="w" />
+        <feComposite in="w" in2="d" operator="in" result="white" />
+        <feDropShadow in="white" dx="7" dy="11" stdDeviation="8" floodColor="#000" floodOpacity="0.55" result="sh" />
+        <feMerge><feMergeNode in="sh" /><feMergeNode in="SourceGraphic" /></feMerge>
+      </filter>
+    </defs>
+    <g filter="url(#cutT)"><Character mood={mood} mouthShape={mood === "shock" ? 3 : undefined} /></g>
+  </svg>
+);
+
+const Thumb: React.FC<ThumbProps> = ({ style, line1, line2, sub, icon, number, mood, palette }) => {
+  const pal = getPal(palette);
+  const draw = ICONS[icon] || ICONS.star;
+  const L1 = (line1 || "").toUpperCase();
+  const L2 = (line2 || "").toUpperCase();
+  const SUB = (sub || "").toUpperCase();
+  const bigIcon = (color: string, sw: number, scale: number) => (
+    <g fill="none" stroke={color} strokeWidth={sw} strokeLinecap="round" strokeLinejoin="round">{draw(1)}</g>
+  );
+  const grain = (
+    <svg width="1280" height="720" style={{ position: "absolute", left: 0, top: 0, pointerEvents: "none" }}>
+      <defs>
+        <filter id="tg" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n" /><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.9 -0.4" /></filter>
+        <radialGradient id="tv" cx="50%" cy="50%" r="75%"><stop offset="60%" stopColor="#000" stopOpacity="0" /><stop offset="100%" stopColor="#000" stopOpacity="0.3" /></radialGradient>
+      </defs>
+      <rect width="1280" height="720" fill="url(#tv)" />
+      <rect width="1280" height="720" filter="url(#tg)" opacity="0.14" />
+    </svg>
+  );
+
+  if (style === "A") {
+    const edge: string[] = [];
+    for (let i = 0; i <= 720; i += 24) edge.push(`${660 + (rnd(7 + i) - 0.5) * 26 + (i / 720 - 0.5) * 120},${i}`);
+    const clip = `M0,0 L${edge.join(" L")} L${edge[edge.length - 1].split(",")[0]},720 L0,720 Z`;
+    const s1 = fitSize(L1, 600, 170), s2 = fitSize(L2, 600, 210);
+    return (
+      <AbsoluteFill style={{ background: `linear-gradient(135deg, ${pal.dark}, ${pal.bg})`, fontFamily: TFONT }}>
+        <svg width="1280" height="720" style={{ position: "absolute", left: 0, top: 0 }}>
+          <defs>
+            <clipPath id="clTA"><path d={clip} /></clipPath>
+            <filter id="glowTA" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="10" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+            <linearGradient id="skyTA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#0A0620" /><stop offset="1" stopColor={pal.dark} /></linearGradient>
+          </defs>
+          {Array.from({ length: 24 }).map((_, i) => (<circle key={i} cx={700 + rnd(i) * 560} cy={rnd(i + 9) * 700} r={2 + rnd(i + 3) * 3} fill={pal.light} opacity="0.7" />))}
+          <g clipPath="url(#clTA)">
+            <rect width="1280" height="720" fill="url(#skyTA)" />
+            {Array.from({ length: 50 }).map((_, i) => (<circle key={i} cx={rnd(i + 1) * 660} cy={rnd(i + 9) * 720} r={1 + rnd(i + 5) * 2.4} fill={pal.light} opacity="0.8" />))}
+            <g transform="translate(300 215) scale(4.2)" filter="url(#glowTA)">{bigIcon(pal.accent, 5, 1)}</g>
+          </g>
+          <path d={`M${edge.join(" L")}`} fill="none" stroke="#fff" strokeWidth="14" strokeLinejoin="round" />
+          <text x="40" y={170} fontFamily={TFONT} fontWeight={900} fontSize={s1} fill="#FFFFFF" {...strokeText("#000", 18)} transform="rotate(-4 40 170)">{L1}</text>
+          <text x="36" y={170 + s2 * 0.9} fontFamily={TFONT} fontWeight={900} fontSize={s2} fill="#FF2D2D" {...strokeText("#000", 20)} transform="rotate(-4 36 330)">{L2}</text>
+          {SUB ? (<g transform="rotate(-3 40 610)"><rect x="40" y="570" width={Math.min(620, SUB.length * 26 + 50)} height="76" fill={pal.accent} /><text x="60" y="622" fontFamily={TFONT} fontWeight={900} fontSize="38" fill="#1b1b1b">{SUB}</text></g>) : null}
+        </svg>
+        <ThumbProfessor mood={mood} x={770} y={150} w={460} rot={4} />
+        {grain}
+      </AbsoluteFill>
+    );
+  }
+
+  if (style === "B") {
+    const head = `${L1} ${L2}`.trim();
+    const hs = fitSize(head, 900, 100);
+    return (
+      <AbsoluteFill style={{ backgroundColor: "#E3DED4", fontFamily: TFONT }}>
+        <svg width="1280" height="720" style={{ position: "absolute", left: 0, top: 0 }}>
+          <defs>
+            <filter id="fibTB" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.035 0.6" numOctaves="3" seed="8" result="n" /><feColorMatrix in="n" type="matrix" values="0 0 0 0 0.3  0 0 0 0 0.27  0 0 0 0 0.22  0 0 0 1.1 -0.45" /></filter>
+            <filter id="shTB" x="-20%" y="-20%" width="150%" height="150%"><feDropShadow dx="12" dy="18" stdDeviation="14" floodColor="#2a2418" floodOpacity="0.45" /></filter>
+          </defs>
+          <rect width="1280" height="720" fill="#E3DED4" />
+          <rect width="1280" height="720" filter="url(#fibTB)" opacity="0.55" />
+          <polygon points="520,0 1000,0 760,720 280,720" fill="#FFF8DC" opacity="0.4" />
+          <g transform="translate(600 400) rotate(-4) scale(0.92)" filter="url(#shTB)"><PolaroidIcon arg={`${icon}|${SUB.slice(0, 18)}`} a={100} pal={pal} id="thumb" /></g>
+          <g transform="translate(600 330) rotate(-4)"><MarkerCircle w={470} h={470} p={1} /></g>
+          {number ? (
+            <g transform="translate(150 520) rotate(-8)" filter="url(#shTB)"><rect width="270" height="230" fill="#F6E35B" /><text x="135" y="125" textAnchor="middle" fontFamily={TFONT} fontWeight={900} fontSize={number.length > 3 ? 84 : 120} fill="#2B2B2B">{number}</text></g>
+          ) : null}
+          <rect x="34" y="34" width={Math.min(1010, head.length * hs * 0.66 + 60)} height={hs * 1.2} fill="#D8C21B" transform="rotate(-2 34 34)" opacity="0.96" />
+          <text x="60" y={34 + hs * 0.92} fontFamily={TFONT} fontWeight={900} fontSize={hs} fill="#1b1b1b" transform="rotate(-2 60 100)">{head}</text>
+        </svg>
+        <ThumbProfessor mood={mood} x={930} y={200} w={380} rot={5} />
+        {grain}
+      </AbsoluteFill>
+    );
+  }
+
+  const bigText = number || L1;
+  const bs = fitSize(bigText, 620, 330);
+  const s2 = fitSize(L2 || L1, 640, 130);
+  return (
+    <AbsoluteFill style={{ background: "linear-gradient(160deg,#05060F,#0B1030 60%,#1a0f3a)", fontFamily: TFONT }}>
+      <svg width="1280" height="720" style={{ position: "absolute", left: 0, top: 0 }}>
+        {Array.from({ length: 70 }).map((_, i) => (<circle key={i} cx={rnd(i + 1) * 1280} cy={rnd(i + 9) * 720} r={1 + rnd(i + 5) * 2.4} fill={pal.light} opacity="0.7" />))}
+        <circle cx="560" cy="980" r="560" fill="none" stroke={pal.accent} strokeWidth="6" opacity="0.5" />
+        <g transform="translate(690 90) scale(3.4)">{bigIcon(pal.light, 5, 1)}</g>
+        <path d="M1000 470 C1050 380 990 300 900 280" fill="none" stroke="#FF2D2D" strokeWidth="18" strokeLinecap="round" />
+        <polygon points="880,268 936,250 922,310" fill="#FF2D2D" />
+        <text x="40" y={bs * 0.82} fontFamily={TFONT} fontWeight={900} fontSize={bs} fill={pal.accent} {...strokeText("#000", 24)}>{bigText}</text>
+        {L2 ? <text x="48" y={bs * 0.82 + s2 * 1.05} fontFamily={TFONT} fontWeight={900} fontSize={s2} fill="#FFFFFF" {...strokeText("#000", 18)}>{L2}</text> : null}
+        {SUB ? <text x="52" y={690} fontFamily={TFONT} fontWeight={900} fontSize={44} fill="#FF2D2D" {...strokeText("#000", 14)}>{SUB}</text> : null}
+      </svg>
+      <ThumbProfessor mood={mood} x={900} y={340} w={340} rot={-4} />
+      {grain}
+    </AbsoluteFill>
+  );
+};
+
 const FilmWorld: React.FC<{ film: ReturnType<typeof buildFilm>; f: number; pal: Pal; active: number }> = ({ film, f, pal, active }) => {
   const cam = camAtFilm(film.keys, f);
   const visible = film.cues.filter((c, i) => i >= active - 3 && i <= active + 1 && f >= c.gf - 12);
@@ -1046,6 +1237,7 @@ const FilmWorld: React.FC<{ film: ReturnType<typeof buildFilm>; f: number; pal: 
           case "flow": body = <FlowCard arg={c.arg} a={a} pal={pal} />; break;
           case "compare": body = <CompareCard arg={c.arg} a={a} pal={pal} />; break;
           case "note": body = <NoteCard arg={c.arg} />; break;
+          case "board": body = <BoardCard arg={c.arg} a={a} />; break;
           default: body = <WordLabel arg={c.arg} a={a} />;
         }
         const cp = c.circleGf !== undefined ? prog(f, c.circleGf, c.circleGf + 24) : 0;
@@ -1230,7 +1422,7 @@ const FilmEpisode: React.FC<EpisodeProps> = ({ fps, scenes, palette }) => {
         </Sequence>
       ))}
       {film.cues.map((c) => {
-        const name = c.type === "note" ? "pop" : c.type === "date" || c.type === "word" ? "whoosh" : c.type === "strip" ? "whoosh" : BEAT_SFX[c.type] || "pop";
+        const name = c.type === "board" ? "typing" : c.type === "note" ? "pop" : c.type === "date" || c.type === "word" ? "whoosh" : c.type === "strip" ? "whoosh" : BEAT_SFX[c.type] || "pop";
         return (
           <React.Fragment key={`s${c.j}`}>
             <Sequence from={Math.max(0, c.gf - 10)} durationInFrames={50}>
@@ -1262,6 +1454,7 @@ export const MyComposition: React.FC = () => {
     <>
       <Composition id="Episode" component={Episode} durationInFrames={90} fps={30} width={1920} height={1080} defaultProps={{ fps: 30, scenes: [] as SceneData[], palette: "sunrise" }} calculateMetadata={calculateEpisodeMetadata} />
       <Composition id="Film" component={FilmEpisode} durationInFrames={90} fps={30} width={1920} height={1080} defaultProps={{ fps: 30, scenes: [] as SceneData[], palette: "sunrise" }} calculateMetadata={calculateEpisodeMetadata} />
+      <Composition id="Thumb" component={Thumb} durationInFrames={1} fps={30} width={1280} height={720} defaultProps={{ style: "B", line1: "WHAT", line2: "HAPPENED?", sub: "Explained simply", icon: "question", number: "", mood: "shock", palette: "sunrise" } as ThumbProps} />
       <Composition id="MyComp" component={Intro} durationInFrames={90} fps={30} width={1280} height={720} />
     </>
   );
