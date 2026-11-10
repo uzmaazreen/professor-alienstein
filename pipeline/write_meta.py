@@ -44,6 +44,20 @@ SCRIPT:
         th["icon"] = "question"
     meta["thumb"] = th
     json.dump(meta, open(f"{WORK}/meta.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    pm = re.search(r"^#\s*palette:\s*(\w+)", script, re.M | re.I)
+    palette = pm.group(1).lower() if pm and pm.group(1).lower() in ("sunrise", "ocean", "grape", "forest") else "sunrise"
+    clean = lambda t, n: re.sub(r"[^A-Za-z0-9 '!?.,-]", "", str(t or "")).upper()[:n].strip()
+    thumb = {
+        "style": th["style"],
+        "line1": clean(th.get("line1"), 14),
+        "line2": clean(th.get("line2"), 14),
+        "sub": clean(th.get("sub"), 28),
+        "icon": th["icon"],
+        "number": re.sub(r"[^0-9.,%x]", "", str(th.get("number") or ""))[:5],
+        "mood": th.get("mood") if th.get("mood") in ("shock", "think", "happy", "laugh") else "shock",
+        "palette": palette,
+    }
+    json.dump(thumb, open(f"{WORK}/thumb.json", "w", encoding="utf-8"), indent=2)
     print("TITLE:", meta["title"], "| thumbnail style:", th["style"])
 
 

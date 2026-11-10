@@ -35,6 +35,7 @@ VISUAL TAGS (placed inside the spoken text, right BEFORE the words they illustra
 [compare:Left title=short text|Right title=short text]
 [word:BIG PHRASE]                  a big headline word or phrase (max 4 words)
 [note:22|years!]                   a sticky note: big text|small text
+[board:How it works|sun:Sunlight,cloud:Air,eye:Your eyes]   a whiteboard where a hand draws 1 to 3 pictures one after another with arrows. Format: Title|icon:Label,icon:Label. Use it once or twice per video to explain a process.
 [circle]                           a red marker circle drawn around the previous picture card or bars card
 Use 1 to 3 tags per scene, roughly one tag every 12 to 25 spoken words. Mix many different tag types across the video. Do not use the same icon twice in a row.
 
@@ -100,6 +101,19 @@ def clean_tag(m):
         ok = 0 < len(arg) <= 30
     elif kind == "note":
         ok = len(arg) > 0
+    elif kind == "board":
+        parts = arg.split("|", 1)
+        title = parts[0].strip()
+        items = []
+        if len(parts) == 2:
+            for it in parts[1].split(","):
+                nm, _, lab = it.partition(":")
+                nm = nm.strip().lower()
+                if nm in ICONS:
+                    items.append(nm + (":" + lab.strip()[:18] if lab.strip() else ""))
+        ok = 0 < len(title) <= 32 and 1 <= len(items) <= 3
+        if ok:
+            arg = title + "|" + ",".join(items[:3])
     elif kind == "circle":
         ok = True
         arg = ""
