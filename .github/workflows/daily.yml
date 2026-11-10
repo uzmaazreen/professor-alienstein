@@ -89,13 +89,17 @@ jobs:
         working-directory: my-video
         run: npx remotion render Film out/long.mp4
 
+      - name: 5b. Make the thumbnail
+        working-directory: my-video
+        run: npx remotion still Thumb out/thumb.jpg --image-format=jpeg --jpeg-quality=90 --props=../work/thumb.json
+
       - name: 6. Upload to YouTube (only if switched on)
         if: env.DO_UPLOAD == 'true'
         env:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
-        run: python pipeline/upload_youtube.py my-video/out/long.mp4
+        run: python pipeline/upload_youtube.py my-video/out/long.mp4 my-video/out/thumb.jpg
 
       - name: 7. Remember this topic (only after upload)
         if: env.DO_UPLOAD == 'true'
@@ -115,6 +119,8 @@ jobs:
           retention-days: 3
           path: |
             my-video/out/long.mp4
+            my-video/out/thumb.jpg
+            work/thumb.json
             work/topic.json
             work/script_scenes.txt
             work/meta.json
