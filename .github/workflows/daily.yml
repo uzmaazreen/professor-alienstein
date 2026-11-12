@@ -11,6 +11,9 @@ on:
       upload:
         description: "Upload to YouTube? yes or no"
         default: "no"
+      reuse:
+        description: "Reuse the script and voice from the last run? yes or no"
+        default: "no"
 
 permissions:
   contents: write
@@ -22,6 +25,7 @@ jobs:
     env:
       MINUTES: ${{ github.event.inputs.minutes || '10' }}
       DO_UPLOAD: ${{ github.event.inputs.upload == 'yes' || (github.event_name == 'schedule' && vars.ENABLE_UPLOAD == 'true') }}
+      REUSE: ${{ github.event.inputs.reuse == 'yes' }}
       PRIVACY: ${{ vars.PRIVACY || 'private' }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
     steps:
@@ -67,31 +71,63 @@ jobs:
           npm install
           npx remotion browser ensure
 
+      - name: Get the script and voice from the last run (only when reusing)
+        if: env.REUSE == 'true'
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            work
+            my-video/public/audio
+            my-video/public/scenes.json
+          key: last-run-none-${{ github.run_id }}
+          restore-keys: last-run-
+
+      - name: Check the reused files
+        if: env.REUSE == 'true'
+        run: |
+          test -f my-video/public/scenes.json && test -f work/script_scenes.txt && test -f work/meta.json || (echo "Nothing was saved from the last run. Run again with reuse = no." && exit 1)
+
       - name: 1. Pick today's topic
+        if: env.REUSE != 'true'
         run: python pipeline/pick_topic.py
 
       - name: 2. Write the script with Gemini
+        if: env.REUSE != 'true'
         run: python pipeline/write_script.py
 
+      - name: 2b. Title, tags and thumbnail plan
+        if: env.REUSE != 'true'
+        run: python pipeline/write_meta.py
+
+      - name: 2c. Make the thumbnail
+        working-directory: my-video
+        run: npx remotion still Thumb out/thumb.jpg --image-format=jpeg --jpeg-quality=90 --props=../work/thumb.json
+
       - name: 3. Make the voice and lip-sync (slow)
+        if: env.REUSE != 'true'
         run: |
           cp private/my_voice.mp3 my_voice.mp3
           cp work/script_scenes.txt script_scenes.txt
           rm -rf my-video/public/audio my-video/public/scenes.json
           python pipeline/speak_scenes.py
 
-      - name: 4. Title, tags and description
-        run: |
-          python pipeline/write_meta.py
-          python pipeline/build_description.py
+      - name: 3b. Save the script and voice so a failed run can be reused
+        if: always() && env.REUSE != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            work
+            my-video/public/audio
+            my-video/public/scenes.json
+          key: last-run-${{ github.run_id }}
+
+      - name: 4. Build the description with chapters
+        run: python pipeline/build_description.py
 
       - name: 5. Render the video
         working-directory: my-video
         run: npx remotion render Film out/long.mp4
-
-      - name: 5b. Make the thumbnail
-        working-directory: my-video
-        run: npx remotion still Thumb out/thumb.jpg --image-format=jpeg --jpeg-quality=90 --props=../work/thumb.json
 
       - name: 6. Upload to YouTube (only if switched on)
         if: env.DO_UPLOAD == 'true'
