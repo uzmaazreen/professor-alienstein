@@ -5,6 +5,34 @@ from common import load_state, ensure_work, WORK, call_gemini, ICONS
 TAG_RE = re.compile(r"\[(\w+)(?::([^\]]*))?\]")
 
 
+def loose_json(raw):
+    """Read JSON even when the model wraps it in text or cuts it short."""
+    raw = raw.strip()
+    raw = re.sub(r"^```(?:json)?|```$", "", raw, flags=re.M).strip()
+    try:
+        return json.loads(raw)
+    except Exception:
+        pass
+    a, b = raw.find("{"), raw.rfind("}")
+    if a != -1 and b > a:
+        try:
+            return json.loads(raw[a:b + 1])
+        except Exception:
+            pass
+    return None
+
+
+def fallback_meta(topic):
+    words = re.sub(r"[^A-Za-z0-9 ]", "", topic["title"]).split()
+    return {
+        "title": topic["title"][:90],
+        "intro": "Professor Alienstein explains this real science story in very simple words.",
+        "tags": [w.lower() for w in words if len(w) > 3][:12] + ["science", "explained"],
+        "comment": "Which science story should Professor Alienstein explain next?",
+        "thumb": {"style": "B", "line1": " ".join(words[:2]).upper(), "line2": "EXPLAINED", "sub": "Real science, simply", "icon": "question", "number": "", "mood": "shock"},
+    }
+
+
 def main():
     ensure_work()
     key = os.environ.get("GEMINI_API_KEY", "")
@@ -31,10 +59,21 @@ Thumbnail words must be TRUE to the video. No clickbait that the video does not 
 SCRIPT:
 {spoken[:6000]}
 """
-    raw = call_gemini(prompt, key, json_mode=True, temperature=0.6, max_tokens=2048)
-    raw = raw.strip()
-    raw = re.sub(r"^```(?:json)?|```$", "", raw, flags=re.M).strip()
-    meta = json.loads(raw)
+    meta = None
+    for attempt in range(3):
+        try:
+            raw = call_gemini(prompt, key, json_mode=True, temperature=0.6, max_tokens=8192)
+            meta = loose_json(raw)
+        except Exception as e:
+            print("Gemini problem:", e)
+            meta = None
+        if isinstance(meta, dict) and meta.get("title"):
+            break
+        print(f"metadata attempt {attempt + 1} was not usable, trying again")
+        meta = None
+    if meta is None:
+        print("Using simple fallback title and description")
+        meta = fallback_meta(topic)
     meta["title"] = str(meta.get("title", topic["title"]))[:95]
     meta["tags"] = [str(t)[:30] for t in meta.get("tags", [])][:15]
     th = meta.get("thumb", {}) or {}

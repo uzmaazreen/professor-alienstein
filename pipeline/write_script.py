@@ -172,7 +172,7 @@ def main():
     extra = ""
     best = ""
     for attempt in range(3):
-        text = call_gemini(build_prompt(topic, extra), key, temperature=0.8)
+        text = call_gemini(build_prompt(topic, extra), key, temperature=0.8, max_tokens=16384)
         script = sanitize(text)
         problems = check(script)
         print(f"attempt {attempt + 1}: {spoken_words(script)} words, problems: {problems or 'none'}")
