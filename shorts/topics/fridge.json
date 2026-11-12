@@ -1,0 +1,18 @@
+{
+  "id": "fridge",
+  "title": "How Does a Fridge Work?",
+  "short_title": "Your Fridge Doesn't Make Cold... It Moves Heat",
+  "category": "home appliances",
+  "keywords": ["fridge", "refrigerator", "cooling", "heat", "kitchen", "appliance", "electricity bill", "summer", "food storage"],
+  "description": "A fridge doesn't make cold, it moves heat out of the box into your room. Here is the simple science: evaporation, compression, condensation and expansion.",
+  "tags": ["how a fridge works", "refrigerator", "science explained", "how things work", "heat", "everyday science"],
+  "comment": "Did you know the back of your fridge is warm? Which everyday thing should Professor Alienstein explain next?",
+  "scenes": [
+    {"mood": "think", "text": "Your fridge does not make cold. It moves heat. Mind blown?"},
+    {"mood": "happy", "text": "Inside the fridge, a special liquid called refrigerant evaporates into gas. Evaporating soaks up heat, just like sweat cools your skin."},
+    {"mood": "shock", "text": "Then the compressor squeezes that gas. Squeezing makes it super hot, hotter than your kitchen. Like pumping a bike tyre: the pump gets hot!"},
+    {"mood": "think", "text": "Hot coils at the back release that heat into your room. The gas cools and turns back into liquid."},
+    {"mood": "shock", "text": "Then a tiny tube drops the pressure, the liquid turns icy cold, and the loop starts again."},
+    {"mood": "happy", "text": "So keep the back clear and don't leave the door open. Your fridge is not an air conditioner!"}
+  ]
+}

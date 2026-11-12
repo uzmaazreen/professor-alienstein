@@ -1,0 +1,100 @@
+name: Daily Short
+
+on:
+  schedule:
+    - cron: "0 4 * * *"        # every day 09:30 India time
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Topic id (leave empty = pick by trending). Example: fridge"
+        default: ""
+      upload:
+        description: "Upload to YouTube? yes or no"
+        default: "no"
+
+permissions:
+  contents: write
+
+jobs:
+  make-short:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      DO_UPLOAD: ${{ github.event.inputs.upload == 'yes' || (github.event_name == 'schedule' && vars.ENABLE_SHORTS_UPLOAD == 'true') }}
+      PRIVACY: ${{ vars.PRIVACY || 'private' }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get private voice sample
+        uses: actions/checkout@v4
+        with:
+          repository: uzmaazreen/alienstein-private
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          path: private
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install system libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libsndfile1
+
+      - name: Remember the voice model between runs
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-chatterbox-v1
+
+      - name: Install Python packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r pipeline/requirements.txt -r shorts/requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: 1. Pick today's topic
+        id: pick
+        run: python shorts/pick_short_topic.py "${{ github.event.inputs.topic }}"
+
+      - name: 2. Voice in your own cloned voice
+        run: |
+          cp private/my_voice.mp3 my_voice.mp3
+          python shorts/speak_short.py "${{ steps.pick.outputs.topic_id }}"
+
+      - name: 3. Draw the animation and make the video
+        run: python shorts/render_short.py "${{ steps.pick.outputs.topic_id }}" --workers 4
+
+      - name: 4. Upload to YouTube (only if switched on)
+        if: env.DO_UPLOAD == 'true'
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: |
+          mkdir -p work
+          cp shorts/work/meta.json shorts/work/description.txt work/
+          python pipeline/upload_youtube.py shorts/out/short.mp4 ""
+
+      - name: 5. Remember this topic (only after upload)
+        if: env.DO_UPLOAD == 'true'
+        run: |
+          python shorts/finish_short.py
+          git config user.name "alienstein-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add shorts/state_shorts.json
+          git commit -m "Remember today's short topic" || echo "nothing to save"
+          git pull --rebase && git push
+
+      - name: Save the result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: short-package
+          retention-days: 3
+          path: |
+            shorts/out/short.mp4
+            shorts/work/topic.json
+            shorts/work/meta.json
+            shorts/work/description.txt
