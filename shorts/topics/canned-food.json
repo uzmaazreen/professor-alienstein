@@ -1,0 +1,18 @@
+{
+  "id": "canned-food",
+  "title": "How Can Canned Food Last for Years?",
+  "short_title": "How Can Canned Food Last Years Without a Fridge?",
+  "category": "food preservation",
+  "keywords": ["canned food", "can", "preserve", "expiry", "pantry", "beans", "food storage", "shelf life", "emergency food", "kitchen"],
+  "description": "A can of beans can sit on a shelf for years without a fridge. Here is the simple science: seal, cook hot to kill germs, and a vacuum. A bulging, leaking or badly dented can should be thrown away.",
+  "tags": ["how canned food lasts", "food preservation", "canning science", "how to preserve food", "shelf life", "science explained", "everyday science"],
+  "comment": "What is the oldest can in your kitchen? Tell me below!",
+  "scenes": [
+    {"mood": "think", "text": "How can a can of beans sit on a shelf for years, with no fridge, and still be safe to eat?"},
+    {"mood": "happy", "text": "Step one: the food goes into the can, and the lid is locked on with a double seam, so nothing can get in."},
+    {"mood": "shock", "text": "Step two: the sealed can is cooked really hot, often above one hundred degrees, in a giant pressure cooker. That kills the germs inside."},
+    {"mood": "think", "text": "Step three: as the can cools, the steam inside turns back into water. That leaves almost no air, a tiny vacuum that pulls the lid down."},
+    {"mood": "happy", "text": "No living germs, no fresh air, no spoiling. That is why canned food can last for years."},
+    {"mood": "shock", "text": "But a bulging, leaking or badly dented can means trouble. Throw it away."}
+  ]
+}

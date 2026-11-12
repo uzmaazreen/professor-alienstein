@@ -1,0 +1,18 @@
+{
+  "id": "ice-float",
+  "title": "Why Does Ice Float?",
+  "short_title": "What If Ice Sank? Every Lake Would Freeze Solid",
+  "category": "winter, nature",
+  "keywords": ["ice", "lake", "winter", "freeze", "cold", "snow", "water", "fish", "frozen", "weather", "cold wave"],
+  "description": "Almost everything gets heavier when it freezes, but water does the opposite. Here is why ice floats, why lakes freeze from the top, and why that weird trick keeps fish alive all winter.",
+  "tags": ["why does ice float", "ice floats", "lake freezing", "winter science", "water science", "science explained", "everyday science"],
+  "comment": "What do you think would happen to the fish if ice sank? Tell me below!",
+  "scenes": [
+    {"mood": "think", "text": "What if ice sank instead of floating? Every lake on Earth would slowly turn into a solid block of ice."},
+    {"mood": "happy", "text": "Almost everything gets heavier when it freezes. Water is weird. When it freezes, its molecules lock into a roomy crystal, so ice takes up more space and is about nine percent lighter than water."},
+    {"mood": "shock", "text": "So ice floats and forms a roof on top of the lake. Water is heaviest at about four degrees, so that warmer water sinks to the bottom."},
+    {"mood": "think", "text": "The ice roof works like a blanket. It slows the cold from reaching the water below, so fish keep swimming all winter."},
+    {"mood": "shock", "text": "But if ice sank, it would pile up at the bottom, new ice would keep forming, and the whole lake would freeze solid."},
+    {"mood": "happy", "text": "So next time ice floats in your drink, remember: that weird trick keeps life alive!"}
+  ]
+}

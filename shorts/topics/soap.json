@@ -1,0 +1,18 @@
+{
+  "id": "soap",
+  "title": "How Does Soap Kill Germs?",
+  "short_title": "Why Soap Destroys Germs (And Why 20 Seconds Matters)",
+  "category": "hygiene, everyday",
+  "keywords": ["soap", "germs", "hand washing", "virus", "bacteria", "clean", "hygiene", "flu season", "winter", "sanitizer"],
+  "description": "Soap does not just wash germs off, it can rip many of them apart. Here is the simple science of soap molecules, and why washing for 20 seconds works.",
+  "tags": ["how does soap work", "why wash hands 20 seconds", "soap and germs", "hand washing science", "science explained", "everyday science"],
+  "comment": "How long do you really wash your hands? Be honest! 😄",
+  "scenes": [
+    {"mood": "think", "text": "Why can plain soap destroy germs, and why do doctors say to wash for twenty seconds?"},
+    {"mood": "happy", "text": "Many germs, like flu viruses, wear a greasy outer coat. That coat holds them together."},
+    {"mood": "shock", "text": "A soap molecule has two ends. One end loves water. The other end loves grease."},
+    {"mood": "shock", "text": "The greasy tails stab into the germ's coat and pull it apart, like pulling threads out of a sweater."},
+    {"mood": "happy", "text": "Soap also grabs germs and dirt on your skin, and water washes them all away. Scrubbing gives the soap time to work. That is why twenty seconds."},
+    {"mood": "think", "text": "So for everyday washing, plain soap and water work great."}
+  ]
+}

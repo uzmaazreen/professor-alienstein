@@ -1,0 +1,18 @@
+{
+  "id": "honey",
+  "title": "Why Honey Never Spoils",
+  "short_title": "Why Honey Never Spoils (It Can Last Thousands of Years)",
+  "category": "food preservation",
+  "keywords": ["honey", "food", "spoil", "expiry", "preserve", "kitchen", "sugar", "bacteria", "winter", "cough", "cold season"],
+  "description": "Honey can sit in a cupboard for thousands of years and still be safe to eat. Here is the simple science: sugar that sucks water out of germs, acid, and a natural germ killer made by bees. Never give honey to babies under 1 year old.",
+  "tags": ["why honey never spoils", "honey science", "food preservation", "how to preserve food", "osmosis", "science explained", "everyday science"],
+  "comment": "Which food do you think should last forever? Tell me below!",
+  "scenes": [
+    {"mood": "think", "text": "Honey can sit in a cupboard for thousands of years and still be safe to eat. How is that even possible?"},
+    {"mood": "happy", "text": "First, honey is about eighty percent sugar and less than twenty percent water. And germs need water to live."},
+    {"mood": "shock", "text": "When a germ lands in honey, the sugar pulls the water right out of its body. It shrivels up like a raisin. This is called osmosis."},
+    {"mood": "think", "text": "Second, honey is acidic, which germs do not like."},
+    {"mood": "shock", "text": "Third, bees add an enzyme that slowly makes a tiny bit of hydrogen peroxide, a natural germ killer."},
+    {"mood": "happy", "text": "One catch: keep the lid tight, because wet honey can spoil. And never give honey to babies under one year old."}
+  ]
+}
