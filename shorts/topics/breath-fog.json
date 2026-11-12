@@ -1,0 +1,17 @@
+{
+  "id": "breath-fog",
+  "title": "Why Can You See Your Breath in Winter?",
+  "short_title": "Why Your Breath Looks Like Smoke in Winter",
+  "category": "winter, weather",
+  "keywords": ["winter", "cold", "breath", "fog", "smoke", "weather", "cold wave", "steam", "morning", "december", "snow"],
+  "description": "On a cold morning your breath looks like smoke, but it is not smoke at all. Here is the simple science of water vapor turning into tiny droplets.",
+  "tags": ["why can you see your breath", "winter science", "condensation", "cold weather science", "science explained", "everyday science"],
+  "comment": "Did you try blowing 'smoke' this winter? Tell me below!",
+  "scenes": [
+    {"mood": "think", "text": "On a cold morning, your breath looks like smoke. But you are not on fire. So what are you actually seeing?"},
+    {"mood": "happy", "text": "Inside your lungs, the air is warm and full of invisible water vapor. Every breath carries it out."},
+    {"mood": "shock", "text": "Outside, cold air cannot hold much vapor. The vapor cools down fast and squeezes together into tiny floating droplets of water."},
+    {"mood": "think", "text": "Those droplets are so tiny they hang in the air, and they bounce light, so you see a little cloud."},
+    {"mood": "happy", "text": "On a warm day, the vapor stays invisible. Same breath, different temperature. A cloud, made by you!"}
+  ]
+}

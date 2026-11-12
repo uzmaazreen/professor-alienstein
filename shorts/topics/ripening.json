@@ -1,0 +1,17 @@
+{
+  "id": "ripening",
+  "title": "Why Do Bananas Ripen Faster Next to Apples?",
+  "short_title": "Why Fruit Rots Faster Next to Apples (A Hidden Gas!)",
+  "category": "food preservation",
+  "keywords": ["banana", "apple", "fruit", "ripen", "rot", "fruit bowl", "kitchen", "food waste", "preserve", "fresh", "store fruit"],
+  "description": "Fruit gives off an invisible gas called ethylene that tells nearby fruit to ripen. Here is the simple science, and how to make your fruit last longer.",
+  "tags": ["why bananas ripen faster", "ethylene gas", "how to store fruit", "food preservation", "keep fruit fresh", "science explained", "everyday science"],
+  "comment": "Where do you keep your bananas? Tell me below!",
+  "scenes": [
+    {"mood": "shock", "text": "Why do bananas turn brown so fast when they sit next to apples? The fruits are talking to each other."},
+    {"mood": "happy", "text": "Many fruits give off an invisible gas called ethylene. It is a ripening signal."},
+    {"mood": "shock", "text": "Apples make a lot of it. When the gas reaches a banana, the banana switches on its ripening program, and it softens, sweetens, and turns yellow, then brown."},
+    {"mood": "think", "text": "A closed bag traps the gas, so fruit ripens even faster. That is great for a hard avocado, but bad for fruit you want to keep."},
+    {"mood": "happy", "text": "To make fruit last, keep apples away from other fruit, and let the air move."}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "cold-battery",
+  "title": "Why Does Your Phone Die in the Cold?",
+  "short_title": "Why Your Phone Dies at 20% in the Cold",
+  "category": "winter, phones",
+  "keywords": ["phone", "battery", "cold", "winter", "charge", "power bank", "shutdown", "lithium", "gadget", "electronics", "cold wave"],
+  "description": "Your phone says 20% and then dies in the cold, then comes back to life when it warms up. Here is the simple science of what slows down inside a lithium battery.",
+  "tags": ["why phone battery dies in cold", "winter battery drain", "lithium ion battery", "battery science", "science explained", "everyday science"],
+  "comment": "Has your phone ever died on you in the cold? Tell me your story!",
+  "scenes": [
+    {"mood": "shock", "text": "Why does your phone say twenty percent, then suddenly die the moment you step out into the cold?"},
+    {"mood": "happy", "text": "Inside your battery, tiny charged particles called ions swim from one side to the other. Their journey makes the electricity."},
+    {"mood": "shock", "text": "In the cold, the liquid inside gets thick and sluggish, like syrup. The ions move slowly, so the battery cannot deliver power fast enough."},
+    {"mood": "think", "text": "The phone sees the power drop and shuts down, even though energy is still stored inside."},
+    {"mood": "happy", "text": "Warm it up and the ions speed back up. So keep your phone in an inside pocket, close to your body."}
+  ]
+}

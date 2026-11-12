@@ -1,0 +1,17 @@
+{
+  "id": "onion",
+  "title": "Why Do Onions Make You Cry?",
+  "short_title": "Why Do Onions Make You Cry? (And How to Stop It)",
+  "category": "kitchen, everyday",
+  "keywords": ["onion", "cry", "tears", "kitchen", "cooking", "cutting", "eyes", "food", "chef", "recipe"],
+  "description": "Cutting an onion makes you cry because of a gas the onion makes when its cells break. Here is the simple science, and two tricks that really help.",
+  "tags": ["why do onions make you cry", "onion tears", "kitchen science", "cooking tips", "science explained", "everyday science"],
+  "comment": "What is your best trick to stop crying while cutting onions?",
+  "scenes": [
+    {"mood": "shock", "text": "Why does cutting an onion make you cry, when you are not even sad?"},
+    {"mood": "happy", "text": "Inside an onion, two things are kept apart in separate compartments: a sulfur-rich chemical and a special enzyme."},
+    {"mood": "shock", "text": "When your knife cuts the cells, they burst, and the two mix. Together they make a gas that floats up toward your face."},
+    {"mood": "think", "text": "The gas touches the water on your eyes and turns into a mild acid that stings. Your eyes panic and make tears to wash it away."},
+    {"mood": "happy", "text": "Two tricks help: chill the onion first, and use a really sharp knife, so fewer cells get crushed."}
+  ]
+}
