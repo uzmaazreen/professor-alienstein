@@ -1,0 +1,121 @@
+{
+ "id": "sleep",
+ "title": "What Happens to Your Body While You Sleep? (Sleep Explained Simply)",
+ "short_title": "What happens when you sleep?",
+ "category": "trending, health",
+ "keywords": [
+  "sleep",
+  "neend",
+  "dreams",
+  "rem sleep",
+  "melatonin",
+  "insomnia",
+  "sleep cycle",
+  "caffeine",
+  "blue light",
+  "brain"
+ ],
+ "description": "What really happens in your brain and body while you sleep? Learn about sleep stages, deep sleep, REM and dreams, why the brain washes itself at night, how memories are saved, why screens and caffeine ruin sleep, and simple habits for better sleep. General information, not medical advice.",
+ "tags": [
+  "what happens when you sleep",
+  "sleep stages explained",
+  "rem sleep",
+  "deep sleep",
+  "why do we dream",
+  "melatonin",
+  "how to sleep better",
+  "sleep science",
+  "brain cleaning during sleep",
+  "science explained"
+ ],
+ "comment": "What time do you usually sleep? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "You close your eyes, and a few minutes later you are gone. Hours pass, and you remember almost nothing. Yet something very busy is happening inside you. Why do we have to sleep at all? What does the body do all night? And why is it so hard to sleep when you need it most?"
+  },
+  {
+   "mood": "happy",
+   "text": "Sleep is not switching off. It is a night shift. While you lie still, your brain is cleaning itself, storing memories and fixing mistakes, and your body is repairing muscles, growing, and training your immune system. Skip the night shift, and the work piles up."
+  },
+  {
+   "mood": "think",
+   "text": "First question: how does your body know when it is night? You have an internal body clock, a tiny region in the brain that follows daylight. When the sun goes down, it tells another gland to release melatonin, the hormone that says: it is time to get sleepy."
+  },
+  {
+   "mood": "happy",
+   "text": "There is a second force too. From the moment you wake up, a chemical called adenosine slowly builds up in your brain. The longer you stay awake, the more of it you have. This is called sleep pressure, and it is why you feel heavier and sleepier by the evening."
+  },
+  {
+   "mood": "shock",
+   "text": "When you fall asleep, you do not just go down and come back up. You move through stages. First light sleep, then a deeper stage, then very deep sleep, and later a strange stage called REM. This pattern is drawn as a graph called a hypnogram."
+  },
+  {
+   "mood": "think",
+   "text": "Deep sleep is the repair stage. Your brain makes big, slow waves, your heart rate and breathing slow down, and it is very hard to wake you. This is when your body releases growth hormone, mends tissue, and recovers from the day."
+  },
+  {
+   "mood": "shock",
+   "text": "Then comes REM sleep, named for rapid eye movement. Your eyes dart under your eyelids, your brain becomes as active as when you are awake, and this is when most vivid dreams happen. Your body is temporarily paralysed, so you do not act out your dreams."
+  },
+  {
+   "mood": "think",
+   "text": "Why do we dream? Scientists are still studying it. One idea is that dreams help process emotions and sort memories. Another says the brain is making stories out of random signals. Most dreams fade within minutes of waking, which is why you forget them so fast."
+  },
+  {
+   "mood": "happy",
+   "text": "One full trip through these stages takes about ninety minutes, and you repeat it four to six times a night. Early cycles have more deep sleep. Later cycles have more REM. That is why cutting your sleep short steals a lot of the dream and memory time."
+  },
+  {
+   "mood": "shock",
+   "text": "Here is something amazing. In deep sleep, the space around your brain cells opens up, and fluid flushes through the brain, washing out waste that built up during the day, including proteins linked to brain diseases. Your brain literally takes a bath every night."
+  },
+  {
+   "mood": "think",
+   "text": "Sleep also saves your memories. Whatever you studied today is stored temporarily in a small area called the hippocampus. During sleep, your brain replays these memories and moves the important ones to long term storage. That is why sleeping after studying works better than an all nighter."
+  },
+  {
+   "mood": "happy",
+   "text": "Now, why is sleep so hard sometimes? Reason one: screens. Your phone gives out a lot of blue light, which tells your body clock that it is still daytime. Your brain releases less melatonin, and you feel awake. Late night scrolling pushes your sleep later and later."
+  },
+  {
+   "mood": "shock",
+   "text": "Reason two: caffeine. Remember adenosine, the sleep pressure chemical? Caffeine looks similar to it and sits in its place on your brain cells. The sleepy signal cannot get through. But adenosine is still building up behind the scenes, which is why you crash when the caffeine wears off."
+  },
+  {
+   "mood": "think",
+   "text": "Reason three: your room. Your body temperature naturally drops at night, and a cool, dark, quiet room helps that drop. A hot or bright room tells your brain to stay alert. Most people sleep best at a comfortable cool temperature, with the curtains closed."
+  },
+  {
+   "mood": "happy",
+   "text": "So how do you sleep better? Go to bed and wake up at about the same time every day. Get bright light in the morning. Stop caffeine by the afternoon. Keep screens away for the last hour. And save your bed for sleeping, not for scrolling."
+  },
+  {
+   "mood": "think",
+   "text": "What about naps? A short nap of about twenty minutes can refresh you, because you wake before deep sleep. A longer nap can leave you groggy, because you wake up in the middle of deep sleep. And a late evening nap can make the night harder."
+  },
+  {
+   "mood": "happy",
+   "text": "Ever woken up feeling terrible, even after many hours? If your alarm rings during deep sleep, your brain is still in sleep mode, which causes sleep inertia, a heavy foggy feeling that can last for many minutes. Waking at the end of a cycle, and getting light quickly, helps you feel sharper."
+  },
+  {
+   "mood": "shock",
+   "text": "What happens if you do not sleep enough? Your focus drops, your mood gets worse, your immune system weakens, and your memory suffers. Over many years, poor sleep is linked with bigger health risks. Sleep is not a luxury. It is a basic need, like food and water."
+  },
+  {
+   "mood": "think",
+   "text": "Let's bust a few myths. Everyone needs exactly eight hours: no, most adults need seven to nine, and it varies. You can fully catch up on the weekend: only partly. Alcohol helps you sleep: it may make you drowsy, but it breaks up your sleep and reduces REM."
+  },
+  {
+   "mood": "laugh",
+   "text": "So sleep is a busy night shift: cleaning, repairing and saving memories. Respect it, protect it, and your days will feel better. If you have trouble sleeping for weeks, speak to a doctor. This video is general information, not medical advice. Subscribe, and tell me what to explain next."
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "line1": "WHAT YOUR",
+  "line2": "BODY DOES",
+  "line3": "AT NIGHT"
+ }
+}
