@@ -2,7 +2,7 @@ name: Long Video
 
 on:
   schedule:
-    - cron: "30 3 * * 6"       # every Saturday 09:00 India time
+    - cron: "30 3 * * *"       # every day 09:00 India time (makes one only if a new topic is ready)
   workflow_dispatch:
     inputs:
       topic:
