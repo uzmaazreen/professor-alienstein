@@ -1,0 +1,121 @@
+{
+ "id": "ai-chatbot",
+ "title": "How Does ChatGPT Actually Work? AI Chatbots Explained Simply",
+ "short_title": "How AI chatbots work",
+ "category": "trending, technology",
+ "keywords": [
+  "chatgpt",
+  "ai chatbot",
+  "gemini",
+  "how ai works",
+  "neural network",
+  "llm",
+  "tokens",
+  "hallucination",
+  "prompt",
+  "artificial intelligence"
+ ],
+ "description": "How do AI chatbots like ChatGPT and Gemini actually work? In simple words: next word prediction, tokens, neural networks, billions of parameters, attention, training, human feedback, why chatbots sometimes make things up, and how to use them safely.",
+ "tags": [
+  "how chatgpt works",
+  "ai explained",
+  "how ai chatbots work",
+  "large language model",
+  "neural network explained",
+  "ai hallucination",
+  "prompt tips",
+  "gemini",
+  "artificial intelligence for beginners",
+  "science explained"
+ ],
+ "comment": "What do you use AI chatbots for? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "You type a question, and in two seconds a chatbot writes a clear answer, as if a person was thinking on the other side. It can write poems, fix code and explain science. So how does it actually work? Is it alive? Is it searching a giant library? Today we open it up and look inside."
+  },
+  {
+   "mood": "happy",
+   "text": "Let's start with something you already use: your phone keyboard. When you type the word good, it suggests morning, night or luck. It has seen how people write, so it guesses what comes next. A chatbot does the same job, just millions of times smarter."
+  },
+  {
+   "mood": "shock",
+   "text": "Here is the core idea. A chatbot is a next word predictor. Given the text so far, it gives every possible next word a probability. After the sky is, blue gets a very high score, clear a small one, and banana almost zero. Then it picks one and repeats."
+  },
+  {
+   "mood": "think",
+   "text": "But how does it know those probabilities? It learns by reading. During training, it is shown an enormous amount of text: books, articles, websites and code. Not to memorise them, but to learn the patterns of how words follow each other."
+  },
+  {
+   "mood": "happy",
+   "text": "First, text is cut into small pieces called tokens. A token can be a whole word, a part of a word, or a punctuation mark. Each token gets a number, because computers only work with numbers. So learning science is fun becomes a short list of numbers."
+  },
+  {
+   "mood": "think",
+   "text": "Then each token becomes a long list of numbers that works like a position on a giant map of meaning. Words with similar meaning land close together. Cat is near dog, apple is near mango, and Delhi is near Paris, because they appear in similar sentences."
+  },
+  {
+   "mood": "happy",
+   "text": "These numbers flow through a neural network. Imagine many layers of tiny switches, called neurons. Each neuron receives signals, mixes them, and passes a signal forward. Layer after layer, the information gets transformed, until the network produces probabilities for the next token."
+  },
+  {
+   "mood": "shock",
+   "text": "How does it decide how to mix the signals? Using dials. Every connection has a number, called a parameter, that works like a tiny dial. Large chatbots have billions of these dials. Setting them correctly is what training is all about."
+  },
+  {
+   "mood": "think",
+   "text": "Training is a simple loop repeated billions of times. One: hide the next word and let the model guess. Two: compare the guess with the real word. Three: nudge all the dials slightly so the guess would have been better. Guess, check, nudge. Guess, check, nudge."
+  },
+  {
+   "mood": "happy",
+   "text": "One big breakthrough is attention. In the sentence, the animal did not cross the street because it was tired, what does it mean? The animal. Attention lets the model look back at all the words and decide which ones matter most for understanding each word."
+  },
+  {
+   "mood": "think",
+   "text": "When you ask a question, the chatbot writes its answer one token at a time. It predicts the next token, adds it to the text, and then predicts the next one using everything written so far. That is why you see the answer appear in small pieces."
+  },
+  {
+   "mood": "happy",
+   "text": "It does not always pick the top word. A setting called temperature controls how adventurous it is. At low temperature, it plays safe and gives similar answers. At high temperature, it takes risks, which makes it more creative, and also more likely to go off track."
+  },
+  {
+   "mood": "shock",
+   "text": "Now the most important warning. The model is trained to produce text that sounds right, not text that is checked. So sometimes it confidently invents things: a fake book, a wrong date, a made up quote. This is called a hallucination. Fluent does not mean true."
+  },
+  {
+   "mood": "think",
+   "text": "It also has limits. It can only look at a certain amount of text at once, called its context window, so very long chats can make it forget the early parts. And in most cases it does not remember your earlier chats, and it knows only what it was trained on, unless it is connected to search."
+  },
+  {
+   "mood": "happy",
+   "text": "After the first training, chatbots get another round of lessons. People compare two answers and mark which is better, more helpful and safer. The model is nudged towards the answers people prefer. That is why chatbots sound polite and try to follow your instructions."
+  },
+  {
+   "mood": "think",
+   "text": "And where does all this happen? Not inside your phone. Your question travels to a data centre, a building full of powerful computer chips called GPUs. Training a big model takes thousands of them running for weeks, using a lot of electricity and cooling."
+  },
+  {
+   "mood": "happy",
+   "text": "So how should you use it well? Be specific about what you want. Give context, like your class or your goal. Ask it to explain step by step. And most importantly, check important facts from a trusted source, especially numbers, names and dates."
+  },
+  {
+   "mood": "think",
+   "text": "And what should you avoid? Do not share passwords, bank details, OTPs or private photos. Do not blindly trust it for medical, legal or money decisions; use it to understand, then check with a real expert. And do not use it to copy your homework; you will learn nothing."
+  },
+  {
+   "mood": "shock",
+   "text": "Let's bust some myths. It is not alive and has no feelings. It is not copy pasting answers from a giant database; it generates new text from patterns. And it is not always right. It is a very powerful tool, and tools work best in careful hands."
+  },
+  {
+   "mood": "laugh",
+   "text": "So a chatbot is a next token predictor, trained by guessing and nudging billions of dials on huge amounts of text, and polished by human feedback. Now you know what is happening every time it types. If you enjoyed this, subscribe, and tell me what to explain next."
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "line1": "HOW DOES",
+  "line2": "AI REALLY",
+  "line3": "THINK?"
+ }
+}
