@@ -1,0 +1,17 @@
+{
+  "id": "freezing-food",
+  "title": "How Does Freezing Keep Food From Rotting?",
+  "short_title": "How Does the Freezer Stop Food From Rotting?",
+  "category": "food preservation",
+  "keywords": ["freezer", "frozen", "food", "preserve", "rot", "meal prep", "leftovers", "frozen food", "bacteria", "food waste", "winter"],
+  "description": "Food in the freezer can last for months. Here is the simple science of how cold puts germs to sleep, why they wake up again after thawing, and how to freeze food safely.",
+  "tags": ["how freezing preserves food", "freezer science", "food preservation", "keep food fresh", "science explained", "everyday science"],
+  "comment": "What is the oldest thing in your freezer? 😄",
+  "scenes": [
+    {"mood": "think", "text": "Why does food stay fresh for months in the freezer, when the same food rots in days on the counter?"},
+    {"mood": "happy", "text": "Food rots because germs eat it and multiply. Germs are tiny living things, and they need warmth and liquid water to do that."},
+    {"mood": "shock", "text": "At minus eighteen degrees, water turns to ice. Germs cannot drink it, and their bodies slow almost to a stop. They are not dead, just asleep."},
+    {"mood": "think", "text": "When you thaw the food, they wake up and start eating again. So thaw it in the fridge, and never refreeze food that sat out warm."},
+    {"mood": "happy", "text": "Cold does not kill germs, it pauses them. Pause button: freezer."}
+  ]
+}

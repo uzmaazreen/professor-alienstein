@@ -1,0 +1,17 @@
+{
+  "id": "thermos",
+  "title": "How Does a Thermos Keep Tea Hot?",
+  "short_title": "How Does a Flask Keep Tea Hot for 12 Hours?",
+  "category": "winter, everyday",
+  "keywords": ["thermos", "flask", "tea", "coffee", "hot", "winter", "heat", "insulation", "bottle", "vacuum", "cold wave"],
+  "description": "A thermos can keep tea hot for hours and cold drinks cold. Here is the simple science of the vacuum layer and the shiny walls that block heat.",
+  "tags": ["how does a thermos work", "vacuum flask", "heat transfer", "winter science", "science explained", "everyday science"],
+  "comment": "How long does your flask keep tea hot? Tell me below!",
+  "scenes": [
+    {"mood": "think", "text": "How can a plain steel bottle keep your tea hot for hours, even on a freezing day?"},
+    {"mood": "happy", "text": "Heat escapes in three ways: by touching, by moving air, and by shining out as invisible rays. A thermos blocks all three."},
+    {"mood": "shock", "text": "It has two walls with almost no air between them. A vacuum. With no air, heat has nothing to touch and nothing to carry it."},
+    {"mood": "think", "text": "The walls are shiny like a mirror, so the heat rays bounce back into the tea. And the lid traps the rising steam."},
+    {"mood": "happy", "text": "It works both ways. A cold drink stays cold, because heat from outside cannot sneak in."}
+  ]
+}
