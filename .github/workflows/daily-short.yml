@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   make-short:
@@ -53,6 +54,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r pipeline/requirements.txt -r shorts/requirements.txt
           python -m playwright install --with-deps chromium
+
+      - name: 0. Warn me if topics are running low
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python shorts/check_library.py
 
       - name: 1. Pick today's topic
         id: pick
