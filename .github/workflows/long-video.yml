@@ -1,0 +1,84 @@
+name: Long Video
+
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Long topic id. Example: smog"
+        default: "smog"
+      upload:
+        description: "Upload to YouTube? yes or no"
+        default: "no"
+
+permissions:
+  contents: write
+
+jobs:
+  make-long:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      PRIVACY: ${{ vars.PRIVACY || 'private' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get private voice sample
+        uses: actions/checkout@v4
+        with:
+          repository: uzmaazreen/alienstein-private
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          path: private
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install system libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libsndfile1
+
+      - name: Remember the voice model between runs
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-chatterbox-v1
+
+      - name: Install Python packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r pipeline/requirements.txt -r shorts/requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: 1. Title and description
+        run: python long/prepare_long.py "${{ github.event.inputs.topic }}"
+
+      - name: 2. Voice in your own cloned voice (this takes the longest)
+        run: |
+          cp private/my_voice.mp3 my_voice.mp3
+          python long/speak_long.py "${{ github.event.inputs.topic }}"
+
+      - name: 3. Draw the animation and make the video
+        run: python long/render_long.py "${{ github.event.inputs.topic }}" --workers 4
+
+      - name: 4. Upload to YouTube (only if you said yes)
+        if: github.event.inputs.upload == 'yes'
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: |
+          mkdir -p work
+          cp long/work/meta.json long/work/description.txt work/
+          python pipeline/upload_youtube.py long/out/long.mp4 ""
+
+      - name: Save the result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: long-video
+          retention-days: 7
+          path: |
+            long/out/long.mp4
+            long/work/meta.json
+            long/work/description.txt
