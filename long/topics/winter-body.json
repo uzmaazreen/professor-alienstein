@@ -46,6 +46,10 @@
    "text": "First trick: blood vessels near your skin become narrow. Less warm blood reaches your hands, feet and nose, so they lose heat slowly. That is why they turn cold, pale or even blue. Your body is sacrificing the edges to protect the middle."
   },
   {
+   "mood": "think",
+   "text": "Ever noticed that cold fingers hurt when they warm up? As warm blood rushes back into the narrowed vessels, your nerves wake up all at once and fire together. You feel burning and pins and needles. It is uncomfortable, but it is a sign that blood flow is returning."
+  },
+  {
    "mood": "happy",
    "text": "Second trick: goosebumps. Each tiny hair has a tiny muscle. In the cold, it pulls the hair upright. Furry animals trap a warm layer of air this way. Humans lost most of their fur, so we just get bumps, a leftover from our past."
   },
@@ -56,6 +60,10 @@
   {
    "mood": "think",
    "text": "There is also a quiet heater inside you: brown fat. Normal fat stores energy. Brown fat burns it directly to make heat. Babies have lots of it, and adults keep a little near the neck and shoulders. Cold exposure can wake it up."
+  },
+  {
+   "mood": "happy",
+   "text": "Here is a funny one: why do you need the toilet more in winter? When blood vessels narrow, more blood stays in your core. Your kidneys notice the extra blood, filter more of it, and make more urine. Scientists call this cold diuresis. You also drink less in winter, so staying hydrated matters."
   },
   {
    "mood": "think",
@@ -71,6 +79,10 @@
   },
   {
    "mood": "think",
+   "text": "Winter also makes you sleepy and a little low. Short days mean less sunlight reaching your eyes. Your brain makes more melatonin, the sleep hormone, and less serotonin, a mood chemical. That is why getting out of bed feels harder, and why a little morning sunlight helps so much."
+  },
+  {
+   "mood": "think",
    "text": "Now the sore joints. Doctors are still studying this, but one idea is that when air pressure drops before cold weather, the tissues around joints swell slightly and press on nerves. Cold also makes muscles stiffer and thicker joint fluid moves less smoothly."
   },
   {
@@ -80,6 +92,10 @@
   {
    "mood": "think",
    "text": "And the dry, cracked lips and skin? Winter air holds very little water, so it pulls moisture out of your skin. The skin's protective oily layer cracks. Hot showers make it worse because they wash away the natural oils."
+  },
+  {
+   "mood": "shock",
+   "text": "If the cold goes too far, body parts can freeze. In frostbite, skin and tissue lose blood flow for so long that ice crystals form and damage the cells. Fingers, toes, ears and nose suffer first. Warm the area gently, never rub it, and see a doctor."
   },
   {
    "mood": "happy",
