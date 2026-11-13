@@ -126,5 +126,12 @@
    "mood": "laugh",
    "text": "So next time you see that grey sky, you will know the story: burning stubble, traffic, factories, an invisible lid, and a city shaped like a bowl. Understanding it is the first step to fixing it. If this helped you, subscribe, and tell me which topic you want next."
   }
- ]
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2.2,
+  "line1": "DELHI",
+  "line2": "CAN'T",
+  "line3": "BREATHE?"
+ }
 }

@@ -8,7 +8,10 @@ on:
         default: "smog"
       upload:
         description: "Upload to YouTube? yes or no"
-        default: "no"
+        default: "yes"
+      reuse_run_id:
+        description: "Already made the video? Paste the number from that run's web address (…/actions/runs/NUMBER) to only add thumbnail + upload. Leave empty to make a new video."
+        default: ""
 
 permissions:
   contents: write
@@ -54,12 +57,34 @@ jobs:
         run: python long/prepare_long.py "${{ github.event.inputs.topic }}"
 
       - name: 2. Voice in your own cloned voice (this takes the longest)
+        if: github.event.inputs.reuse_run_id == ''
         run: |
           cp private/my_voice.mp3 my_voice.mp3
           python long/speak_long.py "${{ github.event.inputs.topic }}"
 
       - name: 3. Draw the animation and make the video
+        if: github.event.inputs.reuse_run_id == ''
         run: python long/render_long.py "${{ github.event.inputs.topic }}" --workers 4
+
+      - name: 3b. Take the finished video from the earlier run
+        if: github.event.inputs.reuse_run_id != ''
+        uses: actions/download-artifact@v4
+        with:
+          name: long-video
+          run-id: ${{ github.event.inputs.reuse_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: earlier
+
+      - name: 3c. Put the earlier video in place
+        if: github.event.inputs.reuse_run_id != ''
+        run: |
+          mkdir -p long/out
+          cp "$(find earlier -name long.mp4 | head -1)" long/out/long.mp4
+
+      - name: 3d. Thumbnail
+        run: |
+          python long/speak_long.py "${{ github.event.inputs.topic }}" --fake
+          python long/make_thumb.py "${{ github.event.inputs.topic }}"
 
       - name: 4. Upload to YouTube (only if you said yes)
         if: github.event.inputs.upload == 'yes'
@@ -70,7 +95,7 @@ jobs:
         run: |
           mkdir -p work
           cp long/work/meta.json long/work/description.txt work/
-          python pipeline/upload_youtube.py long/out/long.mp4 ""
+          python pipeline/upload_youtube.py long/out/long.mp4 long/out/thumb.jpg
 
       - name: Save the result
         if: always()
@@ -80,5 +105,6 @@ jobs:
           retention-days: 7
           path: |
             long/out/long.mp4
+            long/out/thumb.jpg
             long/work/meta.json
             long/work/description.txt
