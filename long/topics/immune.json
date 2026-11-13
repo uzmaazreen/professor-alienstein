@@ -1,0 +1,123 @@
+{
+ "id": "immune",
+ "title": "How Your Immune System Fights Germs (Explained Simply)",
+ "short_title": "How your immune system works",
+ "category": "trending, health",
+ "keywords": [
+  "immune system",
+  "antibodies",
+  "vaccine",
+  "fever",
+  "cold and flu",
+  "white blood cells",
+  "allergy",
+  "gut health"
+ ],
+ "description": "How does your immune system protect you? Learn how skin and mucus block germs, how white blood cells and antibodies fight, why you get a fever, how vaccines train your body, why colds and flu return, what allergies are, and what really helps your immunity. General information, not medical advice.",
+ "tags": [
+  "how immune system works",
+  "immune system explained",
+  "antibodies",
+  "how vaccines work",
+  "why do we get fever",
+  "white blood cells",
+  "cold vs flu",
+  "allergy explained",
+  "boost immunity",
+  "science explained"
+ ],
+ "comment": "Which germ-fighting fact surprised you most? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Every second, bacteria and viruses land on your skin, float into your nose and ride in on your food. Yet most days, you never get sick. Something is fighting a silent war for you, right now. How does your immune system know friend from enemy, and how does it win?"
+  },
+  {
+   "mood": "happy",
+   "text": "Think of your body as a castle. The first defence is the walls: skin that germs cannot easily cross, mucus in your nose that traps dust and microbes, tears and saliva with germ-killing enzymes, and strong stomach acid that destroys much of what you swallow. Most invaders stop here."
+  },
+  {
+   "mood": "think",
+   "text": "Sometimes a germ gets through, maybe through a cut. Now the fast defence wakes up, called innate immunity. Nearby cells release alarm chemicals. Blood vessels widen and become leaky, so more defenders can rush in. That is why a wound gets red, warm, swollen and sore. It is not damage only. It is a battle."
+  },
+  {
+   "mood": "happy",
+   "text": "The first soldiers are white blood cells called neutrophils and macrophages. A macrophage means big eater. It wraps around a germ, swallows it, and breaks it down inside a tiny bag filled with acid. Then it shows a small piece of the germ outside, like a wanted poster, to call for backup."
+  },
+  {
+   "mood": "think",
+   "text": "Next comes fever. When the alarm chemicals reach your brain, it raises your body's thermostat by a degree or two. Many germs grow slowly when it is hotter, and your defenders work faster. So a mild fever is often a tool, not the enemy. Very high fever, or fever in a baby, still needs a doctor."
+  },
+  {
+   "mood": "happy",
+   "text": "The slower, smarter defence is called adaptive immunity. It has special forces. T cells and B cells. They are trained to recognise one exact enemy. Out of billions of possible cells, only a few match the poster that the macrophage is showing. Those few get the order: copy yourself, fast."
+  },
+  {
+   "mood": "think",
+   "text": "B cells make antibodies, tiny Y shaped proteins. Each antibody fits one germ like a key fits a lock. They stick to the germ, block it from entering your cells, and tag it so other cells can destroy it. One B cell can release thousands of antibodies every second. Meanwhile, killer T cells find your own cells that are already infected, and destroy them."
+  },
+  {
+   "mood": "happy",
+   "text": "Here is the best part: memory. After the fight, some B and T cells stay behind as memory cells, sometimes for years. If the same germ returns, they react in hours, not days, and you may never feel sick. This is why you usually get chickenpox only once."
+  },
+  {
+   "mood": "think",
+   "text": "Vaccines use this exact trick. They show your body a harmless piece or a weakened version of a germ, never the full dangerous one. Your body practises the fight, makes memory cells, and keeps them ready. Then the real germ arrives, and the army is already trained. Practice, without the sickness."
+  },
+  {
+   "mood": "happy",
+   "text": "Now the common cold. A cold virus enters the cells lining your nose and starts making copies. Your immune system fights back, and that fight causes the symptoms: extra mucus, sneezing, a sore throat. Mucus is washing the viruses out. So much of what a cold feels like is your defence at work."
+  },
+  {
+   "mood": "think",
+   "text": "Why are colds so common, and why does the flu return every year? Because there are hundreds of cold viruses, and flu viruses change their shape slightly each season. Your memory cells recognise the old poster, but the virus has changed its face. That is why flu vaccines are updated every year."
+  },
+  {
+   "mood": "happy",
+   "text": "Sometimes the system makes a mistake. In an allergy, your body treats something harmless, like pollen or peanut, as a dangerous enemy and overreacts. Histamine floods out, causing sneezing, itching and swelling. Severe allergies can be dangerous, so anyone with a serious reaction needs medical help and a plan."
+  },
+  {
+   "mood": "think",
+   "text": "An even bigger mistake is autoimmune disease. Here the army attacks your own healthy cells, because it can no longer tell friend from enemy. Type one diabetes is one example. Doctors are still learning why it happens, and there are treatments that calm the attack. It shows how careful the system must be."
+  },
+  {
+   "mood": "happy",
+   "text": "A large part of your immune system lives in your gut. Trillions of friendly bacteria live there, and they train your defenders, crowd out harmful germs, and help tell friend from foe. Fibre rich food, like vegetables, beans, fruit and yogurt, helps these helpers grow."
+  },
+  {
+   "mood": "think",
+   "text": "Now what actually helps? Sleep first. During deep sleep, immune cells are produced and organised, and people who sleep too little get sick more easily. Regular movement, even a daily walk, helps immune cells travel around the body. And washing hands is still one of the cheapest and best defences ever found."
+  },
+  {
+   "mood": "happy",
+   "text": "Stress matters too. Short stress is fine, but long, constant stress raises a hormone called cortisol, which can weaken your defences. So rest, talking to people, and time outside are not just nice. They are part of keeping your army ready."
+  },
+  {
+   "mood": "think",
+   "text": "What about antibiotics? They kill bacteria, but they do nothing against viruses. So they do not help with a cold or flu. Using them when not needed helps bacteria become resistant, and then the medicine stops working. Take antibiotics only when a doctor prescribes them, and finish the course as told."
+  },
+  {
+   "mood": "happy",
+   "text": "Is being too clean bad? Not exactly. Children do need normal contact with soil, animals and many germs, because it trains the immune system. But cleaning your hands, especially before eating and after the toilet, is still smart. Be normal, not extreme."
+  },
+  {
+   "mood": "think",
+   "text": "Let us clear some myths. Cold weather itself does not cause a cold, viruses do, though we spend more time close together indoors. You cannot boost your immune system overnight with one juice or one pill. A balanced system is the goal, not a stronger one, because an overreacting army also causes harm."
+  },
+  {
+   "mood": "think",
+   "text": "And please do not believe magic cures. No single food prevents illness. Vitamin C helps only a little for some people, and vitamin D matters if you are low. If you have weeks of tiredness, repeated infections, or a high fever, see a doctor. This video is for general information, not medical advice."
+  },
+  {
+   "mood": "laugh",
+   "text": "So your immune system is a castle with walls, fast guards, trained special forces and a long memory. Sleep well, eat real food, move daily, wash your hands, and get your vaccines. Your army will do the rest. Subscribe, and tell me what to explain next."
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "line1": "HOW YOUR",
+  "line2": "BODY FIGHTS",
+  "line3": "GERMS"
+ }
+}
