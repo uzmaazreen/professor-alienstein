@@ -1,8 +1,9 @@
 name: Daily video
 
 on:
-  schedule:
-    - cron: "30 2 * * *"
+  # Old daily long video is switched OFF (schedule disabled). Run by hand only.
+#  schedule:
+#    - cron: "30 2 * * *"
   workflow_dispatch:
     inputs:
       minutes:
