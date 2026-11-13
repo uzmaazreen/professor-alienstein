@@ -1,27 +1,46 @@
 name: Long Video
 
 on:
+  schedule:
+    - cron: "30 3 * * 6"       # every Saturday 09:00 India time
   workflow_dispatch:
     inputs:
       topic:
-        description: "Long topic id. Example: smog"
-        default: "smog"
+        description: "Long topic id (leave empty = next new topic). Example: smog"
+        default: ""
       upload:
         description: "Upload to YouTube? yes or no"
         default: "yes"
       reuse_run_id:
-        description: "Already made the video? Paste the number from that run's web address (…/actions/runs/NUMBER) to only add thumbnail + upload. Leave empty to make a new video."
+        description: "Already made the video? Paste the number from that run's web address to only add thumbnail + upload. Leave empty to make a new video."
         default: ""
 
 permissions:
   contents: write
 
 jobs:
+  pick:
+    runs-on: ubuntu-latest
+    outputs:
+      topic: ${{ steps.pick.outputs.topic_id }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Pick the next new long topic
+        id: pick
+        run: python long/pick_long_topic.py "${{ github.event.inputs.topic }}"
+
   make-long:
+    needs: pick
+    if: needs.pick.outputs.topic != ''
     runs-on: ubuntu-latest
     timeout-minutes: 350
     env:
       PRIVACY: ${{ vars.PRIVACY || 'private' }}
+      TOPIC: ${{ needs.pick.outputs.topic }}
+      DO_UPLOAD: ${{ github.event_name == 'schedule' || github.event.inputs.upload == 'yes' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -54,17 +73,17 @@ jobs:
           python -m playwright install --with-deps chromium
 
       - name: 1. Title and description
-        run: python long/prepare_long.py "${{ github.event.inputs.topic }}"
+        run: python long/prepare_long.py "$TOPIC"
 
       - name: 2. Voice in your own cloned voice (this takes the longest)
         if: github.event.inputs.reuse_run_id == ''
         run: |
           cp private/my_voice.mp3 my_voice.mp3
-          python long/speak_long.py "${{ github.event.inputs.topic }}"
+          python long/speak_long.py "$TOPIC"
 
       - name: 3. Draw the animation and make the video
         if: github.event.inputs.reuse_run_id == ''
-        run: python long/render_long.py "${{ github.event.inputs.topic }}" --workers 4
+        run: python long/render_long.py "$TOPIC" --workers 4
 
       - name: 3b. Take the finished video from the earlier run
         if: github.event.inputs.reuse_run_id != ''
@@ -83,11 +102,11 @@ jobs:
 
       - name: 3d. Thumbnail
         run: |
-          python long/speak_long.py "${{ github.event.inputs.topic }}" --fake
-          python long/make_thumb.py "${{ github.event.inputs.topic }}"
+          python long/speak_long.py "$TOPIC" --fake
+          python long/make_thumb.py "$TOPIC"
 
-      - name: 4. Upload to YouTube (only if you said yes)
-        if: github.event.inputs.upload == 'yes'
+      - name: 4. Upload to YouTube
+        if: env.DO_UPLOAD == 'true'
         env:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
@@ -96,6 +115,16 @@ jobs:
           mkdir -p work
           cp long/work/meta.json long/work/description.txt work/
           python pipeline/upload_youtube.py long/out/long.mp4 long/out/thumb.jpg
+
+      - name: 5. Remember this topic
+        if: env.DO_UPLOAD == 'true'
+        run: |
+          python long/finish_long.py "$TOPIC"
+          git config user.name "alienstein-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add long/state_long.json
+          git commit -m "Remember long topic" || echo "nothing to save"
+          git pull --rebase && git push
 
       - name: Save the result
         if: always()
