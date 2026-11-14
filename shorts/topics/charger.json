@@ -46,5 +46,6 @@
       "mood": "think",
       "text": "Near full, charging slows down to protect the battery."
     }
-  ]
+  ],
+  "priority": true
 }
