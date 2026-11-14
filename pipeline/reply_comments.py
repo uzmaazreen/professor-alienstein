@@ -38,17 +38,24 @@ def main():
     me = yt.channels().list(part="id", mine=True).execute()["items"][0]["id"]
     key = os.environ["GEMINI_API_KEY"]
     resp = yt.commentThreads().list(part="snippet", allThreadsRelatedToChannelId=me, order="time", maxResults=50, textFormat="plainText").execute()
-    todo = []
+    todo = []   # (parent thread comment id, video id, text, author name, is_reply)
     for th in resp.get("items", []):
-        sn = th["snippet"]; top = sn["topLevelComment"]["snippet"]
-        author_ch = (top.get("authorChannelId") or {}).get("value")
-        if author_ch == me or sn.get("totalReplyCount", 0) > 0:
-            continue
-        todo.append((th["snippet"]["topLevelComment"]["id"], sn.get("videoId", ""), top["textDisplay"]))
+        sn = th["snippet"]; topc = th["snippet"]["topLevelComment"]; top = topc["snippet"]
+        items = [(topc["id"], top)]
+        if sn.get("totalReplyCount", 0) > 0:
+            try:
+                rl = yt.comments().list(part="snippet", parentId=topc["id"], maxResults=100, textFormat="plainText").execute()
+                items += [(r["id"], r["snippet"]) for r in rl.get("items", [])]
+            except Exception as e:
+                print("could not read replies:", e); continue
+        last_id, last = items[-1]
+        if (last.get("authorChannelId") or {}).get("value") == me:
+            continue                      # we already answered (or wrote) the latest message
+        todo.append((topc["id"], sn.get("videoId", ""), last["textDisplay"], last.get("authorDisplayName", ""), last_id != topc["id"]))
     print(f"{len(todo)} comments waiting for a reply")
     titles = {}
     done = 0
-    for cid, vid, text in todo[:MAX_REPLIES]:
+    for cid, vid, text, who, is_reply in todo[:MAX_REPLIES]:
         if vid not in titles:
             try:
                 titles[vid] = yt.videos().list(part="snippet", id=vid).execute()["items"][0]["snippet"]["title"]
@@ -59,6 +66,8 @@ def main():
             reply = (json.loads(out).get("reply") or "").strip()
         except Exception as e:
             print("skip (gemini failed):", e); continue
+        if reply and is_reply and who and not reply.startswith("@"):
+            reply = (who if who.startswith("@") else "@" + who) + " " + reply
         if not reply or "http" in reply.lower():
             print("skipped:", text[:60].replace("\n", " ")); continue
         print("COMMENT:", text[:100].replace("\n", " "), "\n  REPLY:", reply)
