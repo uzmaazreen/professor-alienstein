@@ -1,0 +1,49 @@
+{
+  "id": "brain-freeze",
+  "title": "Why Does Ice Cream Give You Brain Freeze?",
+  "short_title": "Why Ice Cream Gives You Brain Freeze",
+  "category": "trending, body",
+  "keywords": [
+    "brain freeze",
+    "ice cream",
+    "headache",
+    "cold",
+    "blood vessels"
+  ],
+  "description": "Why does eating ice cream fast cause a painful brain freeze? Here is the simple science.",
+  "tags": [
+    "why brain freeze happens",
+    "ice cream headache",
+    "brain freeze science",
+    "science explained",
+    "body facts",
+    "everyday science"
+  ],
+  "comment": "Do you get brain freeze easily? 🍦",
+  "scenes": [
+    {
+      "mood": "think",
+      "text": "Why does eating ice cream fast give you a painful brain freeze?"
+    },
+    {
+      "mood": "happy",
+      "text": "Cold ice cream touches the roof of your mouth, where many blood vessels and nerves sit."
+    },
+    {
+      "mood": "shock",
+      "text": "The vessels suddenly shrink from the cold, and then open wide again when they warm up."
+    },
+    {
+      "mood": "shock",
+      "text": "Your brain reads that rush as pain, and it feels like it comes from your head."
+    },
+    {
+      "mood": "happy",
+      "text": "It fades in about thirty seconds. Press your tongue to the roof of your mouth to warm it faster."
+    },
+    {
+      "mood": "think",
+      "text": "Next time, eat ice cream slowly."
+    }
+  ]
+}

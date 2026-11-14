@@ -1,0 +1,49 @@
+{
+  "id": "hiccups",
+  "title": "Why Do We Get Hiccups?",
+  "short_title": "Why Do We Get Hiccups? (And How to Stop Them)",
+  "category": "trending, body",
+  "keywords": [
+    "hiccups",
+    "diaphragm",
+    "how to stop hiccups",
+    "voice box",
+    "body facts"
+  ],
+  "description": "Why do we get hiccups, and why do they stop on their own? Here is the simple science of the diaphragm.",
+  "tags": [
+    "why do we get hiccups",
+    "how to stop hiccups",
+    "diaphragm",
+    "science explained",
+    "body facts",
+    "everyday science"
+  ],
+  "comment": "What is your trick to stop hiccups? Tell me! 😄",
+  "scenes": [
+    {
+      "mood": "think",
+      "text": "Why do we get hiccups, and why do they stop on their own?"
+    },
+    {
+      "mood": "happy",
+      "text": "Under your lungs sits a big muscle called the diaphragm. It pulls down every time you breathe in."
+    },
+    {
+      "mood": "shock",
+      "text": "Sometimes it gets irritated, maybe from eating fast or fizzy drinks, and it jerks suddenly."
+    },
+    {
+      "mood": "shock",
+      "text": "Air rushes in, and your voice box snaps shut. That snap makes the hic sound."
+    },
+    {
+      "mood": "happy",
+      "text": "Slow breathing, holding your breath for a few seconds, or sipping water can help reset it."
+    },
+    {
+      "mood": "think",
+      "text": "Most hiccups stop within minutes. If they last for days, see a doctor."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "stomach-growl",
+  "title": "Why Does Your Stomach Growl?",
+  "short_title": "Why Your Stomach Growls (It's Not Only Hunger)",
+  "category": "trending, body",
+  "keywords": [
+    "stomach growl",
+    "hunger",
+    "gut",
+    "digestion",
+    "borborygmi"
+  ],
+  "description": "Why does your stomach growl, and is it only when you are hungry? Here is the simple science.",
+  "tags": [
+    "why does my stomach growl",
+    "stomach noises",
+    "hunger signal",
+    "digestion",
+    "science explained",
+    "body facts"
+  ],
+  "comment": "When does your stomach growl the most? 😅",
+  "scenes": [
+    {
+      "mood": "think",
+      "text": "Why does your stomach growl, and is it only when you are hungry?"
+    },
+    {
+      "mood": "happy",
+      "text": "Your stomach and gut are muscle tubes. They squeeze food forward in waves."
+    },
+    {
+      "mood": "shock",
+      "text": "When the tube is empty, the waves still keep going, and gas and liquid move around inside."
+    },
+    {
+      "mood": "shock",
+      "text": "In a hollow tube, that sound echoes loudly. The science name is borborygmi."
+    },
+    {
+      "mood": "happy",
+      "text": "So growling is normal. It is not a perfect hunger signal, because it also happens after meals."
+    },
+    {
+      "mood": "think",
+      "text": "Your stomach is just talking!"
+    }
+  ]
+}
