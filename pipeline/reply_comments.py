@@ -15,7 +15,7 @@ BUDGET = 600   # stop after 10 minutes, whatever happens
 
 def gem(prompt, key):
     """Quick Gemini call: 3 models, one short retry each, fail fast (no long waits)."""
-    body = {"contents": [{"role": "user", "parts": [{"text": prompt}]}], "generationConfig": {"temperature": 0.7, "maxOutputTokens": 400, "responseMimeType": "application/json"}}
+    body = {"contents": [{"role": "user", "parts": [{"text": prompt}]}], "generationConfig": {"temperature": 0.7, "maxOutputTokens": 4096, "responseMimeType": "application/json"}}
     last = ""
     for name in list_models(key)[:3]:
         for attempt in range(2):
