@@ -1,0 +1,31 @@
+name: Reply to comments
+
+on:
+  schedule:
+    - cron: "15 */4 * * *"      # every 4 hours
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "yes = only show the replies, do not post"
+        default: "no"
+
+permissions:
+  contents: read
+
+jobs:
+  reply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+      DRY_RUN: ${{ github.event.inputs.dry_run || 'no' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests google-api-python-client google-auth google-auth-httplib2
+      - run: python pipeline/reply_comments.py

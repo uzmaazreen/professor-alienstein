@@ -1,0 +1,50 @@
+{
+  "id": "charger",
+  "title": "How Does a Phone Charger Really Work?",
+  "short_title": "How a Phone Charger Really Works",
+  "category": "trending, tech",
+  "keywords": [
+    "phone charger",
+    "how chargers work",
+    "lithium ion",
+    "fast charging",
+    "AC DC",
+    "battery"
+  ],
+  "description": "How does a phone charger really work? Here is the simple science of AC to DC, lithium ions and fast charging.",
+  "tags": [
+    "how does a phone charger work",
+    "fast charging explained",
+    "lithium ion battery",
+    "AC to DC",
+    "science explained",
+    "everyday science"
+  ],
+  "comment": "What phone do you use? Does it charge fast? \ud83d\udd0c",
+  "scenes": [
+    {
+      "mood": "think",
+      "text": "How does your phone charger really work?"
+    },
+    {
+      "mood": "happy",
+      "text": "The wall gives strong alternating current, which changes direction many times a second. Your phone needs a gentle, steady, low voltage flow."
+    },
+    {
+      "mood": "shock",
+      "text": "Inside the charger, tiny parts lower the voltage and turn the current into a steady flow in one direction."
+    },
+    {
+      "mood": "shock",
+      "text": "In the battery, that flow pushes tiny charged particles called lithium ions from one layer to another. That is how energy gets stored."
+    },
+    {
+      "mood": "happy",
+      "text": "Fast chargers and phones talk to each other first, and agree on how much power is safe."
+    },
+    {
+      "mood": "think",
+      "text": "Near full, charging slows down to protect the battery."
+    }
+  ]
+}
