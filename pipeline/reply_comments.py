@@ -6,7 +6,33 @@ import json, os, sys, time
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
-from common import call_gemini
+import requests
+from common import list_models, API
+
+T0 = time.time()
+BUDGET = 600   # stop after 10 minutes, whatever happens
+
+
+def gem(prompt, key):
+    """Quick Gemini call: 3 models, one short retry each, fail fast (no long waits)."""
+    body = {"contents": [{"role": "user", "parts": [{"text": prompt}]}], "generationConfig": {"temperature": 0.7, "maxOutputTokens": 400, "responseMimeType": "application/json"}}
+    last = ""
+    for name in list_models(key)[:3]:
+        for attempt in range(2):
+            try:
+                r = requests.post(f"{API}/{name}:generateContent", headers={"x-goog-api-key": key, "Content-Type": "application/json"}, json=body, timeout=60)
+            except requests.RequestException as e:
+                last = str(e); break
+            if r.status_code == 200:
+                try:
+                    return "".join(p.get("text", "") for p in r.json()["candidates"][0]["content"]["parts"]).strip()
+                except Exception:
+                    last = "bad answer"; break
+            last = f"{name} {r.status_code}"
+            if r.status_code in (429, 500, 503) and attempt == 0:
+                time.sleep(8); continue
+            break
+    raise RuntimeError(last or "gemini failed")
 
 MAX_REPLIES = int(os.environ.get("MAX_REPLIES", "15"))
 DRY = os.environ.get("DRY_RUN", "no") == "yes"
@@ -56,13 +82,15 @@ def main():
     titles = {}
     done = 0
     for cid, vid, text, who, is_reply in todo[:MAX_REPLIES]:
+        if time.time() - T0 > BUDGET:
+            print("time budget used, rest next run"); break
         if vid not in titles:
             try:
                 titles[vid] = yt.videos().list(part="snippet", id=vid).execute()["items"][0]["snippet"]["title"]
             except Exception:
                 titles[vid] = ""
         try:
-            out = call_gemini(PROMPT.format(title=titles[vid], text=text[:800]), key, json_mode=True, temperature=0.7, max_tokens=400, log=lambda *a: None)
+            out = gem(PROMPT.format(title=titles[vid], text=text[:800]), key)
             reply = (json.loads(out).get("reply") or "").strip()
         except Exception as e:
             print("skip (gemini failed):", e); continue
