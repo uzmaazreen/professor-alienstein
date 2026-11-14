@@ -1,0 +1,51 @@
+{
+  "id": "static-shock",
+  "title": "Why Do You Get Shocked by Door Handles in Winter?",
+  "short_title": "Why Winter Door Handles Shock You (Static Electricity)",
+  "category": "winter, everyday",
+  "keywords": [
+    "static shock",
+    "static electricity",
+    "door handle",
+    "winter",
+    "dry air",
+    "electrons",
+    "humidifier"
+  ],
+  "description": "Ever got a tiny shock from a door handle? Here is the simple science of static electricity and dry winter air.",
+  "tags": [
+    "why do I get static shock",
+    "static electricity explained",
+    "winter static",
+    "dry air",
+    "science explained",
+    "everyday science"
+  ],
+  "comment": "Do you get shocked a lot in winter? Tell me! ⚡",
+  "scenes": [
+    {
+      "mood": "think",
+      "text": "Why do you get a tiny electric shock from a door handle in winter?"
+    },
+    {
+      "mood": "happy",
+      "text": "Winter air is very dry. In humid air, extra charge leaks away through tiny water drops. In dry air, it stays on you."
+    },
+    {
+      "mood": "shock",
+      "text": "When you walk on a carpet, your shoes rub tiny negative charges, called electrons, onto your body."
+    },
+    {
+      "mood": "shock",
+      "text": "Then you touch metal, and all those electrons jump across the gap at once. That jump is a tiny lightning bolt."
+    },
+    {
+      "mood": "happy",
+      "text": "To reduce it, touch the wall first, use a humidifier, or moisturise your skin."
+    },
+    {
+      "mood": "think",
+      "text": "It is harmless, just a little spark of science."
+    }
+  ]
+}

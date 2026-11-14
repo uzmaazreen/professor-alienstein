@@ -1,0 +1,50 @@
+{
+  "id": "yawn",
+  "title": "Why Do We Yawn? (And Why Is It Contagious?)",
+  "short_title": "Why Do We Yawn? Why Is It Contagious?",
+  "category": "trending, body",
+  "keywords": [
+    "yawn",
+    "contagious yawn",
+    "brain",
+    "tired",
+    "sleepy",
+    "cooling brain"
+  ],
+  "description": "Why do we yawn, and why does seeing someone yawn make you yawn too? Here is what scientists think.",
+  "tags": [
+    "why do we yawn",
+    "contagious yawning",
+    "yawning brain cooling",
+    "science explained",
+    "body facts",
+    "everyday science"
+  ],
+  "comment": "Did you just yawn reading this? Tell me! 🥱",
+  "scenes": [
+    {
+      "mood": "think",
+      "text": "Why do we yawn, and why is it so contagious?"
+    },
+    {
+      "mood": "happy",
+      "text": "Scientists are still not sure. But one popular idea is that yawning helps cool your brain."
+    },
+    {
+      "mood": "shock",
+      "text": "When you yawn, you pull in a big gulp of cooler air, and the stretch pushes blood around your face and head."
+    },
+    {
+      "mood": "shock",
+      "text": "That may help cool the brain and keep you alert. This is why people yawn when tired or bored."
+    },
+    {
+      "mood": "happy",
+      "text": "Contagious yawning may be a social habit. Seeing someone yawn makes you copy them, even in dogs and chimps."
+    },
+    {
+      "mood": "think",
+      "text": "Did you just yawn while reading? Tell me in the comments!"
+    }
+  ]
+}

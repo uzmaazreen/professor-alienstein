@@ -1,0 +1,50 @@
+{
+  "id": "knuckles",
+  "title": "Why Do Knuckles Pop When You Crack Them?",
+  "short_title": "Why Your Knuckles Pop (Is It Bad?)",
+  "category": "trending, body",
+  "keywords": [
+    "knuckle cracking",
+    "joints",
+    "pop sound",
+    "arthritis",
+    "synovial fluid",
+    "bubble"
+  ],
+  "description": "Why do knuckles pop when you crack them, and is it bad for you? Here is the simple science of joints and bubbles.",
+  "tags": [
+    "why do knuckles crack",
+    "knuckle cracking arthritis",
+    "joint pop sound",
+    "science explained",
+    "body facts",
+    "everyday science"
+  ],
+  "comment": "Do you crack your knuckles? 😬",
+  "scenes": [
+    {
+      "mood": "think",
+      "text": "Why do your knuckles pop when you crack them?"
+    },
+    {
+      "mood": "happy",
+      "text": "Your joints sit in a slippery liquid, inside a small sealed bag."
+    },
+    {
+      "mood": "shock",
+      "text": "When you pull the joint, the space inside grows and the pressure drops, like pulling the plunger of a syringe."
+    },
+    {
+      "mood": "shock",
+      "text": "A gas bubble suddenly forms in the liquid. That is the pop you hear."
+    },
+    {
+      "mood": "happy",
+      "text": "You cannot crack the same knuckle again right away, because the bubble needs about twenty minutes to dissolve."
+    },
+    {
+      "mood": "think",
+      "text": "Studies have not found that it causes arthritis. But if it hurts or swells, see a doctor."
+    }
+  ]
+}
