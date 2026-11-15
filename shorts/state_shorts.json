@@ -7,6 +7,10 @@
     {
       "id": "cold-battery",
       "date": "2026-11-14"
+    },
+    {
+      "id": "charger",
+      "date": "2026-11-15"
     }
   ]
 }
