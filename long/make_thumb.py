@@ -24,6 +24,20 @@ HEROES = {
 <circle cx="300" cy="300" r="270" fill="#8a6bff" opacity=".4" filter="url(#b)"/>
 <path d="M360 60 a250 250 0 1 0 150 380 a200 200 0 1 1 -150 -380z" fill="#ffe27a" stroke="#000" stroke-width="14"/>
 <g font-family="Poppins" font-weight="900" fill="#fff" stroke="#000" stroke-width="12" paint-order="stroke"><text x="330" y="250" font-size="150">Z</text><text x="420" y="170" font-size="110">z</text><text x="490" y="105" font-size="80">z</text></g></svg>""",
+"lungs": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="22"/></filter></defs>
+<circle cx="300" cy="300" r="270" fill="#9a9a9a" opacity=".5" filter="url(#b)"/>
+<path d="M290 80 v230" stroke="#000" stroke-width="40" stroke-linecap="round"/><path d="M290 80 v230" stroke="#f5c0c8" stroke-width="22" stroke-linecap="round"/>
+<path d="M270 190 C120 170 60 330 90 480 C110 540 230 530 270 440z" fill="#ff7a8a" stroke="#000" stroke-width="16"/><path d="M310 190 C460 170 520 330 490 480 C470 540 350 530 310 440z" fill="#ff7a8a" stroke="#000" stroke-width="16"/>
+<g fill="#555" opacity=".92" stroke="#000" stroke-width="8"><circle cx="150" cy="130" r="70"/><circle cx="260" cy="60" r="60"/><circle cx="430" cy="110" r="75"/><circle cx="520" cy="230" r="55"/><circle cx="90" cy="250" r="50"/></g></svg>""",
+"snow": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="22"/></filter></defs>
+<circle cx="300" cy="300" r="270" fill="#8fe3ff" opacity=".5" filter="url(#b)"/>
+<g stroke="#000" stroke-width="44" stroke-linecap="round">""" + "".join(f'<g transform="rotate({a} 300 300)"><path d="M300 300 V50"/><path d="M300 140 L240 90 M300 140 L360 90"/></g>' for a in range(0,360,60)) + """</g>
+<g stroke="#e8f8ff" stroke-width="24" stroke-linecap="round">""" + "".join(f'<g transform="rotate({a} 300 300)"><path d="M300 300 V50"/><path d="M300 140 L240 90 M300 140 L360 90"/></g>' for a in range(0,360,60)) + """</g></svg>""",
+"chat": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="22"/></filter></defs>
+<circle cx="300" cy="300" r="270" fill="#4cc9ff" opacity=".45" filter="url(#b)"/>
+<path d="M90 90 H510 Q560 90 560 140 V360 Q560 410 510 410 H300 L190 520 V410 H90 Q40 410 40 360 V140 Q40 90 90 90z" fill="#fff" stroke="#000" stroke-width="18"/>
+<g fill="#2d7fd3" stroke="#000" stroke-width="8"><circle cx="170" cy="250" r="34"/><circle cx="300" cy="250" r="34"/><circle cx="430" cy="250" r="34"/></g>
+<text x="470" y="170" text-anchor="middle" font-family="Poppins" font-weight="900" font-size="170" fill="#ff3b3b" stroke="#000" stroke-width="14" paint-order="stroke">?</text></svg>""",
 "immune": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="20"/></filter></defs>
 <circle cx="300" cy="300" r="270" fill="#4cff9a" opacity=".3" filter="url(#b)"/>
 <path d="M300 40 L520 120 V300 Q520 470 300 560 Q80 470 80 300 V120Z" fill="#2d7fd3" stroke="#000" stroke-width="16"/><path d="M300 100 L470 160 V300 Q470 430 300 505 Q130 430 130 300 V160Z" fill="#6fd0ff"/>

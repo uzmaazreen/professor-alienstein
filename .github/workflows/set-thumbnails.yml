@@ -1,0 +1,27 @@
+name: Update thumbnails
+
+on:
+  workflow_dispatch:
+    inputs:
+      topics:
+        description: "Topic ids (space separated)"
+        default: "smog winter-body ai-chatbot"
+
+permissions:
+  contents: read
+
+jobs:
+  thumbs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r pipeline/requirements.txt -r shorts/requirements.txt && python -m playwright install --with-deps chromium
+      - run: python pipeline/set_thumbs.py ${{ github.event.inputs.topics }}
