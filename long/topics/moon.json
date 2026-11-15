@@ -110,7 +110,13 @@
   "scene": 0,
   "before_end": 2,
   "line1": "IF THE MOON",
-  "line2": "VANISHED",
-  "line3": "TONIGHT?"
+  "line2": "VANISHED?",
+  "line3": "TONIGHT?",
+  "hero": "moon",
+  "bg": [
+   "#3a1a6a",
+   "#0a1230"
+  ],
+  "badge": "WHAT WOULD HAPPEN?"
  }
 }

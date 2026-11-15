@@ -1,0 +1,122 @@
+{
+ "id": "time-faster",
+ "title": "Why Does Time Feel Faster As You Get Older? (The Real Reason)",
+ "short_title": "Why time speeds up as you age",
+ "category": "trending, brain",
+ "keywords": [
+  "time feels faster",
+  "time perception",
+  "aging",
+  "memory",
+  "brain",
+  "routine",
+  "novelty",
+  "holiday paradox"
+ ],
+ "description": "Why does time seem to fly as you get older? Learn the proportion idea, how attention and memory shape time, the holiday paradox, why fear is not slow motion, why scrolling steals your hours, and simple ways to make your days feel longer. Based on what scientists currently think.",
+ "tags": [
+  "why does time go faster as you age",
+  "time perception",
+  "why time flies",
+  "how to slow down time",
+  "holiday paradox",
+  "brain and memory",
+  "novelty and memory",
+  "science explained"
+ ],
+ "comment": "Which new thing will you try this week? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Remember when one summer felt endless? You had a whole world of games, mango trees, and long afternoons. Now, a whole year goes by in a blink, and somehow it is already November. Is time really speeding up, or is it just your brain? Let us find out."
+  },
+  {
+   "mood": "happy",
+   "text": "First, an honest fact. Time does not speed up. A day is still twenty four hours, whether you are eight years old or eighty. What changes is how your brain feels and remembers time. And scientists have a few good ideas about why."
+  },
+  {
+   "mood": "think",
+   "text": "The most famous idea is the proportion idea. When you are ten, one year is ten percent of your whole life. When you are fifty, one year is only two percent. So a year feels smaller, because it is a smaller slice of what you have lived."
+  },
+  {
+   "mood": "happy",
+   "text": "This idea sounds neat, and many people like it. But scientists say it cannot be the full story. It does not explain why a boring afternoon still drags, or why a week on holiday can feel long. So let us look at what your brain is actually doing."
+  },
+  {
+   "mood": "think",
+   "text": "Here is a surprise. Your brain has no single clock for time, like a watch. Instead, many parts of the brain work together to guess how long things took. It is more like a group of friends guessing, and sometimes they disagree."
+  },
+  {
+   "mood": "happy",
+   "text": "One of these guesses depends on attention. When you pay a lot of attention to time, it slows down. Think about watching a pot, waiting for water to boil. It seems to take forever. When you are busy and lost in a fun task, time disappears."
+  },
+  {
+   "mood": "think",
+   "text": "Now, memory. When you look back at a period of time, your brain does not replay it like a video. It counts how many memories it saved. Many new memories make that time feel long and rich. Few memories make it feel short and quick."
+  },
+  {
+   "mood": "happy",
+   "text": "This is why childhood summers feel so long. Almost everything is new for a child. First bicycle, first swim, first friend. Each new thing makes a strong memory. Lots of memories, so when you look back, it feels like a very long time."
+  },
+  {
+   "mood": "think",
+   "text": "Adult life is different. We often live in routine. Same road to work, same food, same phone. When days look the same, the brain saves one copy and skips the rest. So a month of routine can shrink into just a few memories."
+  },
+  {
+   "mood": "happy",
+   "text": "There is a famous example called the holiday paradox. A trip can feel like it goes by quickly while you are on it, because you are busy and excited. But when you come back, it feels like a long time, because it filled your memory with new things."
+  },
+  {
+   "mood": "think",
+   "text": "What about fear? Many people say time slows down in a dangerous moment. Scientists tested this in an experiment where people dropped from a tall tower into a net. Afterwards, they said the fall felt longer. But their ability to read fast flashing numbers did not improve."
+  },
+  {
+   "mood": "happy",
+   "text": "So it is not slow motion. The brain stores more detail during a scary moment, and that makes the memory feel longer when you look back. This also shows that remembering time and living time are not the same."
+  },
+  {
+   "mood": "think",
+   "text": "Boredom is another tricky one. When you are bored, you keep checking the time, so each minute feels very long. But after a boring day, you remember very little, so the day looks short in the past. Boring stretches both ways."
+  },
+  {
+   "mood": "happy",
+   "text": "Some scientists also think that, as we age, our internal pace of processing may slow down a little. If your brain takes in fewer pictures per second, then the outside world seems to move faster. This idea is interesting, but it is still being studied."
+  },
+  {
+   "mood": "think",
+   "text": "And now the phone. Scrolling on a screen for an hour feels like ten minutes, and afterwards you cannot remember what you saw. Endless similar videos create almost no strong memories. Your hour disappears, and your brain has nothing to count."
+  },
+  {
+   "mood": "happy",
+   "text": "So can you slow time down? You cannot change the clock, but you can change how much your brain records. Try new things. Take a different route, learn a new skill, cook a new recipe, or visit a new place, even a small one nearby."
+  },
+  {
+   "mood": "think",
+   "text": "Pay attention. When you eat, just eat. When you walk, notice the sounds, colours and smells. Mindful attention gives the brain richer memories, and that makes your days feel longer and fuller, without adding a single minute."
+  },
+  {
+   "mood": "happy",
+   "text": "Another small trick is to write one line about your day, or take one photo that you like. This helps your brain mark the day as special. Looking back at a month of these lines, you will see how much happened."
+  },
+  {
+   "mood": "think",
+   "text": "Let us clear a myth. Time is not secretly speeding up for older people, and nothing is wrong with you. The feeling is real, but it is made by attention and memory. Also, people with busy but varied lives often feel that time is richer."
+  },
+  {
+   "mood": "laugh",
+   "text": "So time does not run faster. Your brain just stops saving new memories when life becomes too repeated. Make a little newness every week, and your year will feel longer. Subscribe, and tell me which new thing you will try this week."
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "hero": "time",
+  "bg": [
+   "#5a2a10",
+   "#0a1230"
+  ],
+  "badge": "AS YOU GET OLDER",
+  "line1": "WHY TIME",
+  "line2": "SPEEDS UP?"
+ }
+}
