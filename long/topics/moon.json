@@ -1,0 +1,116 @@
+{
+ "id": "moon",
+ "title": "What If the Moon Disappeared? (It Would Change Everything)",
+ "short_title": "What if the Moon disappeared?",
+ "category": "trending, space",
+ "keywords": [
+  "moon",
+  "what if moon disappeared",
+  "tides",
+  "eclipse",
+  "earth tilt",
+  "seasons",
+  "space"
+ ],
+ "description": "What would happen if the Moon suddenly disappeared? Learn how the Moon makes tides, lights our nights, helps animals and corals, steadies Earth's tilt, slows our day and is drifting away. A simple, curious explanation based on what scientists think.",
+ "tags": [
+  "what if the moon disappeared",
+  "what would happen without the moon",
+  "moon tides explained",
+  "earth tilt moon",
+  "moon drifting away",
+  "how the moon formed",
+  "space explained",
+  "science explained"
+ ],
+ "comment": "If the Moon vanished tonight, what would you miss most? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Tonight, look up. That bright ball in the sky feels like decoration. But what if it vanished, right now? No bang, no warning, just gone. Would anything change? Scientists say: almost everything. Tides, nights, animals, even the length of your day. Stay with me, this gets strange."
+  },
+  {
+   "mood": "happy",
+   "text": "First, where did the Moon come from? Most scientists think that about four and a half billion years ago, a planet the size of Mars hit the young Earth. The crash threw hot rock into space. That rock slowly clumped together, and became our Moon."
+  },
+  {
+   "mood": "think",
+   "text": "The Moon is huge for a moon. It is about a quarter of the width of Earth, which is much larger than most moons compared with their planets. And all that mass has gravity. Gravity pulls on things, and the Moon pulls on Earth, every single second."
+  },
+  {
+   "mood": "happy",
+   "text": "That pull is why we have ocean tides. The Moon pulls the water on the side facing it, so the water bulges up. There is a second bulge on the far side too. As Earth spins, coasts move through the bulges, and the sea rises and falls about twice a day."
+  },
+  {
+   "mood": "think",
+   "text": "Now, the Sun also pulls on the oceans, but it is far away, so its effect is smaller. Scientists say the Moon makes roughly two thirds of the tide. Without the Moon, the oceans would still move a little, but tides would be about a third as strong."
+  },
+  {
+   "mood": "happy",
+   "text": "Why does that matter? Along coasts, tides create a special zone that is wet, then dry, then wet again. Rock pools, mud flats and mangroves live there. Some scientists think this might even have helped early life move from sea to land. We do not know for sure."
+  },
+  {
+   "mood": "think",
+   "text": "Next, your nights. A full Moon is the brightest thing in the night sky, but it is still only a small fraction as bright as the Sun. Without it, nights would be much darker. You would see far fewer details in the dark."
+  },
+  {
+   "mood": "happy",
+   "text": "Many animals use moonlight. Some dung beetles use moon and star light to walk straight. Many sea animals time their lives with the lunar cycle. And a lot of hunters and hunted animals change their behaviour when the night is bright or dark."
+  },
+  {
+   "mood": "think",
+   "text": "Corals are a great example. In many reefs, corals release millions of eggs and sperm on a few nights each year, usually soon after a full Moon. The light and tides help them all spawn together. Without the Moon, this timing might fall apart."
+  },
+  {
+   "mood": "happy",
+   "text": "Now the big one. Earth is tilted about twenty three degrees. That tilt gives us seasons. Scientists have run computer models, and they think the Moon helps keep this tilt steady, like a hand on a spinning top."
+  },
+  {
+   "mood": "think",
+   "text": "Without the Moon, the tilt could wobble over millions of years, far more than it does now. Some models say it could swing from almost upright to leaning way over. This is not sudden. It would take a very long time, but over that time, it matters."
+  },
+  {
+   "mood": "happy",
+   "text": "What would that do? If Earth were almost upright, there would be almost no seasons. If it were tipped far over, each pole would face the Sun for months, and summers and winters would become extreme. Life could adapt, but it would be a very different world."
+  },
+  {
+   "mood": "think",
+   "text": "Now your day. Earth spins once every twenty four hours. But the tides drag on Earth like a brake, very gently. Because of the Moon, the day gets longer by about two milliseconds each century. You would never notice, but over millions of years it adds up."
+  },
+  {
+   "mood": "happy",
+   "text": "In the past, days were shorter. Scientists measure this in old coral and shell growth. Hundreds of millions of years ago, a day was only about twenty one or twenty two hours. And when the Moon was young, scientists think a day may have been just a few hours long."
+  },
+  {
+   "mood": "think",
+   "text": "Here is something strange. The Moon is slowly moving away from us, by about three point eight centimetres every year. That is about as fast as your fingernails grow. In billions of years, it will look smaller, and tides will be weaker."
+  },
+  {
+   "mood": "happy",
+   "text": "And that changes eclipses. Right now, the Moon looks almost exactly the same size as the Sun in our sky, because it is four hundred times smaller, but also four hundred times closer. That is why we get total solar eclipses. It is a lucky coincidence, and it will not last forever."
+  },
+  {
+   "mood": "think",
+   "text": "Even our calendar comes from the Moon. The word month is linked to Moon. People used the Moon's phases to count time for thousands of years, to plan farming, festivals and travel. Without it, our idea of a month might not exist."
+  },
+  {
+   "mood": "think",
+   "text": "Let us clear some myths. If the Moon vanished, Earth would not fly off into space, because it is the Sun that holds our orbit. Also, a full Moon does not cause crazy behaviour. Studies have not found a link. And the far side of the Moon is not dark. It gets sunlight too."
+  },
+  {
+   "mood": "happy",
+   "text": "So would humans survive? Probably yes, but it would be a very different planet. Weaker tides, darker nights, a possible wobble in the seasons, and many animals would have to adjust. The Moon is not just pretty. It is quietly holding a lot together."
+  },
+  {
+   "mood": "laugh",
+   "text": "So the next time you see the Moon, remember: it was born in a crash, it pulls your oceans, lights your nights, steadies your seasons, and it is slowly drifting away. Not bad for a rock. Subscribe, and tell me what to explain next."
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "line1": "IF THE MOON",
+  "line2": "VANISHED",
+  "line3": "TONIGHT?"
+ }
+}
