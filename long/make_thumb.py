@@ -1,5 +1,5 @@
 """Make a curiosity thumbnail (1280x720) from the video's own animation.  python long/make_thumb.py <topic_id>"""
-import common_long, json, os, sys
+import common_long, json, os, sys, math
 from common_shorts import *
 from playwright.sync_api import sync_playwright
 from PIL import Image
@@ -38,6 +38,10 @@ HEROES = {
 <path d="M90 90 H510 Q560 90 560 140 V360 Q560 410 510 410 H300 L190 520 V410 H90 Q40 410 40 360 V140 Q40 90 90 90z" fill="#fff" stroke="#000" stroke-width="18"/>
 <g fill="#2d7fd3" stroke="#000" stroke-width="8"><circle cx="170" cy="250" r="34"/><circle cx="300" cy="250" r="34"/><circle cx="430" cy="250" r="34"/></g>
 <text x="470" y="170" text-anchor="middle" font-family="Poppins" font-weight="900" font-size="170" fill="#ff3b3b" stroke="#000" stroke-width="14" paint-order="stroke">?</text></svg>""",
+"sun": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="26"/></filter></defs>
+<circle cx="300" cy="300" r="290" fill="#ff9a00" opacity=".6" filter="url(#b)"/>""" + "".join(f'<path d="M{300+math.cos(a*0.4488)*235:.0f} {300+math.sin(a*0.4488)*235:.0f} L{300+math.cos(a*0.4488)*295:.0f} {300+math.sin(a*0.4488)*295:.0f}" stroke="#000" stroke-width="40" stroke-linecap="round"/><path d="M{300+math.cos(a*0.4488)*235:.0f} {300+math.sin(a*0.4488)*235:.0f} L{300+math.cos(a*0.4488)*295:.0f} {300+math.sin(a*0.4488)*295:.0f}" stroke="#ffd23f" stroke-width="22" stroke-linecap="round"/>' for a in range(14)) + """
+<circle cx="300" cy="300" r="215" fill="#ffd23f" stroke="#000" stroke-width="16"/><circle cx="300" cy="300" r="232" fill="none" stroke="#ff3b3b" stroke-width="12" stroke-dasharray="30 20"/>
+<text x="300" y="390" text-anchor="middle" font-family="Poppins" font-weight="900" font-size="300" fill="#ff3b3b" stroke="#000" stroke-width="14" paint-order="stroke">?</text></svg>""",
 "immune": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="20"/></filter></defs>
 <circle cx="300" cy="300" r="270" fill="#4cff9a" opacity=".3" filter="url(#b)"/>
 <path d="M300 40 L520 120 V300 Q520 470 300 560 Q80 470 80 300 V120Z" fill="#2d7fd3" stroke="#000" stroke-width="16"/><path d="M300 100 L470 160 V300 Q470 430 300 505 Q130 430 130 300 V160Z" fill="#6fd0ff"/>

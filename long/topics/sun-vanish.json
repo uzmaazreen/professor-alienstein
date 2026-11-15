@@ -1,0 +1,121 @@
+{
+ "id": "sun-vanish",
+ "title": "What If the Sun Disappeared? (Minute by Minute)",
+ "short_title": "What if the Sun disappeared?",
+ "category": "trending, space",
+ "keywords": [
+  "sun disappear",
+  "what if the sun vanished",
+  "eight minutes",
+  "gravity",
+  "earth cold",
+  "photosynthesis",
+  "space"
+ ],
+ "description": "What would really happen if the Sun suddenly disappeared? Find out why nothing changes for eight minutes, how gravity and light travel, why Earth would fly off in a straight line, how fast it would get cold, what would happen to plants, oceans, oxygen and life. Based on what scientists estimate.",
+ "tags": [
+  "what if the sun disappeared",
+  "what would happen if the sun vanished",
+  "sun disappears for 8 minutes",
+  "speed of gravity",
+  "earth without the sun",
+  "how long could we survive without the sun",
+  "space explained",
+  "science explained"
+ ],
+ "comment": "What would you do in those last 8 minutes? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Imagine you are at the beach, and the Sun suddenly vanishes. No explosion, no warning, just gone. What is the first thing you would notice? And how long until your life changes? The answers are stranger than you think, so let us go minute by minute."
+  },
+  {
+   "mood": "happy",
+   "text": "Here is the first surprise. Nothing would happen for eight minutes. Sunlight takes about eight minutes and twenty seconds to travel to Earth. So for eight minutes, the Sun would still shine in the sky, and you would never know it was gone."
+  },
+  {
+   "mood": "think",
+   "text": "Even stranger, gravity travels at the same speed as light. So Earth would keep going around the empty spot where the Sun used to be, for those same eight minutes, still feeling the Sun's pull. It is like a ghost holding us in orbit."
+  },
+  {
+   "mood": "happy",
+   "text": "Then, after eight minutes and twenty seconds, two things would happen at the same moment. The light goes out, and the pull of gravity ends. The sky turns dark, and Earth is free."
+  },
+  {
+   "mood": "think",
+   "text": "Earth moves very fast, about thirty kilometres every second. Without the Sun's gravity to curve its path, Earth would fly off in a straight line, like a stone leaving a sling. We would drift away from our solar system."
+  },
+  {
+   "mood": "happy",
+   "text": "What about the Moon? It does not make its own light. It only reflects the Sun, so the Moon would go dark too, not just the Sun. The Moon would still orbit Earth, because Earth's gravity holds it, but it would be an invisible black ball."
+  },
+  {
+   "mood": "think",
+   "text": "The first hours would be strange. The sky is dark, but the stars shine, and other planets like Jupiter and Venus would fade away, because they also shine only by reflected sunlight. Without sunlight, you would see stars, and little else."
+  },
+  {
+   "mood": "happy",
+   "text": "Now the cold. Earth would not freeze instantly. The air, the oceans and the ground hold a lot of heat. But the Sun is the main heater, and the heat leaks into space. Temperatures would start to drop day by day, especially at night."
+  },
+  {
+   "mood": "think",
+   "text": "Scientists estimate that within about a week, the average temperature on the surface of Earth would fall below freezing. Within a year, it could become far colder than the coldest place on Earth today."
+  },
+  {
+   "mood": "happy",
+   "text": "Plants would be the first to suffer. Plants need sunlight to make food, by a process called photosynthesis. Without light, they cannot do it. Many trees could survive for a while on stored food, but small plants and algae would die very soon."
+  },
+  {
+   "mood": "think",
+   "text": "And when the plants and algae go, so does the food chain. Animals that eat plants lose their food, and then the animals that eat those animals lose theirs. Most life that depends on sunlight would slowly collapse."
+  },
+  {
+   "mood": "happy",
+   "text": "The weather would also change. Wind and clouds are driven by the Sun heating the air and water unevenly. Without that heating, the weather machine would slow down. Rain would stop, and the air would become still and very cold."
+  },
+  {
+   "mood": "think",
+   "text": "Here is some good news, though. We would not run out of oxygen. The air has so much oxygen that it would last for thousands of years, even without plants. So the problem would be the cold and the food, not the breathing."
+  },
+  {
+   "mood": "happy",
+   "text": "The oceans are interesting too. The top layer would freeze slowly, over years, but the deep water could stay liquid for a very long time. Ice is a good blanket, and Earth's own heat from deep inside keeps leaking upward."
+  },
+  {
+   "mood": "think",
+   "text": "That inner heat matters. Some life does not depend on the Sun at all. In the deep ocean, around hot vents on the sea floor, tiny creatures live on chemicals and heat from inside Earth. Life like this could survive for a very long time."
+  },
+  {
+   "mood": "happy",
+   "text": "What about humans? It would be extremely hard. Some people could live for a while near volcanic areas or underground, using geothermal heat, or nuclear power for light and warmth. But billions of people would not survive without sunlight and food."
+  },
+  {
+   "mood": "think",
+   "text": "Let us clear some myths. The Sun cannot simply vanish. Nothing in physics lets a star disappear in an instant. And if the Sun were to fade, Earth would not be sucked into a black hole. We would just move away, in the dark."
+  },
+  {
+   "mood": "happy",
+   "text": "Also, there would be no flash and no bang. The first sign would only be darkness, after eight minutes, and then a cold that keeps growing and growing."
+  },
+  {
+   "mood": "think",
+   "text": "So the real lesson is not about disaster. It is about how much we depend on one ordinary star. Light, heat, plants, food, weather, even the colour of the Moon, all come from that bright ball, ninety three million miles away."
+  },
+  {
+   "mood": "laugh",
+   "text": "The good news: the Sun is healthy, and scientists expect it to shine for about five billion more years. So enjoy your sunshine today, and thank that star. Subscribe, and tell me which what-if I should explain next."
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "hero": "sun",
+  "bg": [
+   "#7a3a00",
+   "#0a0a1a"
+  ],
+  "badge": "8 MINUTES LATER...",
+  "line1": "IF THE SUN",
+  "line2": "VANISHED?"
+ }
+}
