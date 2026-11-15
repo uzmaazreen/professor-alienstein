@@ -42,6 +42,12 @@ HEROES = {
 <circle cx="300" cy="300" r="290" fill="#ff9a00" opacity=".6" filter="url(#b)"/>""" + "".join(f'<path d="M{300+math.cos(a*0.4488)*235:.0f} {300+math.sin(a*0.4488)*235:.0f} L{300+math.cos(a*0.4488)*295:.0f} {300+math.sin(a*0.4488)*295:.0f}" stroke="#000" stroke-width="40" stroke-linecap="round"/><path d="M{300+math.cos(a*0.4488)*235:.0f} {300+math.sin(a*0.4488)*235:.0f} L{300+math.cos(a*0.4488)*295:.0f} {300+math.sin(a*0.4488)*295:.0f}" stroke="#ffd23f" stroke-width="22" stroke-linecap="round"/>' for a in range(14)) + """
 <circle cx="300" cy="300" r="215" fill="#ffd23f" stroke="#000" stroke-width="16"/><circle cx="300" cy="300" r="232" fill="none" stroke="#ff3b3b" stroke-width="12" stroke-dasharray="30 20"/>
 <text x="300" y="390" text-anchor="middle" font-family="Poppins" font-weight="900" font-size="300" fill="#ff3b3b" stroke="#000" stroke-width="14" paint-order="stroke">?</text></svg>""",
+"ice": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24"/></filter></defs>
+<circle cx="300" cy="300" r="280" fill="#7fe0ff" opacity=".55" filter="url(#b)"/>
+<path d="M120 460 L190 210 L300 120 L420 220 L480 460z" fill="#eaf9ff" stroke="#000" stroke-width="16" stroke-linejoin="round"/><path d="M190 210 L300 280 L420 220 M300 120 L300 280 L270 460" stroke="#8fd3ff" stroke-width="10" fill="none"/>
+<path d="M60 470 Q180 430 300 470 T540 470 V560 H60z" fill="#2d7fd3" stroke="#000" stroke-width="14"/>
+<g fill="#4aa3ff" stroke="#000" stroke-width="8"><path d="M470 180 q-30 50 0 70 q30 -20 0 -70z"/><path d="M130 160 q-24 40 0 56 q24 -16 0 -56z"/></g>
+<text x="300" y="400" text-anchor="middle" font-family="Poppins" font-weight="900" font-size="260" fill="#ff3b3b" stroke="#000" stroke-width="14" paint-order="stroke">?</text></svg>""",
 "immune": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="20"/></filter></defs>
 <circle cx="300" cy="300" r="270" fill="#4cff9a" opacity=".3" filter="url(#b)"/>
 <path d="M300 40 L520 120 V300 Q520 470 300 560 Q80 470 80 300 V120Z" fill="#2d7fd3" stroke="#000" stroke-width="16"/><path d="M300 100 L470 160 V300 Q470 430 300 505 Q130 430 130 300 V160Z" fill="#6fd0ff"/>

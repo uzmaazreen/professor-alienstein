@@ -1,0 +1,121 @@
+{
+ "id": "ice-melt",
+ "title": "What If All the Ice on Earth Melted? (The Real Map of the Future)",
+ "short_title": "What if all the ice melted?",
+ "category": "trending, climate",
+ "keywords": [
+  "ice melt",
+  "sea level rise",
+  "what if all ice melted",
+  "glaciers",
+  "Antarctica",
+  "Himalaya glaciers",
+  "coastal cities"
+ ],
+ "description": "What would happen if all the ice on Earth melted? Learn how much sea level would rise, which coasts and Indian cities are most exposed, why it would take centuries, why floating ice does not raise the sea, the mirror effect, ocean currents, Himalayan rivers and what we can do. Based on what scientists currently estimate.",
+ "tags": [
+  "what if all the ice melted",
+  "sea level rise explained",
+  "which cities would go underwater",
+  "antarctica ice melt",
+  "himalaya glaciers rivers",
+  "ice albedo feedback",
+  "climate explained simply",
+  "science explained"
+ ],
+ "comment": "Which city would you check first on the new map? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Right now, a huge amount of ice sits on Earth, on top of mountains, around the poles, and across Greenland and Antarctica. What if all of it melted? Would your city still be there? Today, let us picture the world with no ice, and see what really changes."
+  },
+  {
+   "mood": "happy",
+   "text": "First, where is the ice? Most of it, about ninety percent, sits on Antarctica. Greenland holds most of the rest. Mountain glaciers, like those in the Himalayas, hold only a small amount, but they matter a lot, as we will see."
+  },
+  {
+   "mood": "think",
+   "text": "Now the big number. Scientists estimate that if all this land ice melted, the sea level would rise by about sixty five to seventy metres. That is about the height of a twenty storey building. Almost all of that would come from Antarctica and Greenland."
+  },
+  {
+   "mood": "happy",
+   "text": "Why does melting ice raise the sea? Because ice on land is extra water that is not in the ocean yet. When it melts, it runs into the sea. Also, warmer water expands a little, which adds even more height."
+  },
+  {
+   "mood": "think",
+   "text": "So what would the map look like? A lot of low coasts would go under water, including parts of Florida, the Netherlands, Bangladesh, and big deltas where rivers meet the sea. Many of the world's largest cities sit near the coast."
+  },
+  {
+   "mood": "happy",
+   "text": "India has a very long coastline. Cities such as Mumbai, Kolkata, Chennai, and Kochi are low and close to the sea. Neighbouring Bangladesh is mostly very flat. With a very large rise, huge parts of these areas would be flooded."
+  },
+  {
+   "mood": "think",
+   "text": "But here is an important fact. This would not happen overnight. Scientists say melting all the ice would take hundreds, or even thousands, of years. Ice sheets are huge, and they melt slowly. So the movie scene of a wave covering a city is not how it works."
+  },
+  {
+   "mood": "happy",
+   "text": "What is happening now? Satellites show that the global sea level is rising by a few millimetres each year, and the speed has increased in recent decades. A few millimetres sounds tiny, but over many years, it adds up and makes storms and floods worse on coasts."
+  },
+  {
+   "mood": "think",
+   "text": "A popular myth says that melting sea ice makes the sea rise. Think of ice floating in a glass of water. When it melts, the glass does not overflow, because floating ice already pushes aside its own weight. So floating ice, like in the Arctic, adds almost nothing."
+  },
+  {
+   "mood": "happy",
+   "text": "But there is another effect. White ice acts like a mirror, and reflects sunlight back to space. When ice melts, the dark ocean or land underneath absorbs more heat. That warms things further, which melts more ice. Scientists call this a feedback loop."
+  },
+  {
+   "mood": "think",
+   "text": "Ocean currents are also affected. Fresh water from melting ice makes the sea less salty and lighter. Some scientists worry this could slow big ocean currents, like the Atlantic circulation, that carry heat around the world and shape weather."
+  },
+  {
+   "mood": "happy",
+   "text": "Now the Himalayas. Their glaciers feed big rivers like the Ganga, the Indus, and the Brahmaputra. At first, more melting means more water and sometimes floods. But if the glaciers shrink a lot, the dry season flow can drop, which hurts farms and cities that need that water."
+  },
+  {
+   "mood": "think",
+   "text": "The irony is that ice is also a giant bank of fresh water. About two thirds of the planet's fresh water is frozen in ice. If it melts into the salty sea, much of that drinkable water is mixed with salt, and is no longer easy to use."
+  },
+  {
+   "mood": "happy",
+   "text": "The weather would shift too. Many scientists expect that a warmer world means stronger heat waves, heavier rains in some places, and longer droughts in others. Different regions would feel it very differently, so the details are hard to predict."
+  },
+  {
+   "mood": "think",
+   "text": "Not everything would be lost. Land that is hidden under ice today, in Greenland and Antarctica, would appear. It would be cold, rocky, and not easy to farm, at least for a long time. Also, soils and ecosystems would need ages to develop."
+  },
+  {
+   "mood": "happy",
+   "text": "Could people adapt? Yes, over a long time. Countries like the Netherlands already live below sea level, using walls, pumps and clever planning. But protecting every coast in the world would cost a huge amount, and some places would need to move."
+  },
+  {
+   "mood": "think",
+   "text": "Let us clear some myths. Not all ice melting at once is realistic. And melting is not just about polar bears. It changes sea level, weather, rivers and food for people. Also, a rising sea does not mean the whole Earth would flood, because high land stays dry."
+  },
+  {
+   "mood": "happy",
+   "text": "The good news is that the future is not fixed. The amount of melting depends a lot on how much heat our world traps. Cleaner energy, better planning for coasts, and protecting rivers and forests all help slow it down."
+  },
+  {
+   "mood": "think",
+   "text": "So here is the full picture. Ice is a freezer, a mirror, a water bank and a ruler for our coasts. When it shrinks, sea level rises, heat grows, rivers change, and weather shifts. It all connects, which is why scientists watch it so closely."
+  },
+  {
+   "mood": "laugh",
+   "text": "So no, the world would not end tomorrow. But slowly, the map would change. Understanding it today helps us plan better for tomorrow. Subscribe, and tell me which city you would check first on the new map."
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "hero": "ice",
+  "bg": [
+   "#0a5a8a",
+   "#0a1230"
+  ],
+  "badge": "THE MAP WOULD CHANGE",
+  "line1": "IF ALL ICE",
+  "line2": "MELTED?"
+ }
+}
