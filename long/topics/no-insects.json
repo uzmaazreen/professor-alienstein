@@ -1,0 +1,120 @@
+{
+ "id": "no-insects",
+ "title": "What If All Insects Disappeared? (What Would Really Happen)",
+ "short_title": "What if all insects disappeared?",
+ "category": "trending, nature",
+ "keywords": [
+  "what if insects disappeared",
+  "insects",
+  "pollination",
+  "food chain",
+  "bees",
+  "ecosystem"
+ ],
+ "description": "What would happen if all insects disappeared? Learn how insects pollinate our food, feed birds and fish, recycle waste, keep soil healthy, why mosquitoes are a complicated case, why insect numbers are falling, and what you can do to help. Based on what scientists currently understand.",
+ "tags": [
+  "what if all insects disappeared",
+  "what if bees disappeared",
+  "importance of insects",
+  "pollination explained",
+  "insect decline",
+  "food chain",
+  "nature explained",
+  "science explained"
+ ],
+ "comment": "Which insect do you think is the most useful? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "What if every insect on Earth disappeared tomorrow? No more buzzing mosquitoes, no more flies in the kitchen, no more cockroaches. Sounds like a dream, right? But scientists say it could be a nightmare. Let us see what would really happen."
+  },
+  {
+   "mood": "happy",
+   "text": "First, how many insects are there? Scientists have described over a million species, and many more are still unknown. Insects are the most diverse group of animals on Earth. They live almost everywhere, from forests to your own garden. Together, their weight is far more than all humans combined, according to some estimates."
+  },
+  {
+   "mood": "think",
+   "text": "The first big problem is pollination. Bees, butterflies, flies, beetles and many other insects carry pollen from flower to flower. Without this, many plants cannot make fruits and seeds. Wind helps some plants, but many depend on insects."
+  },
+  {
+   "mood": "happy",
+   "text": "Researchers estimate that about three quarters of the main food crop types benefit from animal pollinators, mostly insects. Apples, almonds, mangoes, tomatoes and many vegetables would give far less, or nothing. Food would become scarce and very expensive."
+  },
+  {
+   "mood": "think",
+   "text": "Your favourite treats would suffer too. Cocoa flowers, the source of chocolate, are pollinated by tiny midges, which are little flies. Coffee also gets a boost from bees. So, no insects could mean a very sad breakfast. Many farmers would lose their income, and prices in shops would jump."
+  },
+  {
+   "mood": "happy",
+   "text": "Next, the food chain. Many birds feed insects to their chicks, even birds that eat seeds as adults. Without insects, countless bird species would lose a key food, and their numbers would fall quickly. For example, a single bird family can eat thousands of insects while raising chicks in one season."
+  },
+  {
+   "mood": "think",
+   "text": "Frogs, lizards, spiders, bats and many fish also depend on insects. When the small animals disappear, the bigger animals above them lose food too. The whole food web starts to shake, like a tower of blocks with the bottom removed."
+  },
+  {
+   "mood": "happy",
+   "text": "Now the less glamorous job. Dung beetles clean up animal waste. Without them, dung would pile up on farms and grasslands, smother the grass, and make it harder for plants to grow."
+  },
+  {
+   "mood": "think",
+   "text": "Insects are also nature's recyclers. Beetles, ants, termites and fly larvae break down dead plants and animals. Without them, dead material would break down much more slowly, and nutrients would stay locked away. Think of insects as nature's cleaning team that never takes a holiday."
+  },
+  {
+   "mood": "happy",
+   "text": "Soil would suffer. Ants and termites dig tunnels that let air and water flow. Together with other tiny creatures, insects help keep soil healthy, and healthy soil grows healthy plants."
+  },
+  {
+   "mood": "think",
+   "text": "We would also lose products that come from insects. Honey from bees, silk from silkworms, and shellac, which is used in some coatings and polishes. These are smaller losses, but they have been part of human life for thousands of years."
+  },
+  {
+   "mood": "happy",
+   "text": "What about mosquitoes? Yes, some mosquitoes spread serious diseases like malaria and dengue. Removing them might save many lives. But scientists point out that they are also food for fish and birds, and some also pollinate. So the picture is complicated."
+  },
+  {
+   "mood": "think",
+   "text": "That is why some scientists discuss targeted efforts, like reducing only the disease spreading mosquito species, rather than all insects. It is still being studied carefully, with lots of safety checks. Scientists also warn about unexpected side effects, because everything in nature is connected."
+  },
+  {
+   "mood": "happy",
+   "text": "So what would happen overall? Scientists believe ecosystems on land and in freshwater would suffer badly, and many could collapse. Farming would struggle, and humans would face serious hunger. The famous biologist E O Wilson called insects the little things that run the world."
+  },
+  {
+   "mood": "think",
+   "text": "Here is the real worry. This is not only a what-if. Studies in several regions have found big declines in the numbers of insects. Causes include habitat loss, pesticides, climate change and artificial light at night. Some studies also show that flying insect numbers have dropped in places that were checked for decades."
+  },
+  {
+   "mood": "happy",
+   "text": "The good news is, we can help. Plant flowers that bees and butterflies love, and leave a small wild patch in the garden. Use fewer chemical pesticides, and switch off outdoor lights when you do not need them."
+  },
+  {
+   "mood": "think",
+   "text": "Now some myths. Not all insects are pests. Most do not bite or sting. Bugs are not always dirty, and many are helpful. And no, insects will not take over the world, they are an important part of it. Some insects are even used by doctors, like maggots to clean certain wounds."
+  },
+  {
+   "mood": "happy",
+   "text": "So what is the safe version? A world with insects, where we keep them healthy. We can enjoy them, protect them, and keep our own food and nature stable."
+  },
+  {
+   "mood": "think",
+   "text": "Here is the lesson. The smallest animals do some of the biggest jobs. Pollinating, recycling, feeding others and keeping soil alive. Nature works like a team, and every little member counts. Take care of the little ones, and they take care of us."
+  },
+  {
+   "mood": "laugh",
+   "text": "So next time a bee visits a flower near you, say a quiet thank you. Subscribe, and tell me which what-if I should explain next."
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "hero": "bug",
+  "bg": [
+   "#1f5a2a",
+   "#0a1a10"
+  ],
+  "badge": "NATURE WOULD COLLAPSE?",
+  "line1": "NO MORE",
+  "line2": "INSECTS?"
+ }
+}

@@ -66,6 +66,13 @@ HEROES = {
 <circle cx="300" cy="300" r="170" fill="#000" stroke="#ffd9a0" stroke-width="14"/>
 <ellipse cx="300" cy="300" rx="285" ry="80" fill="none" stroke="#ff7a2e" stroke-width="24" stroke-dasharray="320 600" transform="rotate(-8 300 300)"/>
 <text x="300" y="370" text-anchor="middle" font-family="Poppins" font-weight="900" font-size="240" fill="#ff3b3b" stroke="#000" stroke-width="14" paint-order="stroke">?</text></svg>""",
+"bug": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24"/></filter></defs>
+<circle cx="300" cy="300" r="270" fill="#7aff5a" opacity=".4" filter="url(#b)"/>
+<ellipse cx="170" cy="190" rx="130" ry="70" fill="#cfeeff" stroke="#000" stroke-width="12" transform="rotate(-25 170 190)"/><ellipse cx="430" cy="190" rx="130" ry="70" fill="#cfeeff" stroke="#000" stroke-width="12" transform="rotate(25 430 190)"/>
+<ellipse cx="300" cy="360" rx="120" ry="170" fill="#ffd23f" stroke="#000" stroke-width="16"/><path d="M190 330 H410 M185 400 H415 M215 470 H385" stroke="#000" stroke-width="26"/>
+<circle cx="300" cy="170" r="75" fill="#ffd23f" stroke="#000" stroke-width="16"/><circle cx="270" cy="160" r="20" fill="#fff" stroke="#000" stroke-width="8"/><circle cx="330" cy="160" r="20" fill="#fff" stroke="#000" stroke-width="8"/><circle cx="270" cy="162" r="8"/><circle cx="330" cy="162" r="8"/>
+<path d="M265 110 Q230 50 190 60 M335 110 Q370 50 410 60" stroke="#000" stroke-width="12" fill="none" stroke-linecap="round"/>
+<path d="M30 570 L570 30" stroke="#ff3b3b" stroke-width="34" stroke-linecap="round" opacity=".9"/></svg>""",
 "immune": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="20"/></filter></defs>
 <circle cx="300" cy="300" r="270" fill="#4cff9a" opacity=".3" filter="url(#b)"/>
 <path d="M300 40 L520 120 V300 Q520 470 300 560 Q80 470 80 300 V120Z" fill="#2d7fd3" stroke="#000" stroke-width="16"/><path d="M300 100 L470 160 V300 Q470 430 300 505 Q130 430 130 300 V160Z" fill="#6fd0ff"/>
