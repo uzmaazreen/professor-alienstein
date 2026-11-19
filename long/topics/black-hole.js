@@ -1,0 +1,58 @@
+// Long video: what if you fell into a black hole.
+window.TOPIC_FACTORY=(E)=>{
+const {clamp,easeIO,easeOut,rnd,mix,A,H,lbl,pill,SC,WT}=E;
+const K=window.KIT(E);const {wi,T,prog,lerp,f1,C,panel,R,arrowUp,arrowR,along,cross,tx,person,BG}=K;
+const ORDER=['hook','what','approach','horizon','tidal','spaghetti','time','watcher','view','inside','size','super','sun','near','hawking','seen','myth','safe','lesson','close'];
+const S=n=>ORDER.indexOf(n);
+const sp=(n,t)=>prog(S(n),t);
+const Tn=(n,w)=>T(S(n),w);
+const HD=(n,txt,bg)=>H({sc:S(n),w:0,x:0,y:-400,html:pill(txt,bg)});
+const PC={};ORDER.slice(0,19).forEach((n,i)=>{PC[n]=[(i%3)*2500,Math.floor(i/3)*1400]});PC.close=PC.hook;
+const BGC=['#1a1230','#3a2050'];
+const COL={};ORDER.slice(0,19).forEach((n,i)=>{COL[n]=[['#1a1230','#3a2050'],['#0a1a3a','#1a3a6a'],['#2a1a3a','#4a2a5a'],['#10264a','#1f4a7a']][i%4]});
+const P=(k)=>{const [cx,cy]=PC[k];return R(cx,cy,panel('p_'+k,cx,cy,2200,1200,COL[k][0],COL[k][1],`<g id="d_${k}"></g>`))};
+const card=(x,y,w,h,f)=>`<rect x="${x-w/2}" y="${y-h/2}" width="${w}" height="${h}" rx="30" fill="${f||'#f5f1e6'}"/>`;
+const pop=(t,w,sc)=>easeOut(clamp((t-Tn(sc,w))/0.5));
+const crd=(x,y,txt,u,c,w)=>`<g opacity="${u}" transform="translate(${f1(x)} ${f1(y+(1-u)*40)})">${card(0,0,w||640,130)}${tx(0,17,txt,44,c||'#3a2c12')}</g>`;
+const stars=(cx,cy,n)=>{let s='';for(let i=0;i<n;i++)s+=C(cx-1000+rnd(i)*2000,cy-560+rnd(i+90)*1120,1.5+rnd(i+5)*3,'#fff',0.4+0.5*rnd(i+8));return s};
+const _unused=(x,y,r,rot)=>`<clipPath id="ec${Math.round(x)}${Math.round(y)}"><circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(r)}"/></clipPath><circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(r)}" fill="#2d7fd3"/><g clip-path="url(#ec${Math.round(x)}${Math.round(y)})">`+[0,1,2].map(i=>{const dx=((rot*60+i*r*1.4)%(r*4.2))-r*2;return `<path d="M${f1(x+dx)} ${f1(y-r*0.3)} q${f1(r*0.3)} ${f1(-r*0.3)} ${f1(r*0.5)} ${f1(r*0.1)} q${f1(-r*0.1)} ${f1(r*0.5)} ${f1(-r*0.4)} ${f1(r*0.4)}z" fill="#4caf50"/>`}).join('')+`</g>`;
+const wavesF=(cx,y,w,t,col)=>{let d=`M${cx-w} ${y}`;for(let i=0;i<=40;i++)d+=`L${cx-w+i*w*2/40} ${f1(y+Math.sin(i*0.7+t*2)*10)} `;return `<path d="${d} V${y+700} H${cx-w}z" fill="${col||'#2d7fd3'}" opacity=".85"/>`};
+const house=(x,y,s)=>`<rect x="${x}" y="${y-s}" width="${s}" height="${s}" fill="#c87a4a"/><path d="M${x-10} ${y-s} L${x+s/2} ${y-s-s*0.5} L${x+s+10} ${y-s}z" fill="#8a3a2a"/>`;
+
+const list=(sc,t,cx,cy,L,w,sz)=>{let s='';L.forEach(([wd,n,c],i)=>{const y=cy-(L.length-1)*95+i*190;s+=crd(cx,y,n,pop(t,wd,sc),c,w||1100)});return s};
+const bed=(x,y)=>`<rect x="${x-260}" y="${y}" width="520" height="40" rx="10" fill="#8a5a3a"/><rect x="${x-260}" y="${y-60}" width="520" height="70" rx="26" fill="#cfe3ff"/><rect x="${x-250}" y="${y-100}" width="150" height="60" rx="26" fill="#fff"/>`;
+const clock=(x,y,r,a)=>C(x,y,r,'#fff')+C(x,y,r-14,'#f5f1e6')+`<line x1="${x}" y1="${y}" x2="${f1(x+Math.sin(a)*r*0.65)}" y2="${f1(y-Math.cos(a)*r*0.65)}" stroke="#222" stroke-width="12" stroke-linecap="round"/><line x1="${x}" y1="${y}" x2="${f1(x+Math.sin(a/12)*r*0.45)}" y2="${f1(y-Math.cos(a/12)*r*0.45)}" stroke="#222" stroke-width="16" stroke-linecap="round"/>`;
+const face=(x,y,r,m)=>C(x,y,r,'#ffd23f')+C(x-r*0.35,y-r*0.2,r*0.1,'#222')+C(x+r*0.35,y-r*0.2,r*0.1,'#222')+(m=='sad'?`<path d="M${x-r*0.4} ${y+r*0.5} Q${x} ${y+r*0.1} ${x+r*0.4} ${y+r*0.5}" stroke="#222" stroke-width="12" fill="none" stroke-linecap="round"/>`:m=='mad'?`<path d="M${x-r*0.55} ${y-r*0.45} L${x-r*0.15} ${y-r*0.3} M${x+r*0.55} ${y-r*0.45} L${x+r*0.15} ${y-r*0.3}" stroke="#222" stroke-width="12"/><path d="M${x-r*0.4} ${y+r*0.45} L${x+r*0.4} ${y+r*0.45}" stroke="#222" stroke-width="12" stroke-linecap="round"/>`:`<path d="M${x-r*0.4} ${y+r*0.3} Q${x} ${y+r*0.7} ${x+r*0.4} ${y+r*0.3}" stroke="#222" stroke-width="12" fill="none" stroke-linecap="round"/>`);
+const heart=(x,y,s)=>`<path transform="translate(${f1(x)} ${f1(y)}) scale(${f1(s)})" d="M0 60 C-120 -20 -60 -90 0 -35 C60 -90 120 -20 0 60Z" fill="#ff3b5c"/>`;
+
+const bh=(x,y,r,t)=>`<circle cx="${x}" cy="${y}" r="${r*1.9}" fill="#ff9a2e" opacity=".12"/><ellipse cx="${x}" cy="${y}" rx="${r*1.9}" ry="${r*0.45}" fill="none" stroke="#ffb84a" stroke-width="${r*0.2}" opacity=".9"/><circle cx="${x}" cy="${y}" r="${r}" fill="#000" stroke="#ffd9a0" stroke-width="6"/>`;
+const ship=(x,y,s,a)=>`<g transform="translate(${f1(x)} ${f1(y)}) rotate(${f1(a||0)}) scale(${s})"><path d="M-60 0 L40 -22 Q80 0 40 22Z" fill="#cfd8e6"/><circle cx="20" cy="0" r="10" fill="#2d7fd3"/><path d="M-60 0 L-100 -16 L-100 16Z" fill="#ff7a2e"/></g>`;
+const cellfn={
+hook(g,cx,cy,t){return stars(cx,cy,50)+bh(cx-300,cy,200,t)+ship(cx+330-t*8,cy-60,2.2,0)+tx(cx+300,cy+230,'Point of no return',58,'#ffd23f')},
+what(g,cx,cy,t){const c=pop(t,'collapses','what');return stars(cx,cy,40)+C(cx-450,cy,f1(240-c*190),'#ffb84a')+(c>0.5?bh(cx+300,cy,120,t):'')+crd(cx+280,cy-260,'Massive star collapses',pop(t,'collapses','what'),null,760)+crd(cx+280,cy+250,'Escape speed > light',pop(t,'escape','what'),'#a01c1c',760)},
+approach(g,cx,cy,t){const u=clamp((t-Tn('approach','approaching'))/6);return stars(cx,cy,40)+bh(cx-250,cy,160,t)+ship(cx+400-u*400,cy,1.8,0)+crd(cx+330,cy-250,'Far away: normal gravity',pop(t,'far','approach'),null,880)+crd(cx+330,cy+250,'Danger only when close',pop(t,'danger','approach'),'#a01c1c',880)},
+horizon(g,cx,cy,t){return bh(cx-350,cy,200,t)+`<circle cx="${cx-350}" cy="${cy}" r="260" fill="none" stroke="#ff4b4b" stroke-width="8" stroke-dasharray="20 14"/>`+crd(cx+380,cy-110,'Event horizon',pop(t,'event','horizon'),null,760)+crd(cx+380,cy+80,'No way back out',pop(t,'inside','horizon'),'#a01c1c',760)},
+tidal(g,cx,cy,t){return `<g transform="translate(${cx-420} ${cy})">${C(0,-150,50,'#ffd23f')}<rect x="-22" y="-100" width="44" height="${f1(120+pop(t,'stretching','tidal')*80)}" rx="20" fill="#4a90d9"/></g><path d="M${cx-420} ${cy+260} l0 90" stroke="#ff4b4b" stroke-width="10"/>`+crd(cx+330,cy-110,'Feet pulled harder',pop(t,'feet','tidal'),null,820)+crd(cx+330,cy+80,'Tidal force stretches',pop(t,'tidal','tidal'),'#a01c1c',820)},
+spaghetti(g,cx,cy,t){const u=pop(t,'spaghettification','spaghetti');let s='';s+=`<rect x="${cx-480}" y="${cy-20}" width="${f1(80+u*440)}" height="${f1(70-u*50)}" rx="20" fill="#ffd23f"/>`;return s+crd(cx+250,cy-250,'Spaghettification',pop(t,'spaghettification','spaghetti'),'#a01c1c',880)+crd(cx+250,cy+200,'A real science word!',pop(t,'yes','spaghetti'),null,880)},
+time(g,cx,cy,t){return clock(cx-560,cy,200,t*3)+clock(cx-130,cy,200,t*0.6)+tx(cx-560,cy+290,'You',50,'#fff')+tx(cx-130,cy+290,'Far away',50,'#fff')+crd(cx+400,cy-110,'Gravity slows time',pop(t,'slows','time'),null,640)+crd(cx+400,cy+80,'Your clock: slower',pop(t,'tick','time'),null,640)},
+watcher(g,cx,cy,t){const u=clamp((t-Tn('watcher','moving'))/8);return bh(cx+300,cy,170,t)+ship(cx-450+u*350,cy,1.5,0)+`<g opacity="${1-u*0.7}"></g>`+crd(cx-200,cy-250,'Friend sees you slow down',pop(t,'moving','watcher'),null,920)+crd(cx-200,cy+250,'Dimmer and redder',pop(t,'dimmer','watcher'),'#a01c1c',920)},
+view(g,cx,cy,t){return stars(cx,cy,60)+`<ellipse cx="${cx}" cy="${cy}" rx="420" ry="110" fill="none" stroke="#ffb84a" stroke-width="44" opacity=".9"/>`+C(cx,cy,150,'#000')+crd(cx,cy-300,'Warped views of stars',pop(t,'warped','view'),null,900)+crd(cx,cy+300,'Glowing ring of gas',pop(t,'accretion','view'),null,900)},
+inside(g,cx,cy,t){return list('inside',t,cx,cy,[['nobody','Inside: nobody knows'],['singularity','A point: the singularity'],['new','We need a new theory','#2d7fd3']],1100)},
+size(g,cx,cy,t){return bh(cx-450,cy,70,t)+tx(cx-450,cy+150,'Few Suns',46,'#fff')+crd(cx+300,cy-110,'Only a few km wide',pop(t,'kilometres','size'),null,800)+crd(cx+300,cy+80,'Brutal tidal forces',pop(t,'brutal','size'),'#a01c1c',800)},
+super(g,cx,cy,t){return bh(cx-450,cy,230,t)+crd(cx+330,cy-130,'Sagittarius A*',pop(t,'sagittarius','super'),null,740)+crd(cx+330,cy+20,'4 million Suns',pop(t,'four','super'),null,740)+crd(cx+330,cy+170,'Gentle stretch at horizon',pop(t,'gentle','super'),'#2d7fd3',740)},
+sun(g,cx,cy,t){return C(cx-450,cy,170,'#ffd23f')+crd(cx+330,cy-110,'Sun: not enough mass',pop(t,'enough','sun'),null,840)+crd(cx+330,cy+80,'It becomes a white dwarf',pop(t,'white','sun'),null,840)},
+near(g,cx,cy,t){return list('near',t,cx,cy,[['closest','Closest ones: 1000+ light years'],['incredibly','Incredibly far away'],['nothing','Nothing to worry about','#2d7fd3']],1200)},
+hawking(g,cx,cy,t){return list('hawking',t,cx,cy,[['hawking','Hawking radiation'],['tiny','Extremely tiny for big ones'],['longer','Longer than the universe is old']],1200)},
+seen(g,cx,cy,t){return crd(cx,cy-140,'2019: first image (M87)',pop(t,'twenty','seen'),null,1100)+crd(cx,cy+60,'2022: our Milky Way too',pop(t,'milky','seen'),null,1100)},
+myth(g,cx,cy,t){const L=[['hole','Not a hole in space'],['vacuum','Not a cosmic vacuum cleaner'],['time','Easy time travel']];let s='';L.forEach(([w,a],i)=>{const u=pop(t,w,'myth'),x=cx-640+i*640;const ps=a.split(' ');const h=Math.ceil(ps.length/2);s+=card(x,cy-20,560,520)+tx(x,cy-70,ps.slice(0,h).join(' '),42,'#3a2c12')+tx(x,cy-10,ps.slice(h).join(' '),42,'#3a2c12')+`<g transform="translate(${x} ${cy+150}) scale(${f1(2-u)})" opacity="${u*0.9}">${cross(0,0,90,'#ff4b4b',22)}</g>`});return s},
+safe(g,cx,cy,t){return list('safe',t,cx,cy,[['telescopes','Telescopes'],['gravitational','Gravitational waves'],['far','Study from far away','#2d7fd3']],1100)},
+lesson(g,cx,cy,t){return list('lesson',t,cx,cy,[['stranger','Nature is stranger'],['test','Tests our gravity ideas'],['discover','Much left to discover']],1100)}};
+function art(){let s=BG;ORDER.slice(0,19).forEach(k=>{s+=P(k)});return s}
+let G={};
+function init(){ORDER.slice(0,19).forEach(k=>G[k]=document.getElementById('d_'+k))}
+function anim(t){ORDER.slice(0,19).forEach(k=>{const [cx,cy]=PC[k];G[k].innerHTML=cellfn[k](G[k],cx,cy,t)})}
+const PILL={hook:'Falling into a black hole',what:'What is a black hole?',approach:'Getting close',horizon:'The event horizon',tidal:'Tidal forces',spaghetti:'Spaghettification',time:'Time slows down',watcher:'What your friend sees',view:'What you would see',inside:'What is inside?',size:'Size matters',super:'Supermassive black holes',sun:'Can the Sun become one?',near:'Is Earth in danger?',hawking:'Do they last forever?',seen:'Have we seen one?',myth:'Black hole myths',safe:'The safe version',lesson:'The big lesson',close:'Keep looking up'};
+ORDER.forEach(n=>HD(n,PILL[n],(n=='myth')?'#d9232a':(n=='close'?'#2d7fd3':undefined)));
+const cam=ORDER.map(n=>{const [x,y]=PC[n];return {sc:S(n),x,y,z:n=='close'?0.9:0.95}});
+return {art,init,anim,cam,sfx:()=>[]};
+};

@@ -1,0 +1,120 @@
+{
+ "id": "black-hole",
+ "title": "What If You Fell Into a Black Hole? (What Would Really Happen)",
+ "short_title": "What if you fell into a black hole?",
+ "category": "trending, space",
+ "keywords": [
+  "fall into a black hole",
+  "black hole",
+  "spaghettification",
+  "event horizon",
+  "time dilation",
+  "space"
+ ],
+ "description": "What would happen if you fell into a black hole? Learn about the event horizon, spaghettification, how time slows down, what a friend would see, supermassive black holes, the first real black hole images, and what scientists still do not know. Based on what scientists currently understand.",
+ "tags": [
+  "what if you fell into a black hole",
+  "black hole explained",
+  "spaghettification",
+  "event horizon",
+  "sagittarius a star",
+  "first black hole image",
+  "space explained",
+  "science explained"
+ ],
+ "comment": "Would you dare to fall into a black hole? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "What if you fell into a black hole? It sounds like a movie, but it is real physics. A place where gravity is so strong that nothing, not even light, can escape. Let us fall in together, step by step, using what scientists have worked out. Stay till the end for the strangest part."
+  },
+  {
+   "mood": "happy",
+   "text": "First, what is a black hole? Often, it forms when a very massive star runs out of fuel and collapses. All that mass gets squeezed into a tiny space. The result is gravity so strong that the escape speed becomes faster than light. And nothing travels faster than light."
+  },
+  {
+   "mood": "think",
+   "text": "Now imagine you are in a spaceship, and you start approaching one. From far away, it is not a vacuum cleaner that sucks everything in. If you stay at a safe distance, its gravity feels just like any other object of the same mass. The danger only begins when you get very close."
+  },
+  {
+   "mood": "happy",
+   "text": "Then you reach the event horizon. This is the point of no return. It is not a solid surface, it is more like a boundary. Inside it, the escape speed is more than the speed of light. So once you cross it, there is no way back out."
+  },
+  {
+   "mood": "think",
+   "text": "But before that, there is a problem. Gravity pulls harder on the part of you that is closer. So your feet would be pulled much more than your head, if you go feet first. This stretching force is called a tidal force."
+  },
+  {
+   "mood": "happy",
+   "text": "Near a small black hole, the stretching would be so strong that it would pull you into a long thin shape. Scientists really call this spaghettification. Yes, that is the real scientific word. It would happen before you even reach the horizon."
+  },
+  {
+   "mood": "think",
+   "text": "Time would also behave strangely. According to Einstein's theory, strong gravity slows down time. For you, time would feel normal. But for someone far away, your clock would appear to tick slower and slower."
+  },
+  {
+   "mood": "happy",
+   "text": "So what would your friend watching from far away see? They would see you moving slower and slower as you get close to the horizon. Your light would get dimmer and more red. In the end, you would seem to fade away, never quite crossing."
+  },
+  {
+   "mood": "think",
+   "text": "And what would you see? Light from the outside universe gets bent around the black hole. Scientists say you could see strange, warped views of stars, and a bright ring of glowing gas, called an accretion disk, if there is gas around it."
+  },
+  {
+   "mood": "happy",
+   "text": "What is inside? Honestly, nobody knows for sure. Our best theory says that all the matter heads towards a point called the singularity. But scientists believe that our current physics may not work there, and we need a new theory to understand it."
+  },
+  {
+   "mood": "think",
+   "text": "Size matters a lot here. A black hole with the mass of a few Suns is only a few kilometres wide. But the mass is huge, so the tidal forces at the edge are brutal."
+  },
+  {
+   "mood": "happy",
+   "text": "Now, a supermassive black hole is a different story. At the centre of our Milky Way, there is one called Sagittarius A star, with about four million times the mass of the Sun. Because it is so large, the stretching at its horizon is gentle. You might cross without feeling anything special, at first."
+  },
+  {
+   "mood": "think",
+   "text": "Could the Sun become a black hole? No. The Sun does not have enough mass. It will slowly become a white dwarf in several billion years. Only much more massive stars end as black holes."
+  },
+  {
+   "mood": "happy",
+   "text": "Is there any danger for Earth? The closest known black holes are over a thousand light years away. That is incredibly far. So nothing to worry about. Our Sun, planets and Earth are not heading for any of them."
+  },
+  {
+   "mood": "think",
+   "text": "Do black holes last forever? Stephen Hawking showed that black holes may slowly lose energy, called Hawking radiation. But for large ones, this is extremely tiny, and would take far longer than the current age of the universe."
+  },
+  {
+   "mood": "happy",
+   "text": "Have we actually seen one? Yes. In twenty nineteen, scientists released the first image of a black hole's shadow, in a galaxy called M eighty seven. In twenty twenty two, they showed our own Milky Way's black hole too."
+  },
+  {
+   "mood": "think",
+   "text": "Now some myths. A black hole is not a hole in space. It is not a cosmic vacuum cleaner. And no, a black hole does not make time travel for you easy, like in movies."
+  },
+  {
+   "mood": "happy",
+   "text": "So what is the safe version? Studying them from far away. Scientists use telescopes and gravitational waves to learn about black holes, without going anywhere close."
+  },
+  {
+   "mood": "think",
+   "text": "Here is the lesson. Black holes show us that nature can be stranger than imagination. They test our best ideas about gravity, space and time. And there is still a lot left to discover."
+  },
+  {
+   "mood": "laugh",
+   "text": "So next time you look up at the night sky, remember, it may hide giant black holes, silently shaping galaxies. Subscribe, and tell me which what-if I should explain next."
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "hero": "bh",
+  "bg": [
+   "#2a1a6a",
+   "#05050f"
+  ],
+  "badge": "NO WAY BACK",
+  "line1": "FALL INTO A",
+  "line2": "BLACK HOLE?"
+ }
+}

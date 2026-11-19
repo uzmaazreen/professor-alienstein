@@ -60,6 +60,12 @@ HEROES = {
 <circle cx="300" cy="300" r="120" fill="#2d7fd3" stroke="#000" stroke-width="12"/><circle cx="300" cy="300" r="55" fill="#000"/><circle cx="265" cy="265" r="22" fill="#fff"/>
 <text x="480" y="130" font-family="Poppins" font-weight="900" font-size="110" fill="#ffd23f" stroke="#000" stroke-width="10" paint-order="stroke">Zzz</text>
 <path d="M455 70 L545 190" stroke="#ff3b3b" stroke-width="22" stroke-linecap="round"/></svg>""",
+"bh": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="26"/></filter></defs>
+<circle cx="300" cy="300" r="280" fill="#ff9a2e" opacity=".55" filter="url(#b)"/>
+<ellipse cx="300" cy="300" rx="285" ry="80" fill="none" stroke="#ffb84a" stroke-width="40" stroke-linecap="round"/>
+<circle cx="300" cy="300" r="170" fill="#000" stroke="#ffd9a0" stroke-width="14"/>
+<ellipse cx="300" cy="300" rx="285" ry="80" fill="none" stroke="#ff7a2e" stroke-width="24" stroke-dasharray="320 600" transform="rotate(-8 300 300)"/>
+<text x="300" y="370" text-anchor="middle" font-family="Poppins" font-weight="900" font-size="240" fill="#ff3b3b" stroke="#000" stroke-width="14" paint-order="stroke">?</text></svg>""",
 "immune": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="20"/></filter></defs>
 <circle cx="300" cy="300" r="270" fill="#4cff9a" opacity=".3" filter="url(#b)"/>
 <path d="M300 40 L520 120 V300 Q520 470 300 560 Q80 470 80 300 V120Z" fill="#2d7fd3" stroke="#000" stroke-width="16"/><path d="M300 100 L470 160 V300 Q470 430 300 505 Q130 430 130 300 V160Z" fill="#6fd0ff"/>
