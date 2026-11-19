@@ -53,6 +53,13 @@ HEROES = {
 <circle cx="300" cy="300" r="240" fill="#2d7fd3" stroke="#000" stroke-width="16"/><path d="M170 240 q60 -80 120 -20 q20 70 -50 110 q-70 20 -70 -90z M330 330 q80 -30 90 40 q-20 70 -80 50z" fill="#4caf50" stroke="#000" stroke-width="8"/>
 <path d="M300 20 a280 280 0 0 1 270 200" stroke="#ff3b3b" stroke-width="26" fill="none" stroke-linecap="round"/><polygon points="595,215 520,215 560,150" fill="#ff3b3b" stroke="#000" stroke-width="8"/>
 <text x="300" y="400" text-anchor="middle" font-family="Poppins" font-weight="900" font-size="300" fill="#ff3b3b" stroke="#000" stroke-width="14" paint-order="stroke">?</text></svg>""",
+"eye": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="22"/></filter></defs>
+<circle cx="300" cy="300" r="270" fill="#ff4b6a" opacity=".4" filter="url(#b)"/>
+<path d="M30 300 Q300 60 570 300 Q300 540 30 300Z" fill="#fff" stroke="#000" stroke-width="16"/>
+<g stroke="#e0354f" stroke-width="7" fill="none" stroke-linecap="round"><path d="M70 300 q60 -20 100 -10"/><path d="M80 330 q50 -10 90 -30"/><path d="M530 300 q-60 -20 -100 -10"/><path d="M520 330 q-50 -10 -90 -30"/><path d="M110 270 q40 10 70 30"/><path d="M490 270 q-40 10 -70 30"/></g>
+<circle cx="300" cy="300" r="120" fill="#2d7fd3" stroke="#000" stroke-width="12"/><circle cx="300" cy="300" r="55" fill="#000"/><circle cx="265" cy="265" r="22" fill="#fff"/>
+<text x="480" y="130" font-family="Poppins" font-weight="900" font-size="110" fill="#ffd23f" stroke="#000" stroke-width="10" paint-order="stroke">Zzz</text>
+<path d="M455 70 L545 190" stroke="#ff3b3b" stroke-width="22" stroke-linecap="round"/></svg>""",
 "immune": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="20"/></filter></defs>
 <circle cx="300" cy="300" r="270" fill="#4cff9a" opacity=".3" filter="url(#b)"/>
 <path d="M300 40 L520 120 V300 Q520 470 300 560 Q80 470 80 300 V120Z" fill="#2d7fd3" stroke="#000" stroke-width="16"/><path d="M300 100 L470 160 V300 Q470 430 300 505 Q130 430 130 300 V160Z" fill="#6fd0ff"/>

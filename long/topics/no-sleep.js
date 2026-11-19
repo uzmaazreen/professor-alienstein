@@ -1,0 +1,55 @@
+// Long video: what if you never slept.
+window.TOPIC_FACTORY=(E)=>{
+const {clamp,easeIO,easeOut,rnd,mix,A,H,lbl,pill,SC,WT}=E;
+const K=window.KIT(E);const {wi,T,prog,lerp,f1,C,panel,R,arrowUp,arrowR,along,cross,tx,person,BG}=K;
+const ORDER=['hook','hours','micro','mood','memory','hunger','immune','halluc','record','animals','clean','heart','body','why','nap','myth','tips','doctor','lesson','close'];
+const S=n=>ORDER.indexOf(n);
+const sp=(n,t)=>prog(S(n),t);
+const Tn=(n,w)=>T(S(n),w);
+const HD=(n,txt,bg)=>H({sc:S(n),w:0,x:0,y:-400,html:pill(txt,bg)});
+const PC={};ORDER.slice(0,19).forEach((n,i)=>{PC[n]=[(i%3)*2500,Math.floor(i/3)*1400]});PC.close=PC.hook;
+const BGC=['#1a1230','#3a2050'];
+const COL={};ORDER.slice(0,19).forEach((n,i)=>{COL[n]=[['#1a1230','#3a2050'],['#0a1a3a','#1a3a6a'],['#2a1a3a','#4a2a5a'],['#10264a','#1f4a7a']][i%4]});
+const P=(k)=>{const [cx,cy]=PC[k];return R(cx,cy,panel('p_'+k,cx,cy,2200,1200,COL[k][0],COL[k][1],`<g id="d_${k}"></g>`))};
+const card=(x,y,w,h,f)=>`<rect x="${x-w/2}" y="${y-h/2}" width="${w}" height="${h}" rx="30" fill="${f||'#f5f1e6'}"/>`;
+const pop=(t,w,sc)=>easeOut(clamp((t-Tn(sc,w))/0.5));
+const crd=(x,y,txt,u,c,w)=>`<g opacity="${u}" transform="translate(${f1(x)} ${f1(y+(1-u)*40)})">${card(0,0,w||640,130)}${tx(0,17,txt,44,c||'#3a2c12')}</g>`;
+const stars=(cx,cy,n)=>{let s='';for(let i=0;i<n;i++)s+=C(cx-1000+rnd(i)*2000,cy-560+rnd(i+90)*1120,1.5+rnd(i+5)*3,'#fff',0.4+0.5*rnd(i+8));return s};
+const _unused=(x,y,r,rot)=>`<clipPath id="ec${Math.round(x)}${Math.round(y)}"><circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(r)}"/></clipPath><circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(r)}" fill="#2d7fd3"/><g clip-path="url(#ec${Math.round(x)}${Math.round(y)})">`+[0,1,2].map(i=>{const dx=((rot*60+i*r*1.4)%(r*4.2))-r*2;return `<path d="M${f1(x+dx)} ${f1(y-r*0.3)} q${f1(r*0.3)} ${f1(-r*0.3)} ${f1(r*0.5)} ${f1(r*0.1)} q${f1(-r*0.1)} ${f1(r*0.5)} ${f1(-r*0.4)} ${f1(r*0.4)}z" fill="#4caf50"/>`}).join('')+`</g>`;
+const wavesF=(cx,y,w,t,col)=>{let d=`M${cx-w} ${y}`;for(let i=0;i<=40;i++)d+=`L${cx-w+i*w*2/40} ${f1(y+Math.sin(i*0.7+t*2)*10)} `;return `<path d="${d} V${y+700} H${cx-w}z" fill="${col||'#2d7fd3'}" opacity=".85"/>`};
+const house=(x,y,s)=>`<rect x="${x}" y="${y-s}" width="${s}" height="${s}" fill="#c87a4a"/><path d="M${x-10} ${y-s} L${x+s/2} ${y-s-s*0.5} L${x+s+10} ${y-s}z" fill="#8a3a2a"/>`;
+
+const list=(sc,t,cx,cy,L,w,sz)=>{let s='';L.forEach(([wd,n,c],i)=>{const y=cy-(L.length-1)*95+i*190;s+=crd(cx,y,n,pop(t,wd,sc),c,w||1100)});return s};
+const bed=(x,y)=>`<rect x="${x-260}" y="${y}" width="520" height="40" rx="10" fill="#8a5a3a"/><rect x="${x-260}" y="${y-60}" width="520" height="70" rx="26" fill="#cfe3ff"/><rect x="${x-250}" y="${y-100}" width="150" height="60" rx="26" fill="#fff"/>`;
+const clock=(x,y,r,a)=>C(x,y,r,'#fff')+C(x,y,r-14,'#f5f1e6')+`<line x1="${x}" y1="${y}" x2="${f1(x+Math.sin(a)*r*0.65)}" y2="${f1(y-Math.cos(a)*r*0.65)}" stroke="#222" stroke-width="12" stroke-linecap="round"/><line x1="${x}" y1="${y}" x2="${f1(x+Math.sin(a/12)*r*0.45)}" y2="${f1(y-Math.cos(a/12)*r*0.45)}" stroke="#222" stroke-width="16" stroke-linecap="round"/>`;
+const face=(x,y,r,m)=>C(x,y,r,'#ffd23f')+C(x-r*0.35,y-r*0.2,r*0.1,'#222')+C(x+r*0.35,y-r*0.2,r*0.1,'#222')+(m=='sad'?`<path d="M${x-r*0.4} ${y+r*0.5} Q${x} ${y+r*0.1} ${x+r*0.4} ${y+r*0.5}" stroke="#222" stroke-width="12" fill="none" stroke-linecap="round"/>`:m=='mad'?`<path d="M${x-r*0.55} ${y-r*0.45} L${x-r*0.15} ${y-r*0.3} M${x+r*0.55} ${y-r*0.45} L${x+r*0.15} ${y-r*0.3}" stroke="#222" stroke-width="12"/><path d="M${x-r*0.4} ${y+r*0.45} L${x+r*0.4} ${y+r*0.45}" stroke="#222" stroke-width="12" stroke-linecap="round"/>`:`<path d="M${x-r*0.4} ${y+r*0.3} Q${x} ${y+r*0.7} ${x+r*0.4} ${y+r*0.3}" stroke="#222" stroke-width="12" fill="none" stroke-linecap="round"/>`);
+const heart=(x,y,s)=>`<path transform="translate(${f1(x)} ${f1(y)}) scale(${f1(s)})" d="M0 60 C-120 -20 -60 -90 0 -35 C60 -90 120 -20 0 60Z" fill="#ff3b5c"/>`;
+const cellfn={
+hook(g,cx,cy,t){return stars(cx,cy,40)+clock(cx-420,cy,260,t*1.2)+bed(cx+380,cy+60)+tx(cx+380,cy-110,'Zzz',120,'#8fd3ff')+`<path d="M${cx+260} ${cy-200} L${cx+500} ${cy+20}" stroke="#ff4b4b" stroke-width="26" stroke-linecap="round" opacity="${pop(t,'never','hook')}"/>`+tx(cx+380,cy+240,'No sleep. Ever.',60,'#fff')},
+hours(g,cx,cy,t){return clock(cx-500,cy,220,t*3)+crd(cx+300,cy-130,'After 16 h: brain slows',pop(t,'sixteen','hours'),null,900)+crd(cx+300,cy+70,'After 24 h: focus like drunk',pop(t,'twenty','hours'),'#a01c1c',900)},
+micro(g,cx,cy,t){const b=0.5+0.5*Math.sin(t*3);const h=f1(120*(1-b*0.85));return `<ellipse cx="${cx-420}" cy="${cy}" rx="220" ry="${h}" fill="#fff"/><circle cx="${cx-420}" cy="${cy}" r="${f1(Math.min(90,h*0.8))}" fill="#2d7fd3"/>`+crd(cx+350,cy-120,'Microsleep: a few seconds',pop(t,'microsleeps','micro'),null,900)+crd(cx+350,cy+80,'Dangerous while driving',pop(t,'driving','micro'),'#a01c1c',900)},
+mood(g,cx,cy,t){return face(cx-640,cy-30,140,t>Tn('mood','mood')?'sad':'smile')+face(cx-300,cy-30,140,pop(t,'small','mood')>0.5?'mad':'smile')+crd(cx+330,cy-110,'Small things feel huge',pop(t,'small','mood'),null,760)+crd(cx+330,cy+70,'Harder to stay calm',pop(t,'harder','mood'),null,760)},
+memory(g,cx,cy,t){return list('memory',t,cx,cy,[['sorts','Brain sorts the day'],['without','No sleep: forgetting','#a01c1c'],['phone','Where is my phone?']],1000)},
+hunger(g,cx,cy,t){return list('hunger',t,cx,cy,[['hunger','Hunger hormone goes up'],['lowers','Fullness hormone goes down'],['sugary','Sugary, oily cravings']],1100)},
+immune(g,cx,cy,t){return `<path transform="translate(${cx-520} ${cy-20}) scale(1.1)" d="M0 -170 L150 -115 V10 Q150 130 0 190 Q-150 130 -150 10 V-115Z" fill="#2d7fd3" opacity="${1-0.4*pop(t,'weaken','immune')}"/>`+crd(cx+330,cy-110,'Weaker defences',pop(t,'weaken','immune'),null,820)+crd(cx+330,cy+80,'Colds come easier',pop(t,'colds','immune'),null,820)},
+halluc(g,cx,cy,t){return crd(cx,cy-140,'2-3 days awake',pop(t,'two','halluc'),null,900)+crd(cx,cy+60,'Seeing things that are not there',pop(t,'hallucinations','halluc'),'#a01c1c',1200)},
+record(g,cx,cy,t){return list('record',t,cx,cy,[['nineteen','1964: Randy Gardner'],['eleven','11 days awake'],['doctors','Never try this','#d9232a']],1000)},
+animals(g,cx,cy,t){return list('animals',t,cx,cy,[['rats','Lab rats: very sick in weeks'],['scientists','Sleep is a basic need']],1200)},
+clean(g,cx,cy,t){let s='';for(let i=0;i<8;i++){const y=cy-280+((t*140+i*80)%560);s+=`<path d="M${cx-500+i*40} ${y} q-20 40 0 50 q20 -10 0 -50z" fill="#6fd0ff"/>`}return s+crd(cx+250,cy-110,'Night cleaning cycle',pop(t,'fluid','clean'),null,860)+crd(cx+250,cy+80,'Washes away waste',pop(t,'waste','clean'),null,860)},
+heart(g,cx,cy,t){const p=1+0.1*Math.sin(t*6);return heart(cx-450,cy,2.2*p)+crd(cx+330,cy-110,'Heart rate drops',pop(t,'rate','heart'),null,820)+crd(cx+330,cy+80,'Heart gets a rest',pop(t,'rest','heart'),null,820)},
+body(g,cx,cy,t){return list('body',t,cx,cy,[['muscles','Muscles recover'],['growth','Growth hormone released'],['skipping','Skipping = slower healing','#a01c1c']],1100)},
+why(g,cx,cy,t){return list('why',t,cx,cy,[['memory','Memory'],['mood','Mood'],['health','Health'],['energy','Energy']],800)},
+nap(g,cx,cy,t){return crd(cx,cy-140,'20 minute nap: fresher',pop(t,'twenty','nap'),null,1000)+crd(cx,cy+60,'Not a full night replacement',pop(t,'not','nap'),'#a01c1c',1100)},
+myth(g,cx,cy,t){const L=[['four','Only 4 hours is enough'],['weekend','Weekend catch-up fixes it'],['experts','Experts: 7-9 hours']];let s='';L.forEach(([w,a],i)=>{const u=pop(t,w,'myth'),x=cx-640+i*640;const ps=a.split(' ');const h=Math.ceil(ps.length/2);s+=card(x,cy-20,560,520)+tx(x,cy-70,ps.slice(0,h).join(' '),42,'#3a2c12')+tx(x,cy-10,ps.slice(h).join(' '),42,'#3a2c12');if(i<2)s+=`<g transform="translate(${x} ${cy+150}) scale(${f1(2-u)})" opacity="${u*0.9}">${cross(0,0,90,'#ff4b4b',22)}</g>`;else s+=`<g opacity="${u}">${C(x,cy+150,60,'#4caf50')}<path d="M${x-28} ${cy+150} l20 24 l40 -48" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round"/></g>`});return s},
+tips(g,cx,cy,t){return list('tips',t,cx,cy,[['fixed','Fixed bedtime'],['dark','Dark, cool room'],['phone','Phone away an hour before'],['morning','Morning sunlight']],1200)},
+doctor(g,cx,cy,t){return list('doctor',t,cx,cy,[['tired','Always tired?'],['snore','Loud snoring?'],['doctor','Talk to a doctor','#2d7fd3']],1000)},
+lesson(g,cx,cy,t){return list('lesson',t,cx,cy,[['cleans','Brain cleans'],['memory','Memory is saved'],['repairs','Body repairs']],1000)}};
+function art(){let s=BG;ORDER.slice(0,19).forEach(k=>{s+=P(k)});return s}
+let G={};
+function init(){ORDER.slice(0,19).forEach(k=>G[k]=document.getElementById('d_'+k))}
+function anim(t){ORDER.slice(0,19).forEach(k=>{const [cx,cy]=PC[k];G[k].innerHTML=cellfn[k](G[k],cx,cy,t)})}
+const PILL={hook:'Never sleeping again?',hours:'The first day',micro:'Microsleeps',mood:'Your mood',memory:'Your memory',hunger:'Your hunger',immune:'Your immunity',halluc:'Days without sleep',record:'The 11 day record',animals:'What animals show',clean:'The brain cleaning cycle',heart:'Your heart',body:'Your body',why:'Why do we sleep?',nap:'What about naps?',myth:'Sleep myths',tips:'Sleep better tonight',doctor:'When to see a doctor',lesson:'The big lesson',close:'Sleep well, tonight'};
+ORDER.forEach(n=>HD(n,PILL[n],(n=='myth')?'#d9232a':(n=='close'?'#2d7fd3':undefined)));
+const cam=ORDER.map(n=>{const [x,y]=PC[n];return {sc:S(n),x,y,z:n=='close'?0.9:0.95}});
+return {art,init,anim,cam,sfx:()=>[]};
+};

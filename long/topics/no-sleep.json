@@ -1,0 +1,120 @@
+{
+ "id": "no-sleep",
+ "title": "What If You Never Slept Again? (What Would Really Happen)",
+ "short_title": "What if you never slept?",
+ "category": "trending, health",
+ "keywords": [
+  "never sleep again",
+  "what if you never slept",
+  "sleep deprivation",
+  "microsleep",
+  "brain",
+  "health"
+ ],
+ "description": "What would happen if you never slept again? Learn what sleep loss does hour by hour: focus, mood, memory, hunger, immunity and hallucinations, the famous 11 day experiment, why the brain needs sleep, myths and simple tips to sleep better. This video is for learning, not medical advice. Please talk to a doctor about sleep problems.",
+ "tags": [
+  "what if you never slept",
+  "sleep deprivation",
+  "what happens if you dont sleep",
+  "microsleep",
+  "why do we need sleep",
+  "sleep tips",
+  "health explained",
+  "science explained"
+ ],
+ "comment": "How many hours do you really sleep? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "What if you never slept again? Not one night, not ever. Many people would love the extra hours, but your body has a very different plan. Let us see what would really happen, hour by hour. Stay with me till the end, because the last part may change how you see your bedtime."
+  },
+  {
+   "mood": "happy",
+   "text": "The first day is easy. After about sixteen hours awake, your brain starts to slow down. After twenty four hours, studies show your focus and reaction time can become as poor as someone who is drunk. You would feel it everywhere. Even a single night without sleep can make your day feel long and heavy. Simple tasks take more effort, and you make more mistakes without noticing."
+  },
+  {
+   "mood": "think",
+   "text": "Then come microsleeps. These are tiny sleeps of a few seconds, and your brain forces them on you even with your eyes open. You would not even notice. If you were driving, those few seconds could be dangerous. Scientists say this is the brain's way of forcing rest. It is like your phone turning itself off when the battery is empty, whether you like it or not."
+  },
+  {
+   "mood": "happy",
+   "text": "Your mood would fall quickly. Without sleep, the emotional part of the brain becomes more reactive. Small things feel huge, you get irritated, and it becomes harder to stay calm and kind. Even a few bad nights can make people feel more anxious and less patient. Sleep is like a reset button for your feelings."
+  },
+  {
+   "mood": "think",
+   "text": "Memory would suffer too. During sleep, your brain sorts the day, and keeps what matters. Without it, learning becomes harder, and you forget simple things, like where you kept your phone. Students who sleep well after studying often remember more. So staying up all night to revise can sometimes work against you."
+  },
+  {
+   "mood": "happy",
+   "text": "Your hunger would change. Studies show less sleep raises the hunger hormone and lowers the fullness hormone. So you crave sugary, oily food, even when your body does not need it. That is why late night snacking feels so tempting after a bad night."
+  },
+  {
+   "mood": "think",
+   "text": "Your immune system would also weaken. Researchers found that people who sleep less catch colds more easily. Sleep is when your body builds its defences. So if you often fall sick during exam season, poor sleep may be part of the reason."
+  },
+  {
+   "mood": "happy",
+   "text": "After about two or three days awake, some people start to see things that are not there. These hallucinations happen because a tired brain begins to mix up reality and dreams. The shadows seem to move, and sounds seem strange. Doctors say these effects go away after good rest."
+  },
+  {
+   "mood": "think",
+   "text": "What is the longest anyone stayed awake? A famous experiment in nineteen sixty four had a student, Randy Gardner, stay awake for eleven days. He was confused, slow, and had trouble with memory, but he did recover after long sleep. Doctors strongly say, never try this."
+  },
+  {
+   "mood": "happy",
+   "text": "Animal studies show how serious it is. In old lab experiments, rats kept fully awake became very sick within a few weeks. Scientists believe that sleep is not a luxury, it is a basic need. Of course, humans are not rats, but the message from research is clear. Our body is built to need sleep."
+  },
+  {
+   "mood": "think",
+   "text": "Here is a cool part. During deep sleep, the brain gets a cleaning cycle. Fluid flows through, and helps wash away waste that builds up during the day. Without this, scientists think the brain would struggle. Think of it like a night time cleaning crew, working while you rest."
+  },
+  {
+   "mood": "happy",
+   "text": "Your heart works hard too. At night, your heart rate and blood pressure drop, giving your heart a rest. Long term poor sleep is linked with higher risk of heart problems. So a good night is a gift for your heart, too."
+  },
+  {
+   "mood": "think",
+   "text": "Your whole body would feel it. Muscles recover while you sleep, and growth hormone is released mostly during deep sleep. Skipping it means slower healing and more tiredness. Even your skin and your energy levels depend on it, so those hours are never wasted."
+  },
+  {
+   "mood": "happy",
+   "text": "So why do we sleep at all? Honestly, scientists are still studying every reason. But we know it helps memory, mood, health and energy. Nearly every animal ever studied sleeps in some way. Some animals, like dolphins, sleep with one half of the brain at a time. That shows how important sleep is, even in the ocean."
+  },
+  {
+   "mood": "think",
+   "text": "The good news is, a short nap can help. Even a twenty minute nap can make you feel fresher. But a nap is not a replacement for a full night of sleep. The best time is early afternoon, because a late nap can make it harder to sleep at night."
+  },
+  {
+   "mood": "happy",
+   "text": "Now some myths. Some people say, I only need four hours. For most adults, experts suggest seven to nine hours. Another myth is, I will catch up on the weekend. That helps a little, but it does not fully fix it."
+  },
+  {
+   "mood": "think",
+   "text": "So how can you sleep better? Keep a fixed bedtime, keep your room dark and cool, and keep your phone away an hour before bed. Morning sunlight also helps your body clock. And try to avoid heavy meals and strong tea or coffee late in the evening."
+  },
+  {
+   "mood": "happy",
+   "text": "If you are always tired even after sleeping, or you snore loudly, talk to a doctor. There are health conditions that can steal your sleep, and many are treatable."
+  },
+  {
+   "mood": "think",
+   "text": "Here is the lesson. Sleep is not wasted time. It is when your brain cleans, your memory is saved, and your body repairs. Those hours are working for you."
+  },
+  {
+   "mood": "laugh",
+   "text": "So tonight, give yourself the gift of a proper sleep. Your future self will thank you. Subscribe, and tell me which what-if I should explain next."
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "hero": "eye",
+  "bg": [
+   "#5a1a3a",
+   "#0a1230"
+  ],
+  "badge": "NO SLEEP. EVER.",
+  "line1": "NEVER SLEEP",
+  "line2": "AGAIN?"
+ }
+}
