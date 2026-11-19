@@ -1,0 +1,121 @@
+{
+ "id": "earth-stop",
+ "title": "What If Earth Suddenly Stopped Spinning? (What Would Really Happen)",
+ "short_title": "What if Earth stopped spinning?",
+ "category": "trending, space",
+ "keywords": [
+  "earth stops spinning",
+  "what if earth stopped rotating",
+  "inertia",
+  "coriolis",
+  "day and night",
+  "tides",
+  "space"
+ ],
+ "description": "What would happen if Earth suddenly stopped spinning? Learn why everything would keep moving at 1,670 km/h, what would happen to winds and oceans, how Earth's shape and continents would change, why a day would last a year, and why this can never really happen. Based on what scientists estimate.",
+ "tags": [
+  "what if earth stopped spinning",
+  "what if earth stopped rotating",
+  "earth rotation speed",
+  "inertia explained",
+  "coriolis effect",
+  "what if day lasted a year",
+  "space explained",
+  "science explained"
+ ],
+ "comment": "Where would you want to be if it happened? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Right now, you are moving at over a thousand kilometres per hour, and you cannot feel a thing. That is because Earth is spinning. But what if it suddenly stopped? Not slowly, but instantly. What would happen to you, your city, and the oceans? Let us find out."
+  },
+  {
+   "mood": "happy",
+   "text": "First, the speed. Earth turns once every twenty four hours. At the equator, the ground moves at about sixteen hundred and seventy kilometres per hour. Closer to the poles, it is slower. Everything on Earth, air and oceans included, moves along with the ground, smoothly."
+  },
+  {
+   "mood": "think",
+   "text": "Now imagine the ground stops instantly. Everything that is not attached to the ground keeps moving at that speed, because of inertia. That is the same reason you lurch forward when a bus brakes suddenly. Except here, the bus is a whole planet."
+  },
+  {
+   "mood": "happy",
+   "text": "The air would be first. The atmosphere would keep moving, creating winds of hundreds, even a thousand, kilometres per hour near the equator. These winds would scrape the surface, tearing apart trees, houses and buildings in their path."
+  },
+  {
+   "mood": "think",
+   "text": "Then the oceans. Water would also keep moving eastward, and huge waves would surge over the land, much bigger than any tsunami. Scientists say coastal areas near the equator would be flooded first, and the water would sweep far inland."
+  },
+  {
+   "mood": "happy",
+   "text": "Here is a deeper surprise. Earth is not a perfect ball. Because of its spin, it bulges at the equator, about twenty one kilometres wider than from pole to pole. The oceans follow this bulge. It is like pizza dough that stretches when you spin it."
+  },
+  {
+   "mood": "think",
+   "text": "Without the spin, the bulge would slowly fade, and Earth's shape would become rounder. The oceans would flow away from the equator towards the poles, flooding the polar regions deeply. Scientists think this would take a long time."
+  },
+  {
+   "mood": "happy",
+   "text": "At the same time, dry land would appear near the equator, forming one giant land belt around the middle of the planet. The world map would be completely different, with deep oceans at the top and bottom, and a long strip of land in the middle."
+  },
+  {
+   "mood": "think",
+   "text": "And what about day and night? If Earth stopped spinning, but still went around the Sun, one side would face the Sun for about six months. Then the other side would face it for the next six months. One day would be one whole year long."
+  },
+  {
+   "mood": "happy",
+   "text": "So half the planet would bake in endless sunshine for months, and the other half would freeze in the dark. The temperature differences would be huge. The world would have very hot lands, very cold lands, and a thin strip between them where life might survive."
+  },
+  {
+   "mood": "think",
+   "text": "Life would struggle. Plants need a balance of light and dark. Many animals have body clocks tuned to a twenty four hour day. Months of continuous light, or months of darkness, would be very hard for most plants, animals and people."
+  },
+  {
+   "mood": "happy",
+   "text": "Even the weather would change. Right now, Earth's spin bends winds and ocean currents, which is called the Coriolis effect. It is why storms spin in a circle. Without it, wind and storm patterns would work in a very different way."
+  },
+  {
+   "mood": "think",
+   "text": "What about the magnetic field? Earth's magnetic field comes from moving liquid metal deep inside the planet. The core is separate from the surface, so it might keep moving for a while, but scientists are not sure what would happen to it in the long run."
+  },
+  {
+   "mood": "happy",
+   "text": "The Moon would still pull on the oceans, and it would still orbit. But since Earth would no longer spin under it, the tides would behave differently. Instead of rising and falling twice a day, the tides would change much more slowly."
+  },
+  {
+   "mood": "think",
+   "text": "Now the important point. A sudden stop is not possible. No force in nature can stop Earth in an instant. In reality, Earth is slowing down, but extremely slowly. The Moon's tides make our day longer by about two milliseconds every hundred years."
+  },
+  {
+   "mood": "happy",
+   "text": "Technology would also be confused. Our clocks, calendars and satellites are built around Earth's spin. Time zones, GPS timing, even our idea of a day would need to change. Fortunately, the real slowing is so slow that we just add a leap second now and then."
+  },
+  {
+   "mood": "think",
+   "text": "Let us clear some myths. Earth will not stop spinning in our lifetime, or in a billion lifetimes. Also, if it slowed gradually, over a very long time, life could adjust, and the shock waves from the movie version would not happen."
+  },
+  {
+   "mood": "happy",
+   "text": "So what is the safe version? Earth's spin is huge and steady. It keeps our days and nights, our weather, and maybe even our magnetic shield working. We never notice it, because it is so smooth. And that is exactly why it works."
+  },
+  {
+   "mood": "think",
+   "text": "The big lesson is that tiny details we ignore hold our world together. A steady spin gives us days, seasons of weather, a round shape with the oceans in place, and a rhythm for every living thing. Without it, almost everything would change."
+  },
+  {
+   "mood": "laugh",
+   "text": "So the next time you feel Earth is calm and still, remember, you are zooming at over a thousand kilometres per hour, and it is wonderfully smooth. Subscribe, and tell me what what-if I should explain next."
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "hero": "earth",
+  "bg": [
+   "#3a1a6a",
+   "#0a1230"
+  ],
+  "badge": "1,670 KM/H RIGHT NOW",
+  "line1": "IF EARTH",
+  "line2": "STOPPED?"
+ }
+}

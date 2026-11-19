@@ -48,6 +48,11 @@ HEROES = {
 <path d="M60 470 Q180 430 300 470 T540 470 V560 H60z" fill="#2d7fd3" stroke="#000" stroke-width="14"/>
 <g fill="#4aa3ff" stroke="#000" stroke-width="8"><path d="M470 180 q-30 50 0 70 q30 -20 0 -70z"/><path d="M130 160 q-24 40 0 56 q24 -16 0 -56z"/></g>
 <text x="300" y="400" text-anchor="middle" font-family="Poppins" font-weight="900" font-size="260" fill="#ff3b3b" stroke="#000" stroke-width="14" paint-order="stroke">?</text></svg>""",
+"earth": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24"/></filter></defs>
+<circle cx="300" cy="300" r="290" fill="#5aa8ff" opacity=".5" filter="url(#b)"/>
+<circle cx="300" cy="300" r="240" fill="#2d7fd3" stroke="#000" stroke-width="16"/><path d="M170 240 q60 -80 120 -20 q20 70 -50 110 q-70 20 -70 -90z M330 330 q80 -30 90 40 q-20 70 -80 50z" fill="#4caf50" stroke="#000" stroke-width="8"/>
+<path d="M300 20 a280 280 0 0 1 270 200" stroke="#ff3b3b" stroke-width="26" fill="none" stroke-linecap="round"/><polygon points="595,215 520,215 560,150" fill="#ff3b3b" stroke="#000" stroke-width="8"/>
+<text x="300" y="400" text-anchor="middle" font-family="Poppins" font-weight="900" font-size="300" fill="#ff3b3b" stroke="#000" stroke-width="14" paint-order="stroke">?</text></svg>""",
 "immune": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="20"/></filter></defs>
 <circle cx="300" cy="300" r="270" fill="#4cff9a" opacity=".3" filter="url(#b)"/>
 <path d="M300 40 L520 120 V300 Q520 470 300 560 Q80 470 80 300 V120Z" fill="#2d7fd3" stroke="#000" stroke-width="16"/><path d="M300 100 L470 160 V300 Q470 430 300 505 Q130 430 130 300 V160Z" fill="#6fd0ff"/>
