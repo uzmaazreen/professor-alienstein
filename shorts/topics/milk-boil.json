@@ -1,0 +1,49 @@
+{
+ "id": "milk-boil",
+ "title": "Why Does Milk Boil Over So Fast?",
+ "short_title": "Why milk boils over",
+ "category": "trending, food",
+ "keywords": [
+  "milk boil over",
+  "milk overflow",
+  "milk skin",
+  "kitchen science"
+ ],
+ "description": "Why does milk boil over when water does not? The simple science of milk skin and steam bubbles.",
+ "tags": [
+  "why does milk boil over",
+  "milk overflow science",
+  "milk skin malai",
+  "kitchen science",
+  "science explained",
+  "everyday science"
+ ],
+ "comment": "Did your milk spill today? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Why does milk boil over in a flash, but water does not?"
+  },
+  {
+   "mood": "happy",
+   "text": "Milk has water, but also fat and protein."
+  },
+  {
+   "mood": "shock",
+   "text": "As it heats, protein and fat form a thin skin on the surface."
+  },
+  {
+   "mood": "happy",
+   "text": "Steam bubbles rise from below, get trapped under that skin, and push the milk up."
+  },
+  {
+   "mood": "think",
+   "text": "Then it overflows, in seconds."
+  },
+  {
+   "mood": "happy",
+   "text": "So keep the flame low, stir, and use a bigger pot."
+  }
+ ],
+ "priority": 2
+}

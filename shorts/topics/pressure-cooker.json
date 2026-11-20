@@ -1,0 +1,49 @@
+{
+ "id": "pressure-cooker",
+ "title": "Why Does a Pressure Cooker Cook So Fast?",
+ "short_title": "Why a pressure cooker cooks faster",
+ "category": "trending, food",
+ "keywords": [
+  "pressure cooker",
+  "cooker whistle",
+  "boiling point",
+  "pressure"
+ ],
+ "description": "Why does a pressure cooker cook food so fast? The simple science of pressure and boiling point.",
+ "tags": [
+  "how does a pressure cooker work",
+  "why pressure cooker cooks faster",
+  "cooker whistle",
+  "kitchen science",
+  "science explained",
+  "everyday science"
+ ],
+ "comment": "How many whistles for dal? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Why does a pressure cooker cook food so fast?"
+  },
+  {
+   "mood": "happy",
+   "text": "In an open pot, water boils at about one hundred degrees, and cannot get hotter."
+  },
+  {
+   "mood": "shock",
+   "text": "A sealed cooker traps the steam, so the pressure rises, and water boils at around one hundred and twenty degrees."
+  },
+  {
+   "mood": "happy",
+   "text": "Hotter water and steam cook food faster, saving time and gas."
+  },
+  {
+   "mood": "think",
+   "text": "The whistle lets out extra steam, to keep the pressure safe."
+  },
+  {
+   "mood": "happy",
+   "text": "And always let the pressure drop before opening the lid."
+  }
+ ],
+ "priority": 5
+}

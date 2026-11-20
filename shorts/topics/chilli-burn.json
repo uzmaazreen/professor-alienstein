@@ -1,0 +1,49 @@
+{
+ "id": "chilli-burn",
+ "title": "Why Does Chilli Burn Your Mouth?",
+ "short_title": "Why chilli burns your mouth",
+ "category": "trending, food",
+ "keywords": [
+  "chilli burn",
+  "spicy food",
+  "capsaicin",
+  "milk for spicy"
+ ],
+ "description": "Why does chilli feel so hot even though it is not hot? The simple science of capsaicin and why milk helps more than water.",
+ "tags": [
+  "why does chilli burn",
+  "capsaicin explained",
+  "spicy food science",
+  "milk for spicy food",
+  "science explained",
+  "everyday science"
+ ],
+ "comment": "How spicy can you eat? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Why does chilli burn your mouth, even though it is not hot?"
+  },
+  {
+   "mood": "happy",
+   "text": "Chilli has a chemical called capsaicin."
+  },
+  {
+   "mood": "shock",
+   "text": "It switches on the same sensors in your mouth that detect real heat, so your brain thinks you are burning."
+  },
+  {
+   "mood": "happy",
+   "text": "Water does not help much, because capsaicin does not mix well with water. Milk can help, because its fat and protein can wash capsaicin away."
+  },
+  {
+   "mood": "think",
+   "text": "Rice, bread and a little sugar can also ease it."
+  },
+  {
+   "mood": "happy",
+   "text": "And never rub your eyes after cutting chillies."
+  }
+ ],
+ "priority": 3
+}

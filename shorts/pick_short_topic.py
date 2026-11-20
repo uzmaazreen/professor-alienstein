@@ -36,6 +36,7 @@ def choose(lib, state, forced=None):
         return forced, "forced by you"
     used = [u["id"] for u in state["used"]]
     pri = [t for t in lib.values() if t.get("priority") and t["id"] not in used]   # a viewer asked for it: make it next
+    pri.sort(key=lambda t: t["priority"] if isinstance(t["priority"], int) and not isinstance(t["priority"], bool) else 0)
     if pri:
         return pri[0]["id"], "priority topic (viewer request)"
     recent = set(used[-max(1, len(lib) - 3):])          # do not repeat until almost every topic was used

@@ -1,0 +1,50 @@
+{
+ "id": "roti-puff",
+ "title": "Why Does a Roti Puff Up?",
+ "short_title": "Why a roti puffs up",
+ "category": "trending, food",
+ "keywords": [
+  "roti puff",
+  "chapati",
+  "phulka",
+  "steam",
+  "dough"
+ ],
+ "description": "Why does a roti puff up like a balloon? The simple science of steam and layers.",
+ "tags": [
+  "why does roti puff",
+  "roti puffing science",
+  "phulka puffing",
+  "chapati science",
+  "science explained",
+  "everyday science"
+ ],
+ "comment": "Does your roti always puff? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Why does a roti puff up like a balloon?"
+  },
+  {
+   "mood": "happy",
+   "text": "Roti dough has a lot of water inside it, and it is rolled into thin layers."
+  },
+  {
+   "mood": "shock",
+   "text": "On the hot tawa and flame, that water turns into steam."
+  },
+  {
+   "mood": "happy",
+   "text": "Steam takes much more space than water, so it pushes the two layers apart. And the roti puffs up."
+  },
+  {
+   "mood": "think",
+   "text": "If the roti is rolled evenly, the steam stays trapped. A small tear lets the steam escape, and it stays flat."
+  },
+  {
+   "mood": "happy",
+   "text": "So rest the dough, roll evenly, and cook on a hot tawa."
+  }
+ ],
+ "priority": 1
+}

@@ -1,0 +1,49 @@
+{
+ "id": "popcorn-pop",
+ "title": "Why Does Popcorn Pop?",
+ "short_title": "Why popcorn pops",
+ "category": "trending, food",
+ "keywords": [
+  "popcorn",
+  "why does popcorn pop",
+  "steam pressure",
+  "corn"
+ ],
+ "description": "Why does popcorn pop? The simple science of steam pressure inside a tiny kernel.",
+ "tags": [
+  "why does popcorn pop",
+  "popcorn science",
+  "steam pressure",
+  "kitchen science",
+  "science explained",
+  "everyday science"
+ ],
+ "comment": "Sweet or salty popcorn? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Why does a hard little corn kernel suddenly pop?"
+  },
+  {
+   "mood": "happy",
+   "text": "Inside each kernel is a tiny drop of water, locked in by a tough shell."
+  },
+  {
+   "mood": "shock",
+   "text": "When it heats up, that water turns into steam, and the pressure builds up."
+  },
+  {
+   "mood": "happy",
+   "text": "At around one hundred and eighty degrees, the shell cracks, and the starch inside bursts out and puffs up."
+  },
+  {
+   "mood": "think",
+   "text": "Very dry or old kernels have lost their water, so many stay unpopped."
+  },
+  {
+   "mood": "happy",
+   "text": "So keep your kernels in a sealed jar."
+  }
+ ],
+ "priority": 4
+}

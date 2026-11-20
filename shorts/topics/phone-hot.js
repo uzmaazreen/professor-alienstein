@@ -12,7 +12,7 @@ let G={};
 function init(svg){G={a:svg.querySelector('#a'),b:svg.querySelector('#b')}}
 function anim(t){
  const heat=Math.min(clamp((t-W(1,0))/10)*(0.5+0.5*on(t,2,0)),1);
- let a=phone(0,40,2.2,'#'+mix('cfd8e6','ff4b2b',heat).replace('#',''));
+ let a=phone(0,40,2.2,mix('cfd8e6','ff4b2b',heat));
  const cool=on(t,5,0);
  for(let i=0;i<5;i++){const u=((t*0.8+i/5)%1);a+=`<path d="M${-180+i*90} ${-380-u*160} q24 -34 0 -70 q-24 -34 0 -70" stroke="#ff7a4a" stroke-width="10" fill="none" stroke-linecap="round" opacity="${heat*(1-u)*(1-cool*0.7)}"/>`}
  G.a.innerHTML=a;

@@ -1,0 +1,49 @@
+{
+ "id": "apple-brown",
+ "title": "Why Do Cut Apples Turn Brown?",
+ "short_title": "Why cut apples turn brown",
+ "category": "trending, food",
+ "keywords": [
+  "apple turns brown",
+  "cut apple brown",
+  "lemon juice",
+  "oxidation"
+ ],
+ "description": "Why does a cut apple turn brown? The simple science of enzymes, air and why lemon juice helps.",
+ "tags": [
+  "why do apples turn brown",
+  "apple browning science",
+  "lemon juice on apple",
+  "kitchen science",
+  "science explained",
+  "everyday science"
+ ],
+ "comment": "Do you eat brown apples or throw them? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Why does a cut apple turn brown so fast?"
+  },
+  {
+   "mood": "happy",
+   "text": "Apple cells hold an enzyme and special chemicals, kept apart. Cutting breaks the cells, and they mix."
+  },
+  {
+   "mood": "shock",
+   "text": "With oxygen from the air, the enzyme turns those chemicals into brown pigments."
+  },
+  {
+   "mood": "happy",
+   "text": "Lemon juice slows this, because its acid and vitamin C get in the way."
+  },
+  {
+   "mood": "think",
+   "text": "Cold water, or the fridge, also slows it down."
+  },
+  {
+   "mood": "happy",
+   "text": "And a brown apple is usually still fine to eat."
+  }
+ ],
+ "priority": 6
+}
