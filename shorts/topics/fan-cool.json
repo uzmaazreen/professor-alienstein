@@ -1,0 +1,47 @@
+{
+ "id": "fan-cool",
+ "title": "Why Does a Fan Make You Feel Cooler?",
+ "short_title": "Why a fan makes you feel cooler",
+ "category": "trending, home",
+ "keywords": [
+  "fan",
+  "feel cool",
+  "sweat",
+  "evaporation"
+ ],
+ "description": "A fan does not cool the air, so why does it feel cooler? The simple science of sweat and evaporation.",
+ "tags": [
+  "why does fan make you feel cool",
+  "fan cooling",
+  "sweat evaporation",
+  "science explained",
+  "everyday science"
+ ],
+ "comment": "Is your fan on right now? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "A fan does not cool the air. So why do you feel cooler?"
+  },
+  {
+   "mood": "happy",
+   "text": "Your skin has tiny amounts of sweat. When sweat dries, it takes heat away from your body."
+  },
+  {
+   "mood": "shock",
+   "text": "Around your skin, a thin layer of warm, damp air builds up. That slows the drying."
+  },
+  {
+   "mood": "happy",
+   "text": "The fan blows that layer away and brings drier air, so sweat dries faster, and you feel cooler."
+  },
+  {
+   "mood": "think",
+   "text": "The fan motor even adds a little heat to the room."
+  },
+  {
+   "mood": "happy",
+   "text": "So switch the fan off when you leave the room, because it cools you, not the room."
+  }
+ ]
+}

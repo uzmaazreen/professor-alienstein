@@ -1,0 +1,48 @@
+{
+ "id": "mosquito-bite",
+ "title": "Why Do Mosquitoes Bite Some People More?",
+ "short_title": "Why mosquitoes bite some people more",
+ "category": "trending, health",
+ "keywords": [
+  "mosquito",
+  "why mosquitoes bite me",
+  "carbon dioxide",
+  "body odour"
+ ],
+ "description": "Why do mosquitoes bite some people more than others? The simple science of breath, heat and skin smell.",
+ "tags": [
+  "why do mosquitoes bite me",
+  "mosquito bites",
+  "mosquito attracted to",
+  "science explained",
+  "everyday science"
+ ],
+ "comment": "Do mosquitoes love you or ignore you? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Why do mosquitoes bite some people more than others?"
+  },
+  {
+   "mood": "happy",
+   "text": "First, they smell your breath. Mosquitoes can sense the carbon dioxide you breathe out from far away."
+  },
+  {
+   "mood": "shock",
+   "text": "They also sense body heat, and the smell of your skin, made by your skin and the tiny microbes living on it."
+  },
+  {
+   "mood": "happy",
+   "text": "Everyone's skin smell is different. Studies show some people are simply more attractive to mosquitoes, and genes may play a part."
+  },
+  {
+   "mood": "think",
+   "text": "People who breathe out more, like after exercise, may get found more easily. Dark clothes can also be easier for them to spot."
+  },
+  {
+   "mood": "happy",
+   "text": "So cover up, use a net or repellent, and remove standing water around your home."
+  }
+ ],
+ "priority": true
+}

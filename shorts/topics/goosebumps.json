@@ -1,0 +1,47 @@
+{
+ "id": "goosebumps",
+ "title": "Why Do We Get Goosebumps?",
+ "short_title": "Why we get goosebumps",
+ "category": "trending, body",
+ "keywords": [
+  "goosebumps",
+  "hair standing",
+  "cold",
+  "chills"
+ ],
+ "description": "Why do we get goosebumps? The simple science of tiny muscles, cold and emotions.",
+ "tags": [
+  "why do we get goosebumps",
+  "goosebumps explained",
+  "hair stand up",
+  "science explained",
+  "everyday science"
+ ],
+ "comment": "What gives you goosebumps? Music? Fear? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Why do we get goosebumps?"
+  },
+  {
+   "mood": "happy",
+   "text": "Each hair on your skin has a tiny muscle at its root. When it tightens, the hair stands up."
+  },
+  {
+   "mood": "shock",
+   "text": "This happens when you feel cold, scared, or deeply moved by music or a story."
+  },
+  {
+   "mood": "happy",
+   "text": "In furry animals, standing hair traps warm air, or makes the animal look bigger."
+  },
+  {
+   "mood": "think",
+   "text": "We have very little hair, so for us it does almost nothing."
+  },
+  {
+   "mood": "happy",
+   "text": "Scientists think goosebumps are a leftover from our hairy ancestors."
+  }
+ ]
+}

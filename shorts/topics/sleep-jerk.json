@@ -1,0 +1,47 @@
+{
+ "id": "sleep-jerk",
+ "title": "Why Do You Jerk Awake While Falling Asleep?",
+ "short_title": "Why you jerk awake while falling asleep",
+ "category": "trending, body",
+ "keywords": [
+  "hypnic jerk",
+  "falling asleep",
+  "sleep start",
+  "muscle twitch"
+ ],
+ "description": "Why do we suddenly jerk when falling asleep? The simple science of hypnic jerks.",
+ "tags": [
+  "hypnic jerk",
+  "why do i jerk when falling asleep",
+  "falling feeling sleep",
+  "science explained",
+  "everyday science"
+ ],
+ "comment": "Has this happened to you? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Why do you sometimes jerk awake, feeling like you are falling, just as you fall asleep?"
+  },
+  {
+   "mood": "happy",
+   "text": "It is called a hypnic jerk, or sleep start, and it is very common."
+  },
+  {
+   "mood": "shock",
+   "text": "Scientists are not completely sure why. One idea is that the brain misreads relaxing muscles as falling."
+  },
+  {
+   "mood": "happy",
+   "text": "It can happen more when you are very tired, stressed, or had caffeine late in the day."
+  },
+  {
+   "mood": "think",
+   "text": "For most people, it is harmless."
+  },
+  {
+   "mood": "happy",
+   "text": "A steady sleep time and less late caffeine can help."
+  }
+ ]
+}

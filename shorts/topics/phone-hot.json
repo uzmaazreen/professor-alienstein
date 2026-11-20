@@ -1,0 +1,47 @@
+{
+ "id": "phone-hot",
+ "title": "Why Does Your Phone Get Hot?",
+ "short_title": "Why your phone gets hot",
+ "category": "trending, tech",
+ "keywords": [
+  "phone heating",
+  "phone hot",
+  "overheating",
+  "battery"
+ ],
+ "description": "Why does your phone get hot while charging or gaming? The simple science of electricity and heat.",
+ "tags": [
+  "why does my phone get hot",
+  "phone overheating",
+  "phone heating while charging",
+  "science explained",
+  "everyday science"
+ ],
+ "comment": "Does your phone get hot? Which one is it? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "Why does your phone get hot?"
+  },
+  {
+   "mood": "happy",
+   "text": "Whenever electricity flows through tiny wires and chips, a little energy turns into heat."
+  },
+  {
+   "mood": "shock",
+   "text": "Charging, gaming and video calls make the chip and battery work harder, so more heat is made."
+  },
+  {
+   "mood": "happy",
+   "text": "Hot sun, thick covers and closed pockets stop the heat from escaping."
+  },
+  {
+   "mood": "think",
+   "text": "Too much heat can make the battery age faster, so the phone slows down to protect itself."
+  },
+  {
+   "mood": "happy",
+   "text": "Take off the case, keep it in shade, and avoid heavy use while fast charging."
+  }
+ ]
+}
