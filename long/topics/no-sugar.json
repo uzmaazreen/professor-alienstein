@@ -1,0 +1,119 @@
+{
+ "id": "no-sugar",
+ "title": "What If You Quit Sugar for 30 Days? (What Would Really Happen)",
+ "short_title": "What if you quit sugar for 30 days?",
+ "category": "trending, health",
+ "keywords": [
+  "quit sugar 30 days",
+  "what happens if you stop eating sugar",
+  "added sugar",
+  "cravings",
+  "health"
+ ],
+ "description": "What would happen if you stopped eating added sugar for 30 days? Learn about hidden sugar, cravings in the first week, energy, taste changes, mood, sleep, skin, teeth, liver and heart, plus myths and gentle tips. This video is for learning, not medical advice. Please talk to a doctor before changing your diet if you have a health condition.",
+ "tags": [
+  "what if you quit sugar",
+  "quit sugar for 30 days",
+  "sugar free diet",
+  "added sugar",
+  "sugar cravings",
+  "hidden sugar",
+  "health explained",
+  "science explained"
+ ],
+ "comment": "Which sweet thing would you miss the most? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "What if you gave up added sugar for thirty days? No sweets, no cold drinks, no sugary chai. Sounds scary, right? But what would really happen to your body, your mood and your energy? Let us find out, based on what researchers have found. This is for learning, not medical advice."
+  },
+  {
+   "mood": "happy",
+   "text": "First, where is sugar hiding? Not only in sweets. Packaged juices, sauces, ketchup, biscuits, breakfast cereals and flavoured yogurt often have added sugar. Many people eat far more than they think. The World Health Organization suggests keeping added sugar below ten percent of daily energy, and even lower is better. A single can of cold drink can already have several teaspoons of sugar, so it adds up fast."
+  },
+  {
+   "mood": "think",
+   "text": "So what do we mean by cutting sugar? We mean added sugar, the kind put in by makers or by us. Not the natural sugar inside whole fruit, which comes with fibre and water. That difference matters a lot."
+  },
+  {
+   "mood": "happy",
+   "text": "The first few days are the hardest. Many people report strong cravings. Your brain is used to the quick sweet reward, and it asks for more. This is normal, and it usually fades with time. It is not a lack of willpower. It is a habit your brain has learned, and habits can change."
+  },
+  {
+   "mood": "think",
+   "text": "Some people also report headaches, tiredness or feeling cranky in the first week. Scientists are still studying how common this is. Drinking enough water, eating proper meals and sleeping well can make this phase easier."
+  },
+  {
+   "mood": "happy",
+   "text": "After that, many people say their energy feels steadier. When you eat a lot of sugar, your blood sugar can rise fast and then drop, which can leave you tired. Without sugary snacks, these ups and downs may be smaller."
+  },
+  {
+   "mood": "think",
+   "text": "Your taste would change too. Research suggests that taste preferences can adapt in a few weeks. After a month, many people find that things they loved before feel too sweet, and plain foods taste more flavourful. So the sweet tea that felt perfect before may start to feel too strong."
+  },
+  {
+   "mood": "happy",
+   "text": "What about mood? The picture is mixed. Some people feel more stable, others feel low at the start. Studies link high sugar intake with a higher risk of low mood, but more research is needed, so we should not promise miracles."
+  },
+  {
+   "mood": "think",
+   "text": "Sleep may also improve for some people. Sugary food and drinks late in the day can disturb sleep, and cutting them may help you fall asleep more easily. This varies from person to person."
+  },
+  {
+   "mood": "happy",
+   "text": "Your skin? Some studies suggest that high sugar diets are linked with more acne in some people. So cutting sugar might help some skin types, though results are not the same for everyone."
+  },
+  {
+   "mood": "think",
+   "text": "Your teeth would love this. When bacteria in your mouth eat sugar, they make acid that damages the enamel. Less sugar means fewer acid attacks, and a lower chance of cavities. Brushing and rinsing still matter."
+  },
+  {
+   "mood": "happy",
+   "text": "What about weight? Sugary drinks add many calories without making you feel full. Studies show that cutting them often helps people eat fewer calories overall. But weight depends on many things, so sugar is just one piece. Think about it like this, a sweet drink is easy to finish in minutes, but a meal takes time and fills you up."
+  },
+  {
+   "mood": "think",
+   "text": "The liver also gets some relief. Too much sugar, especially fructose, can lead to fat build up in the liver. Some short studies found that cutting down added sugar reduced liver fat in a matter of days or weeks."
+  },
+  {
+   "mood": "happy",
+   "text": "Your heart may benefit too. Research links less added sugar with lower triglycerides and slightly lower blood pressure. Over many years, this may lower the risk of heart problems. These are results from studies on groups of people, so your own results may differ."
+  },
+  {
+   "mood": "think",
+   "text": "But do not fear fruit. Whole fruit has fibre, vitamins and water, and it fills you up. Sweet cravings can often be met with a banana, dates, or a bowl of papaya instead of a sugary snack."
+  },
+  {
+   "mood": "happy",
+   "text": "Now some myths. Brown sugar, jaggery and honey are still added sugars, so they are not magic. Sugar free does not mean eat unlimited. And studies have not found that sugar makes kids hyperactive."
+  },
+  {
+   "mood": "think",
+   "text": "How can you try it gently? Start by switching sugary drinks to water or plain tea. Read labels for the words sugar, syrup and glucose. And cut down slowly, rather than all at once. And if you slip one day, no problem. Just start again the next meal."
+  },
+  {
+   "mood": "happy",
+   "text": "Who should be careful? If you have diabetes, take medicines, are pregnant, or have any health condition, please talk to your doctor before changing your diet. Everyone's body is different."
+  },
+  {
+   "mood": "think",
+   "text": "Here is the lesson. You do not need to be perfect, and sweets are not evil. The goal is balance. Small changes, kept for a month, can reset your taste and your habits. Many people find that the biggest change is how in control they feel."
+  },
+  {
+   "mood": "laugh",
+   "text": "So maybe this week, swap one sugary drink for water and see how you feel. Subscribe, and tell me which what-if I should explain next."
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "hero": "sugar",
+  "bg": [
+   "#6a1a4a",
+   "#1a0a20"
+  ],
+  "badge": "30 DAYS NO SUGAR",
+  "line1": "QUIT SUGAR?",
+  "line2": "WHAT HAPPENS"
+ }
+}

@@ -1,0 +1,59 @@
+// Long video: what if you you quit sugar.
+window.TOPIC_FACTORY=(E)=>{
+const {clamp,easeIO,easeOut,rnd,mix,A,H,lbl,pill,SC,WT}=E;
+const K=window.KIT(E);const {wi,T,prog,lerp,f1,C,panel,R,arrowUp,arrowR,along,cross,tx,person,BG}=K;
+const ORDER=['hook','hidden','added','cravings','headache','energy','taste','mood','sleep','skin','teeth','weight','liver','heart','fruit','myth','tips','doctor','lesson','close'];
+const S=n=>ORDER.indexOf(n);
+const sp=(n,t)=>prog(S(n),t);
+const Tn=(n,w)=>T(S(n),w);
+const HD=(n,txt,bg)=>H({sc:S(n),w:0,x:0,y:-400,html:pill(txt,bg)});
+const PC={};ORDER.slice(0,19).forEach((n,i)=>{PC[n]=[(i%3)*2500,Math.floor(i/3)*1400]});PC.close=PC.hook;
+const BGC=['#1a1230','#3a2050'];
+const COL={};ORDER.slice(0,19).forEach((n,i)=>{COL[n]=[['#1a1230','#3a2050'],['#0a1a3a','#1a3a6a'],['#2a1a3a','#4a2a5a'],['#10264a','#1f4a7a']][i%4]});
+const P=(k)=>{const [cx,cy]=PC[k];return R(cx,cy,panel('p_'+k,cx,cy,2200,1200,COL[k][0],COL[k][1],`<g id="d_${k}"></g>`))};
+const card=(x,y,w,h,f)=>`<rect x="${x-w/2}" y="${y-h/2}" width="${w}" height="${h}" rx="30" fill="${f||'#f5f1e6'}"/>`;
+const pop=(t,w,sc)=>easeOut(clamp((t-Tn(sc,w))/0.5));
+const crd=(x,y,txt,u,c,w)=>`<g opacity="${u}" transform="translate(${f1(x)} ${f1(y+(1-u)*40)})">${card(0,0,w||640,130)}${tx(0,17,txt,44,c||'#3a2c12')}</g>`;
+const stars=(cx,cy,n)=>{let s='';for(let i=0;i<n;i++)s+=C(cx-1000+rnd(i)*2000,cy-560+rnd(i+90)*1120,1.5+rnd(i+5)*3,'#fff',0.4+0.5*rnd(i+8));return s};
+const _unused=(x,y,r,rot)=>`<clipPath id="ec${Math.round(x)}${Math.round(y)}"><circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(r)}"/></clipPath><circle cx="${f1(x)}" cy="${f1(y)}" r="${f1(r)}" fill="#2d7fd3"/><g clip-path="url(#ec${Math.round(x)}${Math.round(y)})">`+[0,1,2].map(i=>{const dx=((rot*60+i*r*1.4)%(r*4.2))-r*2;return `<path d="M${f1(x+dx)} ${f1(y-r*0.3)} q${f1(r*0.3)} ${f1(-r*0.3)} ${f1(r*0.5)} ${f1(r*0.1)} q${f1(-r*0.1)} ${f1(r*0.5)} ${f1(-r*0.4)} ${f1(r*0.4)}z" fill="#4caf50"/>`}).join('')+`</g>`;
+const wavesF=(cx,y,w,t,col)=>{let d=`M${cx-w} ${y}`;for(let i=0;i<=40;i++)d+=`L${cx-w+i*w*2/40} ${f1(y+Math.sin(i*0.7+t*2)*10)} `;return `<path d="${d} V${y+700} H${cx-w}z" fill="${col||'#2d7fd3'}" opacity=".85"/>`};
+const house=(x,y,s)=>`<rect x="${x}" y="${y-s}" width="${s}" height="${s}" fill="#c87a4a"/><path d="M${x-10} ${y-s} L${x+s/2} ${y-s-s*0.5} L${x+s+10} ${y-s}z" fill="#8a3a2a"/>`;
+
+const list=(sc,t,cx,cy,L,w,sz)=>{let s='';L.forEach(([wd,n,c],i)=>{const y=cy-(L.length-1)*95+i*190;s+=crd(cx,y,n,pop(t,wd,sc),c,w||1100)});return s};
+const bed=(x,y)=>`<rect x="${x-260}" y="${y}" width="520" height="40" rx="10" fill="#8a5a3a"/><rect x="${x-260}" y="${y-60}" width="520" height="70" rx="26" fill="#cfe3ff"/><rect x="${x-250}" y="${y-100}" width="150" height="60" rx="26" fill="#fff"/>`;
+const clock=(x,y,r,a)=>C(x,y,r,'#fff')+C(x,y,r-14,'#f5f1e6')+`<line x1="${x}" y1="${y}" x2="${f1(x+Math.sin(a)*r*0.65)}" y2="${f1(y-Math.cos(a)*r*0.65)}" stroke="#222" stroke-width="12" stroke-linecap="round"/><line x1="${x}" y1="${y}" x2="${f1(x+Math.sin(a/12)*r*0.45)}" y2="${f1(y-Math.cos(a/12)*r*0.45)}" stroke="#222" stroke-width="16" stroke-linecap="round"/>`;
+const face=(x,y,r,m)=>C(x,y,r,'#ffd23f')+C(x-r*0.35,y-r*0.2,r*0.1,'#222')+C(x+r*0.35,y-r*0.2,r*0.1,'#222')+(m=='sad'?`<path d="M${x-r*0.4} ${y+r*0.5} Q${x} ${y+r*0.1} ${x+r*0.4} ${y+r*0.5}" stroke="#222" stroke-width="12" fill="none" stroke-linecap="round"/>`:m=='mad'?`<path d="M${x-r*0.55} ${y-r*0.45} L${x-r*0.15} ${y-r*0.3} M${x+r*0.55} ${y-r*0.45} L${x+r*0.15} ${y-r*0.3}" stroke="#222" stroke-width="12"/><path d="M${x-r*0.4} ${y+r*0.45} L${x+r*0.4} ${y+r*0.45}" stroke="#222" stroke-width="12" stroke-linecap="round"/>`:`<path d="M${x-r*0.4} ${y+r*0.3} Q${x} ${y+r*0.7} ${x+r*0.4} ${y+r*0.3}" stroke="#222" stroke-width="12" fill="none" stroke-linecap="round"/>`);
+const heart=(x,y,s)=>`<path transform="translate(${f1(x)} ${f1(y)}) scale(${f1(s)})" d="M0 60 C-120 -20 -60 -90 0 -35 C60 -90 120 -20 0 60Z" fill="#ff3b5c"/>`;
+
+
+
+const cube=(x,y,s,r)=>`<rect x="${x-s/2}" y="${y-s/2}" width="${s}" height="${s}" rx="${s*0.1}" fill="#fff" stroke="#ddd" stroke-width="4" transform="rotate(${r} ${x} ${y})"/>`;
+const cellfn={
+hook(g,cx,cy,t){const u=pop(t,'thirty','hook');return stars(cx,cy,20)+cube(cx-500,cy-60,170,-14)+cube(cx-300,cy+60,170,10)+cube(cx-380,cy-200,150,5)+`<g opacity="${u}"><circle cx="${cx-390}" cy="${cy-20}" r="270" fill="none" stroke="#ff3b3b" stroke-width="26"/><path d="M${cx-580} ${cy-210} L${cx-200} ${cy+170}" stroke="#ff3b3b" stroke-width="26" stroke-linecap="round"/></g>`+tx(cx+330,cy-20,'30 days',130,'#ffd23f')+tx(cx+330,cy+110,'No added sugar',56,'#fff')},
+hidden(g,cx,cy,t){return list('hidden',t,cx,cy,[['juices','Packaged juices'],['sauces','Sauces and ketchup'],['biscuits','Biscuits and cereals'],['yogurt','Flavoured yogurt']],1100)},
+added(g,cx,cy,t){return card(cx-450,cy,820,460)+tx(cx-450,cy-60,'Added sugar',56,'#a01c1c')+tx(cx-450,cy+30,'put in by makers or us',44,'#3a2c12')+`<g transform="translate(${cx-450} ${cy+130})">${cross(0,0,60,'#ff4b4b',18)}</g>`+card(cx+450,cy,820,460)+tx(cx+450,cy-60,'Whole fruit',56,'#2e7d32')+tx(cx+450,cy+30,'fibre and water',44,'#3a2c12')+`<g opacity="${pop(t,'fibre','added')}"><circle cx="${cx+450}" cy="${cy+130}" r="40" fill="#4caf50"/><path d="M${cx+430} ${cy+130} l14 16 l28 -34" stroke="#fff" stroke-width="9" fill="none" stroke-linecap="round"/></g>`},
+cravings(g,cx,cy,t){return list('cravings',t,cx,cy,[['hardest','First days: hardest'],['cravings','Strong cravings'],['fades','Usually fades with time','#2d7fd3']],1100)},
+headache(g,cx,cy,t){return list('headache',t,cx,cy,[['headaches','Some report headaches'],['water','Drink enough water'],['proper','Eat proper meals'],['sleeping','Sleep well']],1100)},
+energy(g,cx,cy,t){let d=`M${cx-700} ${cy}`;for(let i=0;i<=40;i++){const x=cx-700+i*35;const amp=(i<20?1:0.3)*120;d+=` L${x} ${f1(cy+Math.sin(i*0.9)*amp)}`}return `<path d="${d}" stroke="#ffd23f" stroke-width="14" fill="none" stroke-linecap="round"/>`+tx(cx-350,cy-250,'Sugar ups and downs',50,'#ff7a8a')+tx(cx+350,cy-250,'Steadier energy',50,'#8fe39a')},
+taste(g,cx,cy,t){return list('taste',t,cx,cy,[['taste','Taste adapts in weeks'],['after','Old sweets feel too sweet'],['plain','Plain food tastes richer']],1100)},
+mood(g,cx,cy,t){return face(cx-300,cy-20,160,'smile')+face(cx+300,cy-20,160,'sad')+tx(cx,cy+240,'The picture is mixed',60,'#ffd23f')},
+sleep(g,cx,cy,t){return bed(cx-300,cy+60)+tx(cx-300,cy-120,'Zzz',120,'#8fd3ff')+crd(cx+400,cy-60,'Less late sugar',pop(t,'sugary','sleep'),null,700)+crd(cx+400,cy+120,'Varies by person',pop(t,'varies','sleep'),null,700)},
+skin(g,cx,cy,t){return list('skin',t,cx,cy,[['acne','Linked with acne in some'],['results','Results are not the same for everyone']],1300)},
+teeth(g,cx,cy,t){return list('teeth',t,cx,cy,[['bacteria','Bacteria eat sugar'],['acid','Acid harms enamel'],['fewer','Fewer cavities','#2d7fd3']],1100)},
+weight(g,cx,cy,t){return list('weight',t,cx,cy,[['sugary','Sugary drinks: calories, no fullness'],['weight','Weight has many causes']],1300)},
+liver(g,cx,cy,t){return list('liver',t,cx,cy,[['fructose','Too much: fat in liver'],['studies','Short studies: less liver fat','#2d7fd3']],1200)},
+heart(g,cx,cy,t){return heart(cx-450,cy,2.2)+crd(cx+330,cy-110,'Lower triglycerides',pop(t,'triglycerides','heart'),null,820)+crd(cx+330,cy+80,'Slightly lower BP',pop(t,'blood','heart'),null,820)},
+fruit(g,cx,cy,t){return list('fruit',t,cx,cy,[['fibre','Whole fruit: fibre, water'],['banana','Banana, dates, papaya','#2d7fd3']],1100)},
+myth(g,cx,cy,t){const L=[['brown','Brown sugar is healthy'],['sugar','Sugar free = unlimited'],['hyperactive','Sugar makes kids hyper']];let s='';L.forEach(([w,a],i)=>{const u=pop(t,w,'myth'),x=cx-640+i*640;const ps=a.split(' ');const h=Math.ceil(ps.length/2);s+=card(x,cy-20,560,520)+tx(x,cy-70,ps.slice(0,h).join(' '),42,'#3a2c12')+tx(x,cy-10,ps.slice(h).join(' '),42,'#3a2c12')+`<g transform="translate(${x} ${cy+150}) scale(${f1(2-u)})" opacity="${u*0.9}">${cross(0,0,90,'#ff4b4b',22)}</g>`});return s},
+tips(g,cx,cy,t){return list('tips',t,cx,cy,[['switching','Sugary drinks to water'],['labels','Read labels: sugar, syrup'],['slowly','Cut down slowly']],1100)},
+doctor(g,cx,cy,t){return list('doctor',t,cx,cy,[['diabetes','Diabetes? Ask your doctor'],['pregnant','Pregnant? Ask your doctor'],['everyone','Everyone is different','#2d7fd3']],1200)},
+lesson(g,cx,cy,t){return list('lesson',t,cx,cy,[['perfect','You need not be perfect'],['balance','The goal: balance'],['small','Small changes add up']],1100)}};
+function art(){let s=BG;ORDER.slice(0,19).forEach(k=>{s+=P(k)});return s}
+let G={};
+function init(){ORDER.slice(0,19).forEach(k=>G[k]=document.getElementById('d_'+k))}
+function anim(t){ORDER.slice(0,19).forEach(k=>{const [cx,cy]=PC[k];G[k].innerHTML=cellfn[k](G[k],cx,cy,t)})}
+const PILL={hook:'30 days, no added sugar',hidden:'Where is sugar hiding?',added:'Added vs natural sugar',cravings:'Week 1: cravings',headache:'Week 1: feeling off',energy:'Your energy',taste:'Your taste buds',mood:'Your mood',sleep:'Your sleep',skin:'Your skin',teeth:'Your teeth',weight:'Your weight',liver:'Your liver',heart:'Your heart',fruit:'Do not fear fruit',myth:'Sugar myths',tips:'Try it gently',doctor:'Who should be careful?',lesson:'The big lesson',close:'Small swaps, big habits'};
+ORDER.forEach(n=>HD(n,PILL[n],(n=='myth')?'#d9232a':(n=='close'?'#2d7fd3':undefined)));
+const cam=ORDER.map(n=>{const [x,y]=PC[n];return {sc:S(n),x,y,z:n=='close'?0.9:0.95}});
+return {art,init,anim,cam,sfx:()=>[]};
+};

@@ -73,6 +73,11 @@ HEROES = {
 <circle cx="300" cy="170" r="75" fill="#ffd23f" stroke="#000" stroke-width="16"/><circle cx="270" cy="160" r="20" fill="#fff" stroke="#000" stroke-width="8"/><circle cx="330" cy="160" r="20" fill="#fff" stroke="#000" stroke-width="8"/><circle cx="270" cy="162" r="8"/><circle cx="330" cy="162" r="8"/>
 <path d="M265 110 Q230 50 190 60 M335 110 Q370 50 410 60" stroke="#000" stroke-width="12" fill="none" stroke-linecap="round"/>
 <path d="M30 570 L570 30" stroke="#ff3b3b" stroke-width="34" stroke-linecap="round" opacity=".9"/></svg>""",
+"sugar": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24"/></filter></defs>
+<circle cx="300" cy="300" r="270" fill="#ff6ab0" opacity=".45" filter="url(#b)"/>
+<g stroke="#000" stroke-width="14" stroke-linejoin="round"><rect x="120" y="160" width="170" height="170" rx="18" fill="#fff" transform="rotate(-14 205 245)"/><rect x="300" y="210" width="170" height="170" rx="18" fill="#fff" transform="rotate(12 385 295)"/><rect x="200" y="320" width="170" height="170" rx="18" fill="#fff" transform="rotate(-4 285 405)"/></g>
+<g fill="#cfe3ff"><circle cx="190" cy="230" r="10"/><circle cx="245" cy="270" r="10"/><circle cx="380" cy="290" r="10"/><circle cx="430" cy="330" r="10"/><circle cx="260" cy="400" r="10"/></g>
+<circle cx="300" cy="300" r="270" fill="none" stroke="#ff3b3b" stroke-width="34"/><path d="M110 110 L490 490" stroke="#ff3b3b" stroke-width="34" stroke-linecap="round"/></svg>""",
 "immune": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="20"/></filter></defs>
 <circle cx="300" cy="300" r="270" fill="#4cff9a" opacity=".3" filter="url(#b)"/>
 <path d="M300 40 L520 120 V300 Q520 470 300 560 Q80 470 80 300 V120Z" fill="#2d7fd3" stroke="#000" stroke-width="16"/><path d="M300 100 L470 160 V300 Q470 430 300 505 Q130 430 130 300 V160Z" fill="#6fd0ff"/>
