@@ -10,7 +10,7 @@ if forced and forced in ready:
     tid = forced
 else:
     left = [i for i in ready if i not in used]
-    order = {"smog": 0, "winter-body": 1, "ai-chatbot": 2, "sleep": 3, "immune": 4, "moon": 5, "time-faster": 6, "sun-vanish": 7, "ice-melt": 8, "earth-stop": 9, "no-sleep": 10, "black-hole": 11, "no-insects": 12, "no-sugar": 13, "no-phone": 14, "no-internet": 15, "no-water": 16}
+    order = {"smog": 0, "winter-body": 1, "ai-chatbot": 2, "sleep": 3, "immune": 4, "moon": 5, "time-faster": 6, "sun-vanish": 7, "ice-melt": 8, "earth-stop": 9, "no-sleep": 10, "black-hole": 11, "no-insects": 12, "no-sugar": 13, "no-phone": 14, "no-internet": 15, "no-water": 16, "no-bacteria": 17}
     left.sort(key=lambda i: (order.get(i, 99), i))
     tid = left[0] if left else ""
 print("TOPIC:", tid or "(none new - nothing to make)")

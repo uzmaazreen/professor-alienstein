@@ -1,0 +1,119 @@
+{
+ "id": "no-bacteria",
+ "title": "What If All Bacteria in Your Body Disappeared? (A Trip Inside the Body)",
+ "short_title": "What if all your bacteria vanished?",
+ "category": "trending, health",
+ "keywords": [
+  "what if bacteria disappeared",
+  "gut bacteria",
+  "microbiome",
+  "inside human body",
+  "health"
+ ],
+ "description": "What would happen if all the bacteria in your body vanished? Take a trip inside your mouth, stomach, gut and skin to see how trillions of helpful bacteria digest food, make vitamins, train immunity and guard you from germs. Plus antibiotics, myths and how to look after your microbiome. This video is for learning, not medical advice.",
+ "tags": [
+  "what if bacteria disappeared",
+  "gut bacteria",
+  "microbiome",
+  "inside the human body",
+  "good bacteria",
+  "probiotics",
+  "health explained",
+  "science explained"
+ ],
+ "comment": "Which body part should I explore next? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "What if every single bacterium inside your body suddenly disappeared? Good news, right? No more germs! But wait. Your body is home to trillions of tiny living things, and many of them are working for you. So what would really happen? Let us take a trip inside the body, based on what scientists know. This is for learning, not medical advice."
+  },
+  {
+   "mood": "happy",
+   "text": "First, how many bacteria live on and inside you? Scientists estimate around thirty eight trillion, which is about the same as the number of your own human cells. Together they weigh roughly two hundred grams. You are not alone in there. You are a walking city."
+  },
+  {
+   "mood": "think",
+   "text": "Now, the first surprise. Most bacteria are harmless, and many are helpful. Only a small group can make us sick. Doctors call the helpful community your microbiome, and it lives mostly in your gut, but also on your skin and in your mouth."
+  },
+  {
+   "mood": "happy",
+   "text": "Let us start the trip at your mouth. Hundreds of kinds of bacteria live here. Some cause cavities when sugar is around, but others help keep harmful germs under control. A healthy mouth is a balance, not a clean sweep."
+  },
+  {
+   "mood": "think",
+   "text": "Next, the stomach. It is full of strong acid, so very few bacteria can live here. This acid is a shield. It kills many germs that come in with food. One bacterium, called H pylori, can survive and sometimes cause ulcers."
+  },
+  {
+   "mood": "happy",
+   "text": "Now we reach the gut, the biggest bacteria city in your body. Most of your bacteria live in the large intestine. They are packed so tightly, and they do many jobs. Think of them as tiny workers, working day and night without any salary."
+  },
+  {
+   "mood": "think",
+   "text": "Their first job is digestion. Your body cannot break down some fibre from vegetables, dals and fruits. But your gut bacteria can. They turn that fibre into useful chemicals, which feed the cells of your intestine. Without them, you would get much less from your food."
+  },
+  {
+   "mood": "happy",
+   "text": "Their second job is making vitamins. Gut bacteria help make vitamin K, which your blood needs to clot, and some B vitamins too. Without them, you would depend fully on food for these."
+  },
+  {
+   "mood": "think",
+   "text": "Their third job is training your immune system. Right from childhood, gut bacteria teach your defence cells what is friend and what is enemy. Without this training, your immune system may react too much, or too little."
+  },
+  {
+   "mood": "happy",
+   "text": "Their fourth job is being a guard. Good bacteria take up space and food, so harmful germs find it hard to settle. Scientists call this colonisation resistance. When this guard is weakened, bad germs can take over."
+  },
+  {
+   "mood": "think",
+   "text": "Surprisingly, your gut also talks to your brain. Gut bacteria make chemicals that send signals through nerves and blood. Research on mood and the gut is still growing, and scientists are careful, because we do not have all the answers yet."
+  },
+  {
+   "mood": "happy",
+   "text": "On your skin, bacteria also work as a shield. They keep the skin balanced and stop dangerous germs from settling. If you scrub too hard or use harsh products too often, you may upset this balance."
+  },
+  {
+   "mood": "think",
+   "text": "Now imagine all of them vanish together. First, your digestion would slow down, and you would miss vitamins and the fuel from fibre. Your immune system would lose its trainer, and the gut would lose its guard. Harmful germs from outside could settle much more easily."
+  },
+  {
+   "mood": "happy",
+   "text": "Scientists have studied this in germ free mice, raised with no bacteria at all. These mice need extra food, have weaker immune systems and have a very different gut. This shows how much we depend on our tiny partners."
+  },
+  {
+   "mood": "think",
+   "text": "Real life is not that extreme, but antibiotics give us a small taste. They kill harmful bacteria, which can save lives, but they also hit good bacteria. That is why some people get an upset stomach. Never take antibiotics without a doctor, and finish the course as advised."
+  },
+  {
+   "mood": "think",
+   "text": "Now some myths. One, all bacteria are bad. Wrong. Two, a very sterile home is always healthier. Not really, because some contact with the normal world helps the immune system learn. And three, probiotics fix everything. Evidence is mixed, and the benefit depends on the person."
+  },
+  {
+   "mood": "happy",
+   "text": "So how can you look after your good bacteria? Eat plenty of fibre from vegetables, fruits, dals and whole grains. Eat curd or other fermented foods if they suit you. Sleep well, stay active, and avoid taking antibiotics when they are not needed."
+  },
+  {
+   "mood": "think",
+   "text": "If you have long lasting stomach pain, blood in the stool, or diarrhoea after antibiotics, please see a doctor. Do not try to treat your gut with random pills or social media tips. Every body is different."
+  },
+  {
+   "mood": "happy",
+   "text": "So the lesson is this. Bacteria are not only enemies. Most of them are partners who digest, protect and teach. Washing hands still matters, because bad germs exist, but you can be kind to the good ones too."
+  },
+  {
+   "mood": "happy",
+   "text": "So that was what would happen if all bacteria in your body disappeared. If you liked this trip inside the body, please like and subscribe to Professor Alienstein for more what-if science. Which body part should we explore next? Tell me in the comments!"
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "hero": "germ",
+  "bg": [
+   "#0a6a4a",
+   "#041a18"
+  ],
+  "badge": "INSIDE YOUR BODY",
+  "line1": "NO",
+  "line2": "BACTERIA?"
+ }
+}

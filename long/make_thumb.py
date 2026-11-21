@@ -78,6 +78,11 @@ HEROES = {
 <path d="M300 40 C420 200 500 290 500 390 C500 500 410 570 300 570 C190 570 100 500 100 390 C100 290 180 200 300 40Z" fill="#3aa0ff" stroke="#000" stroke-width="18" stroke-linejoin="round"/>
 <path d="M200 400 C200 460 240 500 290 510" stroke="#cfeeff" stroke-width="26" fill="none" stroke-linecap="round"/><ellipse cx="380" cy="300" rx="22" ry="40" fill="#fff" opacity=".6" transform="rotate(25 380 300)"/>
 <path d="M60 560 L540 60" stroke="#ff3b3b" stroke-width="34" stroke-linecap="round" opacity=".9"/></svg>""",
+"germ": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24"/></filter></defs>
+<circle cx="300" cy="300" r="270" fill="#7aff5a" opacity=".45" filter="url(#b)"/>
+<g transform="rotate(-30 300 300)"><rect x="90" y="190" width="420" height="220" rx="110" fill="#7aff8a" stroke="#000" stroke-width="18"/><g stroke="#000" stroke-width="12" stroke-linecap="round"><path d="M90 300 H20 M510 300 H580 M150 190 L120 110 M450 190 L480 110 M150 410 L120 490 M450 410 L480 490"/></g></g>
+<circle cx="250" cy="280" r="22" fill="#fff" stroke="#000" stroke-width="8"/><circle cx="350" cy="320" r="22" fill="#fff" stroke="#000" stroke-width="8"/><circle cx="256" cy="284" r="9" fill="#000"/><circle cx="356" cy="324" r="9" fill="#000"/>
+<path d="M60 560 L540 60" stroke="#ff3b3b" stroke-width="34" stroke-linecap="round" opacity=".9"/></svg>""",
 "sugar": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24"/></filter></defs>
 <circle cx="300" cy="300" r="270" fill="#ff6ab0" opacity=".45" filter="url(#b)"/>
 <g stroke="#000" stroke-width="14" stroke-linejoin="round"><rect x="120" y="160" width="170" height="170" rx="18" fill="#fff" transform="rotate(-14 205 245)"/><rect x="300" y="210" width="170" height="170" rx="18" fill="#fff" transform="rotate(12 385 295)"/><rect x="200" y="320" width="170" height="170" rx="18" fill="#fff" transform="rotate(-4 285 405)"/></g>
