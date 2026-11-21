@@ -78,6 +78,11 @@ HEROES = {
 <g stroke="#000" stroke-width="14" stroke-linejoin="round"><rect x="120" y="160" width="170" height="170" rx="18" fill="#fff" transform="rotate(-14 205 245)"/><rect x="300" y="210" width="170" height="170" rx="18" fill="#fff" transform="rotate(12 385 295)"/><rect x="200" y="320" width="170" height="170" rx="18" fill="#fff" transform="rotate(-4 285 405)"/></g>
 <g fill="#cfe3ff"><circle cx="190" cy="230" r="10"/><circle cx="245" cy="270" r="10"/><circle cx="380" cy="290" r="10"/><circle cx="430" cy="330" r="10"/><circle cx="260" cy="400" r="10"/></g>
 <circle cx="300" cy="300" r="270" fill="none" stroke="#ff3b3b" stroke-width="34"/><path d="M110 110 L490 490" stroke="#ff3b3b" stroke-width="34" stroke-linecap="round"/></svg>""",
+"phone": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24"/></filter></defs>
+<circle cx="300" cy="300" r="270" fill="#4aa8ff" opacity=".45" filter="url(#b)"/>
+<rect x="170" y="40" width="260" height="520" rx="50" fill="#10131a" stroke="#000" stroke-width="18"/><rect x="190" y="90" width="220" height="420" rx="24" fill="#2a6fe0"/>
+<circle cx="300" cy="300" r="90" fill="#fff" opacity=".95"/><circle cx="300" cy="300" r="64" fill="none" stroke="#ff3b3b" stroke-width="22"/><path d="M255 345 L345 255" stroke="#ff3b3b" stroke-width="22" stroke-linecap="round"/>
+<rect x="260" y="56" width="80" height="14" rx="7" fill="#444"/></svg>""",
 "immune": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="20"/></filter></defs>
 <circle cx="300" cy="300" r="270" fill="#4cff9a" opacity=".3" filter="url(#b)"/>
 <path d="M300 40 L520 120 V300 Q520 470 300 560 Q80 470 80 300 V120Z" fill="#2d7fd3" stroke="#000" stroke-width="16"/><path d="M300 100 L470 160 V300 Q470 430 300 505 Q130 430 130 300 V160Z" fill="#6fd0ff"/>

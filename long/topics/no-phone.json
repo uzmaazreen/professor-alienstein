@@ -1,0 +1,119 @@
+{
+ "id": "no-phone",
+ "title": "What If You Lived Without a Phone for a Year? (What Would Really Happen)",
+ "short_title": "What if you lived without a phone?",
+ "category": "trending, tech",
+ "keywords": [
+  "life without phone",
+  "phone detox",
+  "screen time",
+  "digital detox",
+  "phantom vibration"
+ ],
+ "description": "What would happen if you lived without your phone for a year? Learn about screen time numbers, phantom vibrations, boredom, focus, sleep, mood, relationships, UPI and safety problems, digital amnesia, and a smart middle path. Based on what researchers currently understand. This video is for learning, not medical advice.",
+ "tags": [
+  "what if you lived without a phone",
+  "phone detox",
+  "digital detox",
+  "screen time",
+  "life without smartphone",
+  "phantom vibration",
+  "social media break",
+  "science explained"
+ ],
+ "comment": "How many hours is your screen time? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "What if you lived without your phone for one whole year? No scrolling, no reels, no messages in your pocket. Sounds impossible, right? Let us see what could really happen to your body, your brain, and your life, based on what researchers have found."
+  },
+  {
+   "mood": "happy",
+   "text": "First, the numbers. Many people spend around four hours a day on their phone. Over one year, that is about one thousand four hundred and sixty hours, which is around sixty full days. Two whole months, gone into the screen. Think about what you could do with two extra months every single year."
+  },
+  {
+   "mood": "think",
+   "text": "In the first days, you may feel something strange. You reach for your pocket, but there is nothing there. Some people even feel their phone vibrate when it is not. This is called phantom vibration, and it is surprisingly common."
+  },
+  {
+   "mood": "happy",
+   "text": "You may feel restless and a little anxious at the start. Your brain is used to a quick reward every few minutes, and now it is missing. This feeling is normal, and for many people it fades after a while. It is like a habit loop, and loops can be changed."
+  },
+  {
+   "mood": "think",
+   "text": "Then comes boredom. At first it feels uncomfortable. But boredom is also when the brain wanders, daydreams, and comes up with new ideas. Many people say they feel more creative after a few weeks."
+  },
+  {
+   "mood": "happy",
+   "text": "Your focus may improve. Research suggests that even having a phone nearby can distract us. Without it, long tasks like reading or studying can feel easier, and you can stay with one thing for longer."
+  },
+  {
+   "mood": "think",
+   "text": "Your sleep could also get better. Scrolling late at night keeps the brain alert, and bright screens can delay sleepiness. Without the phone in bed, many people fall asleep earlier."
+  },
+  {
+   "mood": "happy",
+   "text": "What about mood? Honestly, studies are mixed. Some experiments found that taking a break from social media improved well-being a little. Others found small or no change. So it is not a magic cure. Everyone is different, so your own experience may vary."
+  },
+  {
+   "mood": "think",
+   "text": "Your relationships would change. You would talk face to face more, and notice people around you. But you could also feel left out, if friends and family only share things in group chats."
+  },
+  {
+   "mood": "happy",
+   "text": "Your body would thank you too. Looking down at a screen for hours strains the neck and shoulders. Less phone time can mean fewer aches, and more time for walking and playing outside."
+  },
+  {
+   "mood": "think",
+   "text": "But life without a phone is hard in modern India. Payments through UPI, bank alerts, online forms and tickets all depend on a phone. Without one, many everyday tasks become slow and difficult."
+  },
+  {
+   "mood": "happy",
+   "text": "Maps, taxis and emergency help also depend on phones. Being unreachable can be risky, especially at night or during travel. This is why most experts do not suggest quitting completely."
+  },
+  {
+   "mood": "think",
+   "text": "Study and work would be affected as well. Many classes, notes and jobs run through apps. You would need a computer or a simple basic phone, to stay connected where it truly matters. So the idea is to be smart, not extreme."
+  },
+  {
+   "mood": "happy",
+   "text": "What about memory? Some researchers talk about digital amnesia, where we forget things because we know our phone stores them. Without it, you may start remembering numbers and routes again."
+  },
+  {
+   "mood": "think",
+   "text": "What would fill the free time? Reading, hobbies, sports, cooking, meeting friends, or simply sleeping. People who take a break often say that the time feels longer and calmer. Some people even take up new skills, like drawing, cooking, or learning a language."
+  },
+  {
+   "mood": "happy",
+   "text": "Now some myths. A digital detox is not a cure for everything. Phones are not evil, because they also teach us, connect us and help us. And a few days off does not fix a lifelong habit."
+  },
+  {
+   "mood": "think",
+   "text": "So what is the smart middle path? Use limits. Turn off extra notifications, keep the phone out of the bedroom, and set screen free time, like during meals and one hour before sleep."
+  },
+  {
+   "mood": "happy",
+   "text": "You can also try small experiments. A phone free Sunday afternoon, a day without reels, or a one week social media break. Then notice how you feel, and keep what works for you. Even small experiments teach you something about yourself."
+  },
+  {
+   "mood": "think",
+   "text": "Here is the lesson. The phone is a tool, not a boss. The goal is not to throw it away, but to decide when to use it, instead of letting it decide for you."
+  },
+  {
+   "mood": "laugh",
+   "text": "So try this today. Keep your phone away for one hour, and see what you notice. Subscribe, and tell me which what-if I should explain next."
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "hero": "phone",
+  "bg": [
+   "#6a1a2a",
+   "#0a1230"
+  ],
+  "badge": "1 WHOLE YEAR",
+  "line1": "NO",
+  "line2": "PHONE?"
+ }
+}
