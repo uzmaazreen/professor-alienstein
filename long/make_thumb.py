@@ -95,15 +95,18 @@ def hero_thumb(tid, th):
 @font-face{{font-family:'Poppins';font-weight:100 599;src:url(assets/fonts/Poppins-Medium.ttf)}}
 @font-face{{font-family:'Poppins';font-weight:600 900;src:url(assets/fonts/Poppins-Bold.ttf)}}
 *{{margin:0;padding:0;box-sizing:border-box}}body{{width:1280px;height:720px;overflow:hidden;font-family:Poppins}}
-#s{{position:relative;width:1280px;height:720px;background:radial-gradient(circle at 75% 45%,{c2} 0%,{c1} 70%);overflow:hidden}}
-.t{{position:absolute;left:44px;top:96px;width:760px;font:900 150px/0.98 Poppins;color:#fff;-webkit-text-stroke:14px #000;paint-order:stroke fill;text-shadow:0 8px 0 #000;letter-spacing:-3px}}
-.t div:nth-child(2){{color:#ffd23f}}
-.b{{position:absolute;left:44px;top:30px;background:#e5202a;color:#fff;font:800 42px Poppins;padding:6px 26px;border-radius:18px;border:6px solid #000;box-shadow:0 6px 0 #000}}
-.h{{position:absolute;right:10px;top:10px}}
-.m{{position:absolute;right:-10px;bottom:-30px;height:400px;filter:drop-shadow(6px 0 0 #fff) drop-shadow(-6px 0 0 #fff) drop-shadow(0 6px 0 #fff) drop-shadow(0 -6px 0 #fff) drop-shadow(0 12px 16px rgba(0,0,0,.5));transform:rotate(-4deg)}}
-.v{{position:absolute;inset:0;box-shadow:inset 0 0 160px rgba(0,0,0,.55)}}
-</style><div id=s>{''.join(f'<i style="position:absolute;left:{(i*977)%1280}px;top:{(i*613)%720}px;width:{2+i%3}px;height:{2+i%3}px;border-radius:50%;background:#fff;opacity:.{4+i%5}"></i>' for i in range(60))}
-<div class=h>{hero}</div><div class=v></div>{f'<div class=b>{badge}</div>' if badge else ''}<div class=t><div>{l1}</div><div>{l2}</div></div><img class=m src="assets/mascot.png"></div>"""
+#s{{position:relative;width:1280px;height:720px;background:radial-gradient(circle at 70% 50%,{c2} 0%,{c1} 75%);overflow:hidden;filter:saturate(1.35) contrast(1.06)}}
+.r{{position:absolute;left:-300px;top:-700px;width:2400px;height:2400px;background:repeating-conic-gradient(from 0deg at 62% 50%,rgba(255,255,255,.17) 0deg 9deg,rgba(255,255,255,0) 9deg 22deg);transform:scale(.7);transform-origin:62% 50%;-webkit-mask-image:radial-gradient(circle at 62% 50%,#000 0,transparent 40%)}}
+.glow{{position:absolute;right:20px;top:60px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.55) 0,rgba(255,255,255,0) 65%)}}
+.t{{position:absolute;left:40px;top:70px;width:720px;font:900 190px/0.92 Poppins;color:#fff;-webkit-text-stroke:16px #000;paint-order:stroke fill;text-shadow:0 10px 0 #000;letter-spacing:-5px}}
+.t div:nth-child(2){{color:#ffe14a}}
+.b{{position:absolute;left:40px;bottom:36px;background:#e5202a;color:#fff;font:900 44px Poppins;padding:8px 28px;border-radius:18px;border:7px solid #000;box-shadow:0 7px 0 #000;transform:rotate(-2deg)}}
+.h{{position:absolute;right:-20px;top:40px;transform:scale(1.02);transform-origin:70% 40%}}
+.m{{position:absolute;right:-30px;bottom:-40px;height:440px;filter:drop-shadow(7px 0 0 #fff) drop-shadow(-7px 0 0 #fff) drop-shadow(0 7px 0 #fff) drop-shadow(0 -7px 0 #fff) drop-shadow(0 14px 18px rgba(0,0,0,.55));transform:rotate(-5deg)}}
+.x{{position:absolute;right:30px;bottom:440px;font:900 120px Poppins;color:#ff3b3b;-webkit-text-stroke:10px #000;paint-order:stroke fill;transform:rotate(-14deg)}}
+.v{{position:absolute;inset:0;box-shadow:inset 0 0 140px rgba(0,0,0,.5)}}
+</style><div id=s>{''.join(f'<i style="position:absolute;left:{(i*977)%1280}px;top:{(i*613)%720}px;width:{2+i%3}px;height:{2+i%3}px;border-radius:50%;background:#fff;opacity:.{4+i%5}"></i>' for i in range(50))}
+<div class=r></div><div class=glow></div><div class=h>{hero}</div><div class=v></div><div class=t><div>{l1}</div><div>{l2}</div></div>{f'<div class=b>{badge}</div>' if badge else ''}<img class=m src="assets/mascot.png"><div class=x>!?</div></div>"""
     tmp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "engine", "thumb_tmp.html")
     open(tmp, "w", encoding="utf-8").write(page)
     os.makedirs(OUT, exist_ok=True)

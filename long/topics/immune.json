@@ -116,14 +116,13 @@
  "thumb": {
   "scene": 0,
   "before_end": 2,
-  "line1": "YOUR SECRET",
+  "line1": "SECRET",
   "line2": "ARMY",
-  "line3": "GERMS",
   "hero": "immune",
   "bg": [
    "#0a4a3a",
    "#0a1230"
   ],
-  "badge": "INSIDE YOU RIGHT NOW"
+  "badge": "INSIDE YOU"
  }
 }

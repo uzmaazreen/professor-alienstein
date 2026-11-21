@@ -109,14 +109,13 @@
  "thumb": {
   "scene": 0,
   "before_end": 2,
-  "line1": "IF THE MOON",
-  "line2": "VANISHED?",
-  "line3": "TONIGHT?",
+  "line1": "MOON",
+  "line2": "GONE?",
   "hero": "moon",
   "bg": [
    "#3a1a6a",
    "#0a1230"
   ],
-  "badge": "WHAT WOULD HAPPEN?"
+  "badge": "TONIGHT?"
  }
 }

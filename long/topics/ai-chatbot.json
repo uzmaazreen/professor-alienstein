@@ -115,13 +115,12 @@
   "scene": 0,
   "before_end": 2,
   "line1": "HOW AI",
-  "line2": "REALLY THINKS",
-  "line3": "THINK?",
+  "line2": "THINKS?",
   "hero": "chat",
   "bg": [
    "#0a3a8a",
    "#0a1230"
   ],
-  "badge": "NOBODY EXPLAINS THIS"
+  "badge": "NOBODY EXPLAINS"
  }
 }
