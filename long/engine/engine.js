@@ -40,12 +40,40 @@ function cam(t){
   if(i>0){const u=clamp((t-(b.t-TRAVEL))/TRAVEL);if(u<1){const e=easeIO(u),a=K[i-1];
     const lz=Math.log(a.z)+(Math.log(b.z)-Math.log(a.z))*e;
     return {x:a.x+(b.x-a.x)*e,y:a.y+(b.y-a.y)*e,z:Math.exp(lz),u,i}}}
-  return {x:b.x,y:b.y,z:b.z,u:1,i};
+  const ds=t-b.t;const os=(i>0&&ds>=0&&ds<1.4)?1+0.022*Math.exp(-4*ds)*Math.cos(11*ds):1;
+  return {x:b.x,y:b.y,z:b.z*os,u:1,i};
 }
 
 // ---------- brand outro ----------
 H({sc:OUTRO,dt:0.4,x:0,y:-110,html:`<div style="font:800 100px/1 Poppins;color:#fff;text-align:center;-webkit-text-stroke:14px #2d1a6b;paint-order:stroke fill;text-shadow:0 8px 0 #2d1a6b">Professor<br>Alienstein</div>`});
 H({sc:OUTRO,dt:1.2,x:0,y:60,html:`<div class="pill" style="font-size:44px">How things work, explained simply.</div>`});
+
+
+// ---------- auto kinetic number callouts (motion-graphics style) ----------
+(function(){
+const U1={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,thirteen:13,fourteen:14,fifteen:15,sixteen:16,seventeen:17,eighteen:18,nineteen:19};
+const TN={twenty:20,thirty:30,forty:40,fifty:50,sixty:60,seventy:70,eighty:80,ninety:90};
+const SCL={hundred:100,thousand:1000,million:1e6,billion:1e9,trillion:1e12};
+const UNITS=new Set(['days','day','hours','hour','minutes','minute','seconds','second','years','year','degrees','kilometres','kilometers','percent','times','weeks','weeks','months','light','metres','meters','species','teaspoons','million','billion']);
+const norm=w=>w.toLowerCase().replace(/[^a-z0-9.,]/g,'');
+SC.forEach((sc,si)=>{if(si===OUTRO)return;const ws=WT[si];let done=false;
+  for(let i=0;i<ws.length&&!done;i++){let k=i,val=0,cur=0,used=false,digits=false;
+    const w0=norm(ws[i].w);
+    if(/^\d[\d,.]*$/.test(w0)){val=parseFloat(w0.replace(/,/g,''));digits=true;k=i+1;used=true}
+    else{while(k<ws.length){const w=norm(ws[k].w);
+      if(w in U1){cur+=U1[w];used=true;k++}else if(w in TN){cur+=TN[w];used=true;k++}
+      else if(w in SCL){cur=(cur||1)*SCL[w];used=true;k++;if(SCL[w]>=1000){val+=cur;cur=0}}
+      else if(w==='and'&&used&&k+1<ws.length&&(norm(ws[k+1].w) in U1||norm(ws[k+1].w) in TN)){k++}else break}
+      val+=cur}
+    if(!used||!val)continue;
+    const nxt=k<ws.length?norm(ws[k].w):'';const hasUnit=UNITS.has(nxt);
+    if(!digits&&!hasUnit&&!(Object.keys(SCL).some(s=>k>i&&norm(ws[k-1].w)===s)))continue;
+    if(val>=1900&&val<=2100&&!hasUnit)continue;
+    const big=val>=1e6?(val>=1e9?(val/1e9)+' BILLION':(val/1e6)+' MILLION'):val.toLocaleString('en-US');
+    const txt=big+(hasUnit?' '+nxt.toUpperCase():'');
+    const t0=ws[i].s;
+    add({kind:'kin',sc:si,x:520,y:-330,w:i,html:`<div class="kin"><span>${txt}</span></div>`,t0fix:t0});done=true}
+});})();
 
 // ---------- build ----------
 const world=document.getElementById('world'),hud=document.getElementById('hud');
@@ -84,7 +112,8 @@ function render(t){
     if(l<0||(fo<=0&&it.sc!==OUTRO)){el.style.opacity=0;return}
     const keep=it.sc===OUTRO?1:fo;
     const inv=it.layer==='world'?1/z:1;let tr,fil='none';
-    if(it.kind==='fade'){const p=easeOut(clamp(l/0.45));tr=`translate(${it.x}px,${it.y+(1-p)*24}px) translate(-50%,-50%) scale(${(0.88+0.12*p)*inv})`;el.style.opacity=p*keep}
+    if(it.kind==='fade'){const p=easeOut(clamp(l/0.45));const sp2=easeOutBack(clamp(l/0.55));tr=`translate(${it.x}px,${it.y+(1-p)*30}px) translate(-50%,-50%) scale(${(0.7+0.3*sp2)*inv})`;el.style.opacity=p*keep;fil=p<1?`blur(${((1-p)*9).toFixed(1)}px)`:'none'}
+    else if(it.kind==='kin'){const p=easeOutBack(clamp(l/0.5)),out=clamp((it.t0+2.6-t)/0.4);tr=`translate(${it.x}px,${it.y+(1-clamp(l/0.5))*-40}px) translate(-50%,-50%) rotate(${-3+Math.sin(l*2)*0.6}deg) scale(${(0.4+0.6*p)*inv})`;el.style.opacity=clamp(l/0.12)*out*keep}
     else if(it.kind==='stamp'){const p=clamp(l/0.28),e2=easeOut(p),s2=2.3-1.3*e2;const shake=l<0.5?Math.sin(l*70)*(1-l/0.5)*5:0;
       tr=`translate(${it.x+shake}px,${it.y}px) translate(-50%,-50%) rotate(${it.rot+(1-e2)*-8}deg) scale(${s2*inv})`;el.style.opacity=clamp(l/0.1)*keep}
     else{const p=clamp(l/0.6),s2=1.0+0.35*(1-clamp(p*1.15)),wob=Math.sin(l*16)*(1-p)*2.5;
@@ -94,6 +123,7 @@ function render(t){
   DU.forEach(o=>{const x=(o.x+Math.sin(t*0.6+o.ph)*40)%1920,y=((o.y-t*o.sp)%1080+1080)%1080;o.d.style.transform=`translate(${x}px,${y}px)`;o.d.style.opacity=.25+.35*Math.abs(Math.sin(t*1.3+o.ph))});
   document.getElementById('light').style.backgroundPosition=`${Math.sin(t*0.35)*60}px 0`;
   document.getElementById('grain').style.transform=`translate(${(Math.floor(t*30)*37)%20}px,${(Math.floor(t*30)*53)%20}px)`;
+  {const st=document.getElementById('streak');const u2=c.u<1?Math.sin(Math.PI*c.u):0;st.style.opacity=(u2*0.55).toFixed(3);st.style.transform=`translateX(${(c.u*2600).toFixed(0)}px) rotate(18deg)`}
   document.getElementById('endv').style.opacity=clamp((t-SC[OUTRO].s+0.1)/0.5);
 
   let ci=-1;for(let k=0;k<CH.length;k++){if(t>=CH[k].s-0.02&&t<CH[k].e)ci=k}

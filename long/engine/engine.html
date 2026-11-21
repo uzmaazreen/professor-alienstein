@@ -6,7 +6,7 @@
 @font-face{font-family:'Lora';font-weight:400 900;src:url(assets/fonts/Lora-Variable.ttf)}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:1920px;height:1080px;background:#222;overflow:hidden}
-#stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:#0d1626;font-family:'Poppins',sans-serif;color:#2a2033}
+#stage{filter:contrast(1.07) saturate(1.14);position:relative;width:1920px;height:1080px;overflow:hidden;background:#0d1626;font-family:'Poppins',sans-serif;color:#2a2033}
 #world{position:absolute;left:0;top:0;width:0;height:0;transform-origin:0 0}
 #hud{position:absolute;left:960px;top:470px;width:0;height:0}
 .item{position:absolute;left:0;top:0;will-change:transform}
@@ -26,7 +26,11 @@ html,body{width:1920px;height:1080px;background:#222;overflow:hidden}
 .pol .pic{width:380px;height:300px;position:relative;overflow:hidden;background:#e9e2d3}
 .pol .cap{position:absolute;left:0;right:0;bottom:18px;text-align:center;font:700 30px 'Poppins';color:#2a2033}
 .tape{position:absolute;width:150px;height:46px;background:rgba(255,236,170,.75);top:-20px;left:50%;margin-left:-75px;transform:rotate(-3deg);box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.kin{position:relative;padding:14px 34px;border-radius:26px;background:linear-gradient(135deg,#ff3b6b,#ff8a2e);box-shadow:0 10px 0 #7a1030,0 0 60px rgba(255,120,60,.6);border:6px solid #fff}
+.kin span{font:900 84px/1 Poppins;color:#fff;-webkit-text-stroke:0;text-shadow:0 5px 0 rgba(0,0,0,.35);white-space:nowrap;letter-spacing:-1px}
 .pill{background:rgba(18,22,32,.85);color:#fff;border-radius:70px;padding:14px 34px;font:800 40px/1 'Poppins';white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+#grade{position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;opacity:.55;background:linear-gradient(160deg,rgba(30,110,200,.55),rgba(255,110,50,.35))}
+#streak{position:absolute;left:-400px;top:-200px;width:300px;height:1500px;pointer-events:none;opacity:0;mix-blend-mode:screen;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.75),rgba(255,255,255,0));filter:blur(14px);transform:rotate(18deg)}
 #vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 42%,rgba(0,0,0,0) 55%,rgba(40,25,10,.5) 100%)}
 #light{position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;opacity:.8;background:linear-gradient(112deg,rgba(0,0,0,0) 8%,rgba(255,240,200,.95) 22%,rgba(255,240,200,.95) 34%,rgba(0,0,0,0) 46%,rgba(0,0,0,.45) 58%,rgba(0,0,0,0) 66%)}
 #grain{position:absolute;inset:-20px;pointer-events:none;background:url(assets/grain.png);mix-blend-mode:overlay;opacity:.14}
@@ -44,6 +48,8 @@ html,body{width:1920px;height:1080px;background:#222;overflow:hidden}
 <div id="stage">
   <div id="world"></div>
   <div id="light"></div>
+  <div id="grade"></div>
+  <div id="streak"></div>
   <div id="vig"></div>
   <div id="dust"></div>
   <div id="endv"></div>
