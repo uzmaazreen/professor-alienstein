@@ -37,6 +37,19 @@ kidI:()=>`<path d="M20 -56 C-30 -56 -56 -20 -40 20 C-30 48 -4 60 12 40 C0 20 8 8
 chart:(t)=>`<path d="M-56 50 H56 M-56 50 V-56" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M-44 -30 L-16 -4 L6 -14 L40 34" stroke="#ff5470" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
 check:()=>`<circle r="54" fill="#2fe0a8" ${ST}/><path d="M-24 2 L-6 22 L26 -16" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
 cross:()=>`<circle r="54" fill="#ff4b4b" ${ST}/><path d="M-22 -22 L22 22 M22 -22 L-22 22" stroke="#fff" stroke-width="12" stroke-linecap="round"/>`,
+coin:()=>`<circle r="56" fill="#ffd23f" ${ST}/><circle r="40" fill="none" stroke="#d99a00" stroke-width="6"/><text x="0" y="24" text-anchor="middle" font-family="Poppins" font-weight="800" font-size="64" fill="#b87400">₹</text>`,
+wifi:()=>`<g fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"><path d="M-56 -8 Q0 -60 56 -8"/><path d="M-36 14 Q0 -16 36 14"/></g><circle cx="0" cy="40" r="9" fill="#fff"/>`,
+tv:(t)=>`<rect x="-62" y="-46" width="124" height="90" rx="14" fill="#2a3350" ${ST}/><rect x="-50" y="-34" width="100" height="66" rx="6" fill="${(Math.floor(t*2)%2)?'#ff6ab0':'#4aa8ff'}"/><path d="M-30 62 H30" stroke="#fff" stroke-width="9" stroke-linecap="round"/>`,
+book:()=>`<path d="M-60 -44 H-4 V50 H-60Z M60 -44 H4 V50 H60Z" fill="#ffb27a" ${ST}/><path d="M-44 -20 H-20 M-44 0 H-20 M20 -20 H44 M20 0 H44" stroke="#fff" stroke-width="7" stroke-linecap="round"/>`,
+pin:()=>`<path d="M0 66 C-40 20 -52 -4 -52 -22 C-52 -50 -28 -62 0 -62 C28 -62 52 -50 52 -22 C52 -4 40 20 0 66Z" fill="#ff4b4b" ${ST}/><circle cy="-22" r="18" fill="#fff"/>`,
+bird:(t)=>`<ellipse cx="0" cy="8" rx="46" ry="34" fill="#4aa8ff" ${ST}/><circle cx="38" cy="-18" r="22" fill="#4aa8ff" ${ST}/><path d="M58 -18 L82 -10 L58 -4Z" fill="#ffd23f"/><circle cx="44" cy="-22" r="5" fill="#111"/><path d="M-40 6 Q-20 ${f1(-40-Math.sin(t*8)*14)} 6 -6" fill="#8fd3ff" ${ST}/>`,
+bug:(t)=>`<ellipse cx="0" cy="8" rx="38" ry="48" fill="#ff5470" ${ST}/><path d="M0 -40 V56" stroke="#111" stroke-width="6"/><circle cy="-48" r="22" fill="#111"/><g fill="#111"><circle cx="-16" cy="-4" r="7"/><circle cx="16" cy="-4" r="7"/><circle cx="-14" cy="24" r="7"/><circle cx="14" cy="24" r="7"/></g><path d="M-14 -66 L-26 -86 M14 -66 L26 -86" stroke="#fff" stroke-width="6" stroke-linecap="round"/>`,
+flower:(t)=>`<g transform="rotate(${f1(t*20)})">${[0,1,2,3,4].map(i=>`<ellipse cx="0" cy="-36" rx="20" ry="30" fill="#ff7ab8" ${ST} transform="rotate(${i*72})"/>`).join('')}</g><circle r="18" fill="#ffd23f" ${ST}/>`,
+bulb:()=>`<path d="M0 -62 C-40 -62 -52 -22 -34 6 C-26 20 -26 30 -26 38 H26 C26 30 26 20 34 6 C52 -22 40 -62 0 -62Z" fill="#ffe066" ${ST}/><rect x="-22" y="44" width="44" height="22" rx="8" fill="#9aa8c8"/>`,
+star:(t)=>`<path d="M0 -62 L18 -20 L62 -16 L28 14 L38 58 L0 34 L-38 58 L-28 14 L-62 -16 L-18 -20Z" fill="#ffd23f" ${ST}/>`,
+hole:(t)=>`<circle r="60" fill="none" stroke="#ff9a3a" stroke-width="16" opacity=".9" transform="rotate(${f1(t*40)}) scale(1.1 .5)"/><circle r="34" fill="#000" ${ST}/>`,
+moon:()=>`<path d="M26 -58 A60 60 0 1 0 26 58 A46 46 0 1 1 26 -58Z" fill="#ffe9a8" ${ST}/>`,
+fork:()=>`<circle r="62" fill="#fff" ${ST}/><circle r="44" fill="#f0f4ff"/><circle cx="-14" cy="-8" r="16" fill="#ff6a4a"/><circle cx="14" cy="-14" r="14" fill="#7ed957"/><circle cx="6" cy="16" r="15" fill="#ffd23f"/>`,
 doc:()=>`<rect x="-52" y="-24" width="104" height="82" rx="14" fill="#fff" ${ST}/><path d="M-24 -24 V-44 H24 V-24" stroke="#fff" stroke-width="9" fill="none"/><path d="M-12 8 H12 M0 -4 V20" stroke="#ff3b5c" stroke-width="12" stroke-linecap="round"/>`
 };
 const icon=(n,x,y,s,t)=>G(x,y,s,(IC[n]||IC.check)(t||0));
@@ -61,7 +74,7 @@ const body=(cx,cy,s,o,t)=>G(cx,cy,s,glow(o,t)+bodyBase+organs(o,t));
 const orgPos=(cx,cy,s,o)=>{const [x,y]=ORG[o]||[0,-100];return [cx+x*s,cy+y*s]};
 // ---------- tiles ----------
 const tile=(x,y,w,ic,label,u,col,t)=>{const sc=0.9+0.1*u;let ac='#2fe0a8';if(col&&/^#[0-9a-f]{6}$/i.test(col)){const r=parseInt(col.slice(1,3),16),g=parseInt(col.slice(3,5),16),b=parseInt(col.slice(5,7),16);ac=(r>140&&g<110)?'#ff5470':(b>r+40?'#4aa8ff':'#2fe0a8')}
- const h=210;return `<g opacity="${f1(u)}" transform="translate(${f1(x)} ${f1(y+(1-u)*40)}) scale(${f1(sc)})"><rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" rx="40" fill="#0b1630" fill-opacity=".82" stroke="${ac}" stroke-width="6"/>${icon(ic,-w/2+120,0,1.2,t)}${tx(-w/2+230,16,label,48,'#fff','start',800)}</g>`};
+ const h=210;return `<g opacity="${f1(u)}" transform="translate(${f1(x)} ${f1(y+(1-u)*40)}) scale(${f1(sc)})"><rect x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" rx="40" fill="#0b1630" fill-opacity=".82" stroke="${ac}" stroke-width="6"/>${icon(ic,-w/2+120,0,1.2,t)}${tx(-w/2+230,16,label,(label.length>24?38:48),'#fff','start',800)}</g>`};
 // scene: body on left, tiles on right, dashed callout lines
 const scene=(cx,cy,t,org,items,u)=>{let s=body(cx-560,cy+40,0.92,org,t);const [ox,oy]=orgPos(cx-560,cy+40,0.92,org);
  const n=items.length,sp=250;
