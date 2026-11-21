@@ -1,0 +1,119 @@
+{
+ "id": "no-internet",
+ "title": "What If the Internet Shut Down for a Day? (What Would Really Happen)",
+ "short_title": "What if the internet shut down for a day?",
+ "category": "trending, tech",
+ "keywords": [
+  "internet shutdown",
+  "what if internet stopped",
+  "life without internet",
+  "UPI",
+  "submarine cables"
+ ],
+ "description": "What would happen if the whole internet shut down for one day? Learn how UPI, banks, hospitals, schools, travel, delivery, markets and smart homes would be affected, what would still work, whether it could really happen, and how to prepare. Based on how these systems work today.",
+ "tags": [
+  "what if the internet shut down",
+  "internet outage",
+  "life without internet",
+  "what if internet stopped",
+  "undersea cables",
+  "UPI not working",
+  "how to prepare internet outage",
+  "science explained"
+ ],
+ "comment": "What would you do for one day without internet? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "What if the whole internet shut down for just one day? No WhatsApp, no UPI, no YouTube, no Google. It sounds scary, but what would really happen to our cities, our hospitals and our daily life? Let us walk through one day without the internet."
+  },
+  {
+   "mood": "happy",
+   "text": "First, what is the internet? It is a giant network of computers, cables and towers. Most of the world's internet traffic travels through cables laid under the sea. Today, more than five billion people use it, so almost everything is connected. Think of it like roads for information, connecting every phone, shop and office."
+  },
+  {
+   "mood": "think",
+   "text": "In the first minutes, you would notice it. Messages stop sending, videos stop loading, and apps show errors. Some things, like normal phone calls and SMS, may still work for a while, because they use different systems."
+  },
+  {
+   "mood": "happy",
+   "text": "Then money problems begin. UPI, cards and net banking all need the internet to talk to the bank. Shops would ask for cash, and ATMs may stop working in many places. People without cash would struggle. So it is wise to always keep a little cash with you."
+  },
+  {
+   "mood": "think",
+   "text": "Offices would slow down, too. Emails, online meetings, cloud files and online tools would stop. Many companies would send workers home, because most work depends on being online."
+  },
+  {
+   "mood": "happy",
+   "text": "Travel would be confusing. Online ticket booking, check in and maps would not work. Flights and trains can run with their own special networks, but delays and confusion would be very likely."
+  },
+  {
+   "mood": "think",
+   "text": "Hospitals are a serious worry. Many keep patient records, reports and scans online. Emergency care would continue, but staff would face delays, and would need paper backups. Doctors would use their experience, and nurses would write things down by hand, like before computers."
+  },
+  {
+   "mood": "happy",
+   "text": "Schools and students would feel it as well. Online classes, homework portals and video lessons would stop. Students would turn back to books, notebooks and teachers, like in old days."
+  },
+  {
+   "mood": "think",
+   "text": "Entertainment would go quiet. Streaming apps, reels and online games would stop. But old fashioned television and radio would still work, so people could still watch news and shows."
+  },
+  {
+   "mood": "happy",
+   "text": "Delivery and shopping would stop. Food apps, cab apps and online shopping all need the internet. Local shops would suddenly become very important again. Even small tasks, like ordering medicine, would need a phone call or a visit."
+  },
+  {
+   "mood": "think",
+   "text": "Even the power grid and water systems use networks to control and monitor. Many of them have backups, but problems in some places would be possible. Engineers would work hard to keep things running."
+  },
+  {
+   "mood": "happy",
+   "text": "Calls would be a lifeline. Many people would use normal calls, SMS and landline phones to reach family. Radio and TV broadcasts would help to share news and updates."
+  },
+  {
+   "mood": "think",
+   "text": "Markets would also panic. Stock exchanges and online trading depend on fast networks. Trading could stop, and companies would lose a lot of money in just one day. For one day, the effects would add up to a huge amount."
+  },
+  {
+   "mood": "happy",
+   "text": "Smart homes would turn dumb. Smart speakers, cameras, locks and many smart gadgets need the cloud. Some would stop working, until the internet returns."
+  },
+  {
+   "mood": "think",
+   "text": "In emergencies, people would need to rely on basics. Police, fire and ambulance services have backup systems, but they would be under heavy pressure. Neighbours would matter more than ever."
+  },
+  {
+   "mood": "happy",
+   "text": "But there may be some good things too. Many people would talk to family, go outside, read, and sleep better. Some would enjoy the quiet, for the first time in a long time. It would feel like a strange holiday that nobody planned."
+  },
+  {
+   "mood": "think",
+   "text": "Could this really happen? A complete worldwide shutdown is extremely unlikely, because the internet is built with many routes. But regional outages do happen, for example when undersea cables are damaged, or during network shutdowns in some places. Engineers say this is why the world keeps backup routes for data."
+  },
+  {
+   "mood": "happy",
+   "text": "How can you prepare? Keep some cash at home, download offline maps, save important documents, note down key phone numbers, and keep a power bank and a radio. And talk with your family about what to do if phones stop working."
+  },
+  {
+   "mood": "think",
+   "text": "Here is the lesson. The internet is like electricity today, we notice it only when it goes away. Being prepared, and keeping simple offline habits, makes us stronger."
+  },
+  {
+   "mood": "laugh",
+   "text": "So think about it today, what would you do for one day without the internet? Tell me in the comments. Subscribe, and tell me which what-if I should explain next."
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "hero": "wifi",
+  "bg": [
+   "#0a3a8a",
+   "#050a20"
+  ],
+  "badge": "NO INTERNET AT ALL",
+  "line1": "NET OFF",
+  "line2": "1 DAY?"
+ }
+}
