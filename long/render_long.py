@@ -70,33 +70,6 @@ def make_sfx(meta, dur, path):
     wavfile.write(path, SR, (mixb * 32767).astype(np.int16))
 
 
-def make_music(dur, path):
-    SR = 44100; N = int(dur * SR); out = np.zeros(N)
-    t = np.arange(N) / SR
-    chords = [[220.0, 261.63, 329.63], [174.61, 220.0, 261.63], [261.63, 329.63, 392.0], [196.0, 246.94, 293.66]]
-    beat = 0.5; bar = 4 * beat * 2
-    for i in range(int(dur / bar) + 1):
-        ch = chords[i % 4]; a = int(i * bar * SR); L = int(bar * SR)
-        if a >= N: break
-        tt = np.arange(min(L, N - a)) / SR
-        env = np.minimum(1, tt / 1.2) * np.minimum(1, (bar - tt) / 1.0)
-        pad = sum(np.sin(2 * np.pi * f * tt) + 0.3 * np.sin(2 * np.pi * 2 * f * tt) for f in ch) * env * 0.12
-        out[a:a + len(tt)] += pad
-        for k in range(8):
-            f = ch[[0, 1, 2, 1, 2, 1, 0, 2][k]] * 2; st = a + int(k * beat * SR)
-            if st >= N: break
-            n = min(int(0.45 * SR), N - st); x = np.arange(n) / SR
-            out[st:st + n] += np.sin(2 * np.pi * f * x) * np.exp(-x * 7) * 0.10
-        kick = int(a)
-        for k in range(0, 8, 2):
-            st = a + int(k * beat * SR)
-            if st >= N: break
-            n = min(int(0.3 * SR), N - st); x = np.arange(n) / SR
-            out[st:st + n] += np.sin(2 * np.pi * (90 - 120 * x) * x) * np.exp(-x * 14) * 0.18
-    out = out / max(1e-6, np.abs(out).max()) * 0.8
-    wavfile.write(path, SR, (out * 32767).astype(np.int16))
-
-
 def main():
     topic = sys.argv[1]
     workers = int(sys.argv[sys.argv.index("--workers") + 1]) if "--workers" in sys.argv else 3
@@ -106,7 +79,6 @@ def main():
     fdir = os.path.join(WORK, "frames"); shutil.rmtree(fdir, ignore_errors=True); os.makedirs(fdir); os.makedirs(OUT, exist_ok=True)
     meta = get_meta(topic)
     sfx = os.path.join(WORK, "sfx.wav"); make_sfx(meta, tm["duration"], sfx)
-    mus = os.path.join(WORK, "music.wav"); make_music(tm["duration"], mus)
     step = math.ceil(frames / workers)
     jobs = [(topic, i, min(frames, i + step)) for i in range(0, frames, step)]
     with Pool(len(jobs)) as pool:
@@ -115,7 +87,7 @@ def main():
     cmd = ["ffmpeg", "-v", "error", "-y", "-framerate", str(FPS), "-i", os.path.join(fdir, "%05d.jpg")]
     narr = os.path.join(WORK, "narration.wav")
     if os.path.exists(narr) and not silent:
-        cmd += ["-i", narr, "-i", sfx, "-i", mus, "-filter_complex", "[1:a]apad[a1];[2:a]volume=0.35[s];[3:a]volume=0.07[m];[a1][s][m]amix=inputs=3:duration=longest:normalize=0,alimiter=limit=0.95[a]", "-map", "0:v", "-map", "[a]"]
+        cmd += ["-i", narr, "-i", sfx, "-filter_complex", "[1:a]apad[a1];[2:a]volume=0.35[s];[a1][s]amix=inputs=2:duration=longest:normalize=0,alimiter=limit=0.95[a]", "-map", "0:v", "-map", "[a]"]
     else:
         cmd += ["-i", sfx, "-map", "0:v", "-map", "1:a"]
     cmd += ["-c:v", "libx264", "-preset", "veryfast", "-crf", "26", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "128k", "-t", str(tm["duration"]), "-movflags", "+faststart", out]
