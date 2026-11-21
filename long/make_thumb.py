@@ -89,6 +89,11 @@ HEROES = {
 <g fill="none" stroke="#ffd23f" stroke-width="22" stroke-linecap="round"><path d="M110 250 Q180 130 250 250 T390 250 T500 250"/><path d="M120 310 Q190 190 260 310 T400 310 T490 310"/></g>
 <path d="M70 330 H530 Q520 520 300 540 Q80 520 70 330Z" fill="#ff4b3a" stroke="#000" stroke-width="18" stroke-linejoin="round"/>
 <path d="M170 100 Q150 60 180 30 M300 90 Q280 50 310 20 M420 100 Q400 60 430 30" stroke="#fff" stroke-width="14" fill="none" stroke-linecap="round" opacity=".7"/></svg>""",
+"heartstop": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24"/></filter></defs>
+<circle cx="300" cy="300" r="270" fill="#ff3b5c" opacity=".5" filter="url(#b)"/>
+<path d="M300 540 C60 360 90 130 300 240 C510 130 540 360 300 540Z" fill="#ff3b5c" stroke="#000" stroke-width="18" stroke-linejoin="round"/>
+<path d="M60 330 H220 L260 240 L320 440 L360 330 H540" stroke="#fff" stroke-width="22" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M60 560 L540 40" stroke="#ffd23f" stroke-width="0"/></svg>""",
 "sugar": """<svg viewBox="0 0 600 600" width="600" height="600" style="overflow:visible"><defs><filter id="b" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="24"/></filter></defs>
 <circle cx="300" cy="300" r="270" fill="#ff6ab0" opacity=".45" filter="url(#b)"/>
 <g stroke="#000" stroke-width="14" stroke-linejoin="round"><rect x="120" y="160" width="170" height="170" rx="18" fill="#fff" transform="rotate(-14 205 245)"/><rect x="300" y="210" width="170" height="170" rx="18" fill="#fff" transform="rotate(12 385 295)"/><rect x="200" y="320" width="170" height="170" rx="18" fill="#fff" transform="rotate(-4 285 405)"/></g>

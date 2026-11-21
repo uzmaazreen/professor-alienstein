@@ -1,0 +1,119 @@
+{
+ "id": "no-heart",
+ "title": "What If Your Heart Stopped for 1 Minute? (Second by Second)",
+ "short_title": "What if your heart stopped for 1 minute?",
+ "category": "trending, health",
+ "keywords": [
+  "heart stops for one minute",
+  "cardiac arrest",
+  "what happens if heart stops",
+  "CPR",
+  "health"
+ ],
+ "description": "What would happen if your heart stopped for one minute? Follow the body second by second: the brain, breathing, blood and organs. Learn the difference between heart attack and cardiac arrest, how CPR and an AED help, and how to protect your heart. This video is for learning, not medical advice. In an emergency, call your local emergency number.",
+ "tags": [
+  "what if your heart stopped",
+  "cardiac arrest",
+  "heart attack vs cardiac arrest",
+  "how CPR works",
+  "what is AED",
+  "heart health",
+  "health explained",
+  "science explained"
+ ],
+ "comment": "Would you know what to do in an emergency? Tell me below!",
+ "scenes": [
+  {
+   "mood": "think",
+   "text": "What if your heart stopped beating for just one minute? Not a movie, but real life. What would happen to your brain, your body and your blood second by second? Let us find out, based on what doctors know. This is for learning, not medical advice, and in a real emergency, please call your local emergency number right away."
+  },
+  {
+   "mood": "happy",
+   "text": "First, meet your heart. It is about the size of your fist, and it never takes a holiday. It beats around one hundred thousand times every day, and pumps thousands of litres of blood. That is a lot of work for something so small."
+  },
+  {
+   "mood": "think",
+   "text": "Why does the heart pump so hard? Because blood carries oxygen and food to every part of the body. Your brain, your muscles, your kidneys, everything needs a constant supply. The heart is the engine, and the blood vessels are the roads."
+  },
+  {
+   "mood": "happy",
+   "text": "Now, at second zero, the heart stops. The pumping stops, and the blood stops moving. Your pulse disappears. Doctors call this cardiac arrest. It is a medical emergency, and every second counts."
+  },
+  {
+   "mood": "think",
+   "text": "Within about ten seconds, the brain runs short of oxygen. The person feels dizzy and suddenly collapses, and loses consciousness. They stop responding, even if you call their name."
+  },
+  {
+   "mood": "happy",
+   "text": "A little later, normal breathing stops. Some people make slow gasping sounds, which are not real breathing. The skin may turn pale or bluish, because it is not getting oxygen."
+  },
+  {
+   "mood": "think",
+   "text": "Here is the key idea. Brain cells cannot store oxygen. After about ten seconds, the person is unconscious. After about one minute, the brain is in real danger. And after around four to six minutes without blood flow, brain cells can start to be damaged."
+  },
+  {
+   "mood": "happy",
+   "text": "So at one minute, what happens? The good news is that this is still the best time for help. With quick action, many people can be saved. Every minute without help lowers the chance of survival, so early help matters most."
+  },
+  {
+   "mood": "think",
+   "text": "Other organs also need blood. The kidneys, the liver and the gut slowly run low on oxygen too. They can handle a short break, but not a long one. That is why the heart must restart soon."
+  },
+  {
+   "mood": "happy",
+   "text": "Many people mix up two things. A heart attack is a blocked blood vessel, and the person is usually awake. Cardiac arrest is when the heart suddenly stops pumping properly because of an electrical problem, and the person collapses."
+  },
+  {
+   "mood": "think",
+   "text": "Your heart has its own natural pacemaker. It makes small electrical signals, which tell the heart muscle to squeeze in the right rhythm. When this rhythm goes wrong, the heart can quiver instead of pump."
+  },
+  {
+   "mood": "happy",
+   "text": "So what can you do? First, call your local emergency number, in India it is one one two. Then push hard and fast in the centre of the chest, about one hundred to one hundred twenty times a minute. This is called CPR, and it keeps blood moving to the brain until help comes."
+  },
+  {
+   "mood": "think",
+   "text": "Many public places have a machine called an AED. It is an automatic defibrillator. It gives clear voice instructions, and it can send a small electric shock, if needed, to help the heart return to a normal rhythm. Anyone can use it."
+  },
+  {
+   "mood": "happy",
+   "text": "Doctors talk about a chain of survival. First, call for help early. Second, start CPR early. Third, use an AED early. And finally, reach the hospital for advanced care. Each link makes survival more likely."
+  },
+  {
+   "mood": "think",
+   "text": "Now some myths. One, a heart attack and cardiac arrest are the same. They are not. Two, only old people are affected. No, it can happen at any age, though it is more common with age. Three, only doctors can help. Wrong, anyone can start CPR."
+  },
+  {
+   "mood": "happy",
+   "text": "How can you protect your heart? Walk or move every day, avoid tobacco, eat less salt and oily food, sleep well, and check your blood pressure and sugar regularly. Small habits protect your heart over many years."
+  },
+  {
+   "mood": "think",
+   "text": "Know the warning signs too. Chest pain or pressure, shortness of breath, sweating, and dizziness can be signs of heart trouble. If you notice these, do not wait. Get medical help immediately."
+  },
+  {
+   "mood": "happy",
+   "text": "If heart disease runs in your family, or if you have high blood pressure, diabetes or high cholesterol, please talk to a doctor about regular checkups. Do not ignore chest discomfort. Early checks can find problems before they become emergencies."
+  },
+  {
+   "mood": "happy",
+   "text": "So the lesson is this. Your heart works every second for you, and the brain needs it more than any other organ. Learning CPR is one of the most powerful skills anyone can have. You could save someone you love."
+  },
+  {
+   "mood": "happy",
+   "text": "So that was what would happen if your heart stopped for one minute. If you liked this video, please like and subscribe to Professor Alienstein for more what-if science. Which organ should we explore next? Tell me in the comments!"
+  }
+ ],
+ "thumb": {
+  "scene": 0,
+  "before_end": 2,
+  "hero": "heartstop",
+  "bg": [
+   "#7a0a2a",
+   "#14040c"
+  ],
+  "badge": "1 MINUTE",
+  "line1": "HEART",
+  "line2": "STOPS?"
+ }
+}
